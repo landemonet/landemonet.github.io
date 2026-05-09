@@ -108,10 +108,43 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="第三章、开关代数和组合逻辑"><a href="#第三章、开关代数和组合逻辑" class="headerlink" title="第三章、开关代数和组合逻辑"></a>第三章、开关代数和组合逻辑</h2><h3 id="3-1-开关代数"><a href="#3-1-开关代数" class="headerlink" title="3.1 开关代数"></a>3.1 开关代数</h3><h4 id="3-1-1-基本公理"><a href="#3-1-1-基本公理" class="headerlink" title="3.1.1 基本公理"></a>3.1.1 基本公理</h4><p>$$<br>（A1）X &#x3D; 0  \quad if  X \neq 1,        （A1’） X &#x3D; 1  \quad if X \neq 0 \<br>（A2）If X &#x3D; 0,then X’ &#x3D; 1（A2’）If X &#x3D; 1 , then X’ &#x3D;0 \<br>（A3） 0·0 &#x3D; 0                    （A3’） 1+1 &#x3D; 1 \<br>（A4） 1·1 &#x3D; 1                    （A4’） 0+0 &#x3D; 0 \<br>（A5） 0·1 &#x3D; 1·0 &#x3D; 0          （A5’） 1+0 &#x3D; 0+1 &#x3D; 1<br>$$</p>
-<h4 id="3-1-2-单变量开关代数定理"><a href="#3-1-2-单变量开关代数定理" class="headerlink" title="3.1.2 单变量开关代数定理"></a>3.1.2 单变量开关代数定理</h4><p>$$<br>Identities (自等律)：\ (T1) X + 0 &#x3D; X \quad(T1’) X · 1 &#x3D; X \<br>Null Elements(0-1律)：\ (T2) X + 1 &#x3D; 1 \quad (T2’) X · 0 &#x3D; 0 \<br>Idempotency (同一律):\ (T3) X + X &#x3D; X \quad(T3’) X · X &#x3D; X\<br>Involution (还原律)：\ (T4) ( X’)’ &#x3D; X\<br>Complements (互补律): \ (T5) X + X’  &#x3D; 1 \quad (T5’) X · X’ &#x3D;0<br>$$</p>
-<h4 id="3-1-3-多变量开关代数定理"><a href="#3-1-3-多变量开关代数定理" class="headerlink" title="3.1.3 多变量开关代数定理"></a>3.1.3 多变量开关代数定理</h4><p>$$<br>Commutativity   (交换律)\ (T6)X + Y &#x3D; Y + X        \quad       (T6’) X · Y&#x3D; Y ·X \<br>Associativity   (结合律)\ (T7) X·(Y·Z) &#x3D; (X·Y)·Z   \quad      (T7’) X+(Y+Z) &#x3D; (X+Y)+Z\<br>Distributivity (分配律)\ (T8) X·(Y+Z) &#x3D; X·Y+X·Z  \quad    (T8’) X+Y·Z &#x3D; (X+Y)·(X+Z)\<br>Covering(吸收律)\ (T9)  X + X·Y &#x3D; X    \quad     (T9’)   X·(X+Y) &#x3D; X\<br>Combining(合并律)\ (T10)  X·Y + X·Y’ &#x3D; X \quad  (T10’)  (X+Y)·(X+Y’) &#x3D; X\<br>Consensus（添加律（一致性定理））\(T11)     X·Y + X’·Z + Y·Z &#x3D; X·Y + X’·Z\ (T11’)    (X+Y)·(X’+Z)·(Y+Z) &#x3D; (X+Y)·(X’+Z)<br>$$<br><strong>代入定理：</strong><br>      在含有变量 X 的逻辑等式中，如果将式中所有出现 X 的地方都用另一个函数 F 来代替，则等式仍然成立。</p>
-<h4 id="3-1-4-n变量定理"><a href="#3-1-4-n变量定理" class="headerlink" title="3.1.4 n变量定理"></a>3.1.4 n变量定理</h4><p>$$<br>Generalized idempotency(广义同一律)\<br>(T12) X + X + … + X &#x3D; X  \quad(T12’)  X · X · … · X &#x3D; X\<br>DeMorgan’s Theorems(德.摩根定理)\<br>(T13) (X1·X2·……·X n)’&#x3D;X1’+ X2’ +……+X n’\<br>(T13’) (X1+ X2+ ……+X n)’&#x3D; X1’ · X2’ ·……· X n’\<br>Generalized DeMorgan’s Theorems (广义德.摩根定理)\<br> (T14)[F(X1 ,X2 …,X n,+, ·)]’&#x3D;F(X1’, X2’,…,X n’, ·,+)<br>$$<br><strong>反演定理：</strong><br>$$<br>[F(X_1, X_2, \dots, X_n, +, \cdot, 0, 1)]’ &#x3D; F(X_1’, X_2’, \dots, X_n’, \cdot, +, 1, 0)<br>$$</p>
+        <h2 id="第三章、开关代数和组合逻辑"><a href="#第三章、开关代数和组合逻辑" class="headerlink" title="第三章、开关代数和组合逻辑"></a>第三章、开关代数和组合逻辑</h2><h3 id="3-1-开关代数"><a href="#3-1-开关代数" class="headerlink" title="3.1 开关代数"></a>3.1 开关代数</h3><h4 id="3-1-1-基本公理"><a href="#3-1-1-基本公理" class="headerlink" title="3.1.1 基本公理"></a>3.1.1 基本公理</h4><div class="math-block">$$
+（A1）X &#x3D; 0  \quad if  X \neq 1,        （A1’） X &#x3D; 1  \quad if X \neq 0 \\
+（A2）If X &#x3D; 0,then X’ &#x3D; 1（A2’）If X &#x3D; 1 , then X’ &#x3D;0 \\
+（A3） 0·0 &#x3D; 0                    （A3’） 1+1 &#x3D; 1 \\
+（A4） 1·1 &#x3D; 1                    （A4’） 0+0 &#x3D; 0 \\
+（A5） 0·1 &#x3D; 1·0 &#x3D; 0          （A5’） 1+0 &#x3D; 0+1 &#x3D; 1
+$$</div>
+<h4 id="3-1-2-单变量开关代数定理"><a href="#3-1-2-单变量开关代数定理" class="headerlink" title="3.1.2 单变量开关代数定理"></a>3.1.2 单变量开关代数定理</h4><div class="math-block">$$
+Identities (自等律)：\ (T1) X + 0 &#x3D; X \quad(T1’) X · 1 &#x3D; X \\
+Null Elements(0-1律)：\ (T2) X + 1 &#x3D; 1 \quad (T2’) X · 0 &#x3D; 0 \\
+Idempotency (同一律):\ (T3) X + X &#x3D; X \quad(T3’) X · X &#x3D; X\\
+Involution (还原律)：\ (T4) ( X’)’ &#x3D; X\\
+Complements (互补律): \ (T5) X + X’  &#x3D; 1 \quad (T5’) X · X’ &#x3D;0
+$$</div>
+<h4 id="3-1-3-多变量开关代数定理"><a href="#3-1-3-多变量开关代数定理" class="headerlink" title="3.1.3 多变量开关代数定理"></a>3.1.3 多变量开关代数定理</h4><div class="math-block">$$
+Commutativity   (交换律)\ (T6)X + Y &#x3D; Y + X        \quad       (T6’) X · Y&#x3D; Y ·X \\
+Associativity   (结合律)\ (T7) X·(Y·Z) &#x3D; (X·Y)·Z   \quad      (T7’) X+(Y+Z) &#x3D; (X+Y)+Z\\
+Distributivity (分配律)\ (T8) X·(Y+Z) &#x3D; X·Y+X·Z  \quad    (T8’) X+Y·Z &#x3D; (X+Y)·(X+Z)\\
+Covering(吸收律)\ (T9)  X + X·Y &#x3D; X    \quad     (T9’)   X·(X+Y) &#x3D; X\\
+Combining(合并律)\ (T10)  X·Y + X·Y’ &#x3D; X \quad  (T10’)  (X+Y)·(X+Y’) &#x3D; X\\
+Consensus（添加律（一致性定理））\(T11)     X·Y + X’·Z + Y·Z &#x3D; X·Y + X’·Z\ (T11’)    (X+Y)·(X’+Z)·(Y+Z) &#x3D; (X+Y)·(X’+Z)
+$$
+<strong>代入定理：</strong>
+      在含有变量 X 的逻辑等式中，如果将式中所有出现 X 的地方都用另一个函数 F 来代替，则等式仍然成立。</p>
+<h4 id="3-1-4-n变量定理"><a href="#3-1-4-n变量定理" class="headerlink" title="3.1.4 n变量定理"></a>3.1.4 n变量定理</h4><p>$$
+Generalized idempotency(广义同一律)\\
+(T12) X + X + … + X &#x3D; X  \quad(T12’)  X · X · … · X &#x3D; X\\
+DeMorgan’s Theorems(德.摩根定理)\\
+(T13) (X1·X2·……·X n)’&#x3D;X1’+ X2’ +……+X n’\\
+(T13’) (X1+ X2+ ……+X n)’&#x3D; X1’ · X2’ ·……· X n’\\
+Generalized DeMorgan’s Theorems (广义德.摩根定理)\\
+ (T14)[F(X1 ,X2 …,X n,+, ·)]’&#x3D;F(X1’, X2’,…,X n’, ·,+)
+$$
+<strong>反演定理：</strong>
+$$
+[F(X_1, X_2, \dots, X_n, +, \cdot, 0, 1)]’ &#x3D; F(X_1’, X_2’, \dots, X_n’, \cdot, +, 1, 0)
+$$</div>
 <h4 id="3-1-5-对偶定理"><a href="#3-1-5-对偶定理" class="headerlink" title="3.1.5 对偶定理"></a>3.1.5 对偶定理</h4><p>对开关代数的任何定理和恒等式，若交换所有的0和1以及“+”和“· ”，结果仍然正确<br>$$<br>F^D(X1 , X2 , … , Xn , + , · , ’ ) &#x3D; F(X1 , X2 , … ,Xn , · , + , ’ )<br>$$<br><strong>香农展开定理：</strong><br>$$<br>F(X_1, X_2, \dots, X_n) &#x3D; X,F(1, X_2, \dots, X_n) + X’,F(0, X_2, \dots, X_n)<br>$$</p>
 <h4 id="3-1-6-逻辑函数的标准表示方式"><a href="#3-1-6-逻辑函数的标准表示方式" class="headerlink" title="3.1.6 逻辑函数的标准表示方式"></a>3.1.6 逻辑函数的标准表示方式</h4><p>Truth table  真值表<br>product term   乘积项    sum term 求和项<br>A sum-of-products expression “积之和”表达式<br>product-of-sums expression  “和之积”表达式<br>n-variable minterm     n 变量最小项<br>n-variable maxterm    n 变量最大项<br>normal terms     标准项<br>canonical sum  标准和<br>canonical product 标准积</p>
 <p><strong>最小项：</strong> n个因子的标准乘积项，每个变量都以原变量或反变量的形式且只出现一次。</p>
@@ -237,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%94%E8%AE%B0/" data-id="cmoy5fbiu0000e8kp2o6jaaxq" data-title="数字电路笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/05/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%94%E8%AE%B0/" data-id="cmoy60rj700005kkp1pxl557c" data-title="数字电路笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -355,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/05/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" data-id="cmoy5fbj10003e8kpfejn0i9h" data-title="模拟电子技术笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/05/05/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" data-id="cmoy60rjp00035kkpe4m1hnd1" data-title="模拟电子技术笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

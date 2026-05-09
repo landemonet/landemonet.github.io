@@ -545,11 +545,14 @@ a.article-title:hover {
   clear: both;
 }
 .article-entry p,
-.article-entry table {
+.article-entry li,
+.article-entry blockquote {
   line-height: 1.6em;
   margin: 1.6em 0;
 }
-.article-entry p {
+.article-entry p,
+.article-entry li,
+.article-entry blockquote {
   white-space: pre-line;
 }
 .article-entry h1,
