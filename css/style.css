@@ -549,6 +549,9 @@ a.article-title:hover {
   line-height: 1.6em;
   margin: 1.6em 0;
 }
+.article-entry p {
+  white-space: pre-line;
+}
 .article-entry h1,
 .article-entry h2,
 .article-entry h3,
