@@ -14,7 +14,7 @@
 <meta property="og:description" content="第三章、开关代数和组合逻辑 3.1 开关代数 3.1.1 基本公理 \[ （A1）X &#x3D; 0  \quad if  X \neq 1,        （A1’） X &#x3D; 1  \quad if X \neq 0 \\ （A2）If X &#x3D; 0,then X’ &#x3D; 1（A2’）If X &#x3D; 1 , then X’ &#x3D;0 \\ （A3） 0·0 &#x3D; 0">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-05-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-09T12:14:38.414Z">
+<meta property="article:modified_time" content="2026-05-13T03:03:59.255Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -121,14 +121,17 @@
 （A3） 0·0 = 0                    （A3’） 1+1 = 1 \\
 （A4） 1·1 = 1                    （A4’） 0+0 = 0 \\
 （A5） 0·1 = 1·0 = 0          （A5’） 1+0 = 0+1 = 1
-\]</span> #### 3.1.2 单变量开关代数定理</p>
+\]</span></p>
+<h4 id="单变量开关代数定理">3.1.2 单变量开关代数定理</h4>
 <p><span class="math display">\[
 Identities (自等律)：\\(T1) X + 0 = X \quad(T1’) X · 1 = X \\
 Null Elements(0-1律)：\\(T2) X + 1 = 1 \quad (T2’) X · 0 = 0 \\
 Idempotency (同一律):\\ (T3) X + X = X \quad(T3’) X · X = X\\
 Involution (还原律)：\\(T4) ( X’)’ = X\\
 Complements (互补律): \\(T5) X + X’  = 1 \quad (T5’) X · X’ =0
-\]</span> #### 3.1.3 多变量开关代数定理 <span class="math display">\[
+\]</span></p>
+<h4 id="多变量开关代数定理">3.1.3 多变量开关代数定理</h4>
+<p><span class="math display">\[
 Commutativity   (交换律)\\ (T6)X + Y = Y + X        \quad       (T6’) X
 · Y= Y ·X \\
 Associativity   (结合律)\\ (T7) X·(Y·Z) = (X·Y)·Z   \quad      (T7’)
@@ -142,8 +145,9 @@ Consensus（添加律（一致性定理））\\(T11)     X·Y + X’·Z + Y·Z =
 X&#39;·Z\\ (T11’)    (X+Y)·(X’+Z)·(Y+Z) = (X+Y)·(X’+Z)
 \]</span> <strong>代入定理：</strong> 在含有变量 X
 的逻辑等式中，如果将式中所有出现 X 的地方都用另一个函数 F
-来代替，则等式仍然成立。 #### 3.1.4 n变量定理 <span
-class="math display">\[
+来代替，则等式仍然成立。</p>
+<h4 id="n变量定理">3.1.4 n变量定理</h4>
+<p><span class="math display">\[
 Generalized idempotency(广义同一律)\\
 (T12) X + X + … + X = X  \quad(T12’)  X · X · … · X = X\\
 DeMorgan’s Theorems(德.摩根定理)\\
@@ -154,18 +158,21 @@ Generalized DeMorgan’s Theorems (广义德.摩根定理)\\
 \]</span> <strong>反演定理：</strong> <span class="math display">\[
 [F(X_1, X_2, \dots, X_n, +, \cdot, 0, 1)]&#39; = F(X_1&#39;, X_2&#39;,
 \dots, X_n&#39;, \cdot, +, 1, 0)
-\]</span> #### 3.1.5 对偶定理
-对开关代数的任何定理和恒等式，若交换所有的0和1以及“+”和“·
+\]</span></p>
+<h4 id="对偶定理">3.1.5 对偶定理</h4>
+<p>对开关代数的任何定理和恒等式，若交换所有的0和1以及“+”和“·
 ”，结果仍然正确 <span class="math display">\[
 F^D(X1 , X2 , … , Xn , + , · , ’ ) = F(X1 , X2 , … ,Xn , · , + , ’ )
 \]</span> <strong>香农展开定理：</strong> <span class="math display">\[
 F(X_1, X_2, \dots, X_n) = X\,F(1, X_2, \dots, X_n) + X&#39;\,F(0, X_2,
 \dots, X_n)
-\]</span> #### 3.1.6 逻辑函数的标准表示方式 Truth table 真值表 product
-term 乘积项 sum term 求和项 A sum-of-products expression “积之和”表达式
-product-of-sums expression “和之积”表达式 n-variable minterm n
-变量最小项 n-variable maxterm n 变量最大项 normal terms 标准项 canonical
-sum 标准和 canonical product 标准积</p>
+\]</span></p>
+<h4 id="逻辑函数的标准表示方式">3.1.6 逻辑函数的标准表示方式</h4>
+<p>Truth table 真值表 product term 乘积项 sum term 求和项 A
+sum-of-products expression “积之和”表达式 product-of-sums expression
+“和之积”表达式 n-variable minterm n 变量最小项 n-variable maxterm n
+变量最大项 normal terms 标准项 canonical sum 标准和 canonical product
+标准积</p>
 <p><strong>最小项：</strong>
 n个因子的标准乘积项，每个变量都以原变量或反变量的形式且只出现一次。 -
 任意两个不同最小项的乘积为0 - 全体最小项之和为1</p>
@@ -306,9 +313,14 @@ class="math inline">\(m_i=(M_i)’\)</span></li>
 <li>一个 n
 变量函数，既可用最小项之和表示，也可用最大项之积表示，两者下标互补。</li>
 <li>一个 n 变量函数的最小项 mi,其对偶(Duality)为： <span
-class="math inline">\(( m _i )^D = M_{(2 n -1) - i}\)</span> ### 3.2
-组合电路分析 ### 3.3 Combinational Circuit Synthesis #### 3.3.1
-电路描述与设计 #### 3.3.3 组合电路的化简</li>
+class="math inline">\(( m _i )^D = M_{(2 n -1) - i}\)</span></li>
+</ul>
+<h3 id="组合电路分析">3.2 组合电路分析</h3>
+<h3 id="combinational-circuit-synthesis">3.3 Combinational Circuit
+Synthesis</h3>
+<h4 id="电路描述与设计">3.3.1 电路描述与设计</h4>
+<h4 id="组合电路的化简">3.3.3 组合电路的化简</h4>
+<ul>
 <li>公式法化简 并项法： 利用 A·B+A·B’=A·(B+B’)=A 吸收法： 利用
 A+A·B=A·(1+B)=A 消项法： 利用 A·B+A’·C+B·C = A·B+A’·C 消因子法：利用
 A+A’·B = A+B 配项法： 利用 A+A=A A+A’=1</li>
@@ -348,13 +360,15 @@ expresstion：</strong> 最小和反函数后取非。</p>
 producing such a glitch（尖峰）.</p>
 <h4 id="静态冒险">3.4.1 静态冒险</h4>
 <p>static-1 hazard：稳定状态为1，常出现于“与——或”两级电路中。 static-0
-hazard：稳定状态为0，常出现于“或——与”两级电路中。 #### 3.4.2 Finding
-Static Hazards Using Maps
-若卡诺图中，圈与圈之间有相切（tangent）现象，则可能出现静态冒险。
-消除冒险的方法：引入额外项乘积项覆盖冒险的输入对。 #### 3.4.3 Dynamic
-hazard（动态冒险） Happened in the circuits which have more than two
-levels ! Different signal pass may have different time delay ! When
-input changed once, output may be changed several times !</p>
+hazard：稳定状态为0，常出现于“或——与”两级电路中。</p>
+<h4 id="finding-static-hazards-using-maps">3.4.2 Finding Static Hazards
+Using Maps</h4>
+<p>若卡诺图中，圈与圈之间有相切（tangent）现象，则可能出现静态冒险。
+消除冒险的方法：引入额外项乘积项覆盖冒险的输入对。</p>
+<h4 id="dynamic-hazard动态冒险">3.4.3 Dynamic hazard（动态冒险）</h4>
+<p>Happened in the circuits which have more than two levels ! Different
+signal pass may have different time delay ! When input changed once,
+output may be changed several times !</p>
 <p><strong>竞争：</strong> 门电路两个输入信号同时向相反的逻辑电平跳变。
 <strong>竞争－冒险：</strong>由于竞争而在电路输出端可能产生尖峰脉冲。
 消除<strong>竞争－冒险</strong> 现象的办法： 1.
@@ -369,19 +383,22 @@ binary input code and a 1-out-of-<span
 class="math inline">\(2^n\)</span> output code. Such a decoder is used
 when you need to activate exactly one of <span
 class="math inline">\(2^n\)</span> outputs based on an n-bit input
-value. #### 6.3.3 Larger Decoders or Cascading Binary Decoders ####
-6.3.7 Encoders In general, a <span
-class="math inline">\(2^n\)</span>-to-n encoder can be built from n
-<span class="math inline">\(2^n\)</span>−1-input OR gates. Bit i of the
-input code is connected to OR gate output j if bit j in the binary
-representation of i is 1. ### 6.4 multiplexing A
-<strong>multiplexer</strong> is a digital switch—it connects data from a
-one of n sources to its output. A <strong>select input S</strong>
+value.</p>
+<h4 id="larger-decoders-or-cascading-binary-decoders">6.3.3 Larger
+Decoders or Cascading Binary Decoders</h4>
+<h4 id="encoders">6.3.7 Encoders</h4>
+<p>In general, a <span class="math inline">\(2^n\)</span>-to-n encoder
+can be built from n <span class="math inline">\(2^n\)</span>−1-input OR
+gates. Bit i of the input code is connected to OR gate output j if bit j
+in the binary representation of i is 1.</p>
+<h3 id="multiplexing">6.4 multiplexing</h3>
+<p>A <strong>multiplexer</strong> is a digital switch—it connects data
+from a one of n sources to its output. A <strong>select input S</strong>
 selects which of the n data inputs is to be transferred to the output,
 and an <strong>optional enable input EN</strong> may be provided to
 allow or block the transfer. If the S input has s bits, then n may be as
-large as <span class="math inline">\(2^s\)</span>. #### 6.4.2 Expanding
-multiplexers</p>
+large as <span class="math inline">\(2^s\)</span>.</p>
+<h4 id="expanding-multiplexers">6.4.2 Expanding multiplexers</h4>
 
       
     </div>
