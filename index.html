@@ -86,9 +86,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-数字电路笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-digital-circuit" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/05/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%94%E8%AE%B0/" class="article-date">
+    <a href="/2026/05/08/digital-circuit/" class="article-date">
   <time class="dt-published" datetime="2026-05-07T16:00:00.000Z" itemprop="datePublished">2026-05-08</time>
 </a>
     
@@ -100,7 +100,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%94%E8%AE%B0/">数字电路笔记</a>
+      <a class="p-name article-title" href="/2026/05/08/digital-circuit/">数字电路笔记</a>
     </h1>
   
 
@@ -179,7 +179,9 @@ X_k&#39;, &amp; i_k=0 \\
 X_k, &amp; i_k=1
 \end{cases}
 \]</span> 对三变量 <span class="math inline">\(A, B, C\)</span>，若
-<span class="math inline">\(F=1\)</span> 的最小项编号为 <span class="math inline">\(i_1, i_2, \dots, i_k\)</span>，则 <span class="math display">\[
+<span class="math inline">\(F=1\)</span> 的最小项编号为 <span
+class="math inline">\(i_1, i_2, \dots, i_k\)</span>，则 <span
+class="math display">\[
 F(A, B, C) = \sum_{X,Y,Z} m(i_1, i_2, \dots, i_k)
 \]</span> 其中 <span class="math inline">\(\sum_{X,Y,Z} m(i_1, i_2,
 \dots, i_k)\)</span> 表示函数值为 1 的那些最小项之和。</p>
@@ -243,7 +245,9 @@ X_k, &amp; i_k=0 \\
 X_k&#39;, &amp; i_k=1
 \end{cases}
 \]</span> 对三变量 <span class="math inline">\(A, B, C\)</span>，若
-<span class="math inline">\(F=0\)</span> 的最大项编号为 <span class="math inline">\(j_1, j_2, \dots, j_k\)</span>，则 <span class="math display">\[
+<span class="math inline">\(F=0\)</span> 的最大项编号为 <span
+class="math inline">\(j_1, j_2, \dots, j_k\)</span>，则 <span
+class="math display">\[
 F(A, B, C) = \prod_{X,Y,Z} M(j_1, j_2, \dots, j_k)
 \]</span> 其中 <span class="math inline">\(\prod_{X,Y,Z} M(j_1, j_2,
 \dots, j_k)\)</span> 表示函数值为 0 的那些最大项之积。</p>
@@ -299,12 +303,14 @@ F(A, B, C) = \prod_{X,Y,Z} M(j_1, j_2, \dots, j_k)
 </tbody>
 </table>
 <ul>
-<li>编号相同的最小项和最大项互为反函数 <span class="math inline">\(m_i=(M_i)’\)</span></li>
+<li>编号相同的最小项和最大项互为反函数 <span
+class="math inline">\(m_i=(M_i)’\)</span></li>
 <li>某逻辑函数 F，若用 P 项最小项之和表示，则其反函数 F’ 可用 P
 项最大项之积表示，两者标号完全一致。</li>
 <li>一个 n
 变量函数，既可用最小项之和表示，也可用最大项之积表示，两者下标互补。</li>
-<li>一个 n 变量函数的最小项 mi,其对偶(Duality)为： <span class="math inline">\(( m _i )^D = M_{(2 n -1) - i}\)</span></li>
+<li>一个 n 变量函数的最小项 mi,其对偶(Duality)为： <span
+class="math inline">\(( m _i )^D = M_{(2 n -1) - i}\)</span></li>
 </ul>
 <h3 id="组合电路分析">3.2 组合电路分析</h3>
 <h3 id="combinational-circuit-synthesis">3.3 Combinational Circuit
@@ -329,7 +335,7 @@ P为F的蕴含项（implicant），在卡诺图上对应的是只包含1的一�
 <li>逻辑函数F中的质主蕴含项是覆盖一个或多个奇异一单元的主蕴含项。</li>
 </ol>
 <ul>
-<li>卡诺图形式 <img src="/.com//image-17.png" alt="alt text">
+<li>卡诺图形式 <img src="image-17.png" alt="alt text" />
 <strong>卡诺图的化简方式</strong></li>
 </ul>
 <ol type="1">
@@ -374,29 +380,37 @@ output may be changed several times !</p>
 <h2 id="第六章-基本组合逻辑元件">第六章 基本组合逻辑元件</h2>
 <h3 id="decoding-and-selecting">6.3 Decoding and Selecting</h3>
 <h4 id="binary-decoders">6.3.2 Binary Decoders</h4>
-<p>The most common decoder circuit is an n-to-<span class="math inline">\(2^n\)</span> binary decoder; it has an n-bit
-binary input code and a 1-out-of-<span class="math inline">\(2^n\)</span> output code. Such a decoder is used
-when you need to activate exactly one of <span class="math inline">\(2^n\)</span> outputs based on an n-bit input
-value. - 2-to-4 decoder logic diagram <img src="/.com//image.png" alt="alt text">{:height=“100px” width=“400px”} - MSI decoder: 74×139 ,
-dual 2-4 decoder <img src="/.com//image-1.png" alt="alt text">{:height=“100px” width=“200px”} - The 74x138 3-to-8
-Decoder <img src="/.com//image-2.png" alt="alt text">{:height=“100px”
-width=“200px”}</p>
+<p>The most common decoder circuit is an n-to-<span
+class="math inline">\(2^n\)</span> binary decoder; it has an n-bit
+binary input code and a 1-out-of-<span
+class="math inline">\(2^n\)</span> output code. Such a decoder is used
+when you need to activate exactly one of <span
+class="math inline">\(2^n\)</span> outputs based on an n-bit input
+value. - 2-to-4 decoder logic diagram <img src="image.png" width="400"
+height="100" alt="alt text" /> - MSI decoder: 74×139 , dual 2-4 decoder
+<img src="image-1.png" width="200" height="100" alt="alt text" /> - The
+74x138 3-to-8 Decoder <img src="image-2.png" width="200" height="100"
+alt="alt text" /></p>
 <h4 id="larger-decoders-or-cascading-binary-decoders">6.3.3 Larger
 Decoders or Cascading Binary Decoders</h4>
 <ul>
-<li>How to make a 5-to-32 Decoder with 3-to-8 Decoder? <img src="/.com//image-3.png" alt="alt text">{:height=“200px” width=“600px”}</li>
+<li>How to make a 5-to-32 Decoder with 3-to-8 Decoder? <img
+src="image-3.png" width="600" height="200" alt="alt text" /></li>
 </ul>
 <h4 id="seven-segment-decoders">6.3.6 Seven-Segment Decoders</h4>
-<p>Input code: 4-bit BCD<br>
+<p>Input code: 4-bit BCD<br />
 [ 输入信号：BCD码（用A3A2A1A0表示）] Output Code: Seven-Segment Code [
-输出：七段码（的驱动信号）a ~ g ] - <img src="/.com//image-4.png" alt="alt text">{:height=“100px” width=“200px”}</p>
+输出：七段码（的驱动信号）a ~ g ] - <img src="image-4.png" width="200"
+height="100" alt="alt text" /></p>
 <h4 id="encoders">6.3.7 Encoders</h4>
 <ul>
 <li>In general, a <span class="math inline">\(2^n\)</span>-to-n encoder
 can be built from n <span class="math inline">\(2^n\)</span>−1-input OR
 gates. Bit i of the input code is connected to OR gate output j if bit j
-in the binary representation of i is 1. <img src="/.com//image-5.png" alt="alt text">{:height=“100px” width=“400px”}</li>
-<li>The 74x148 Priority Encoder <img src="/.com//image-6.png" alt="alt text"></li>
+in the binary representation of i is 1. <img src="image-5.png"
+width="400" height="100" alt="alt text" /></li>
+<li>The 74x148 Priority Encoder <img src="image-6.png"
+alt="alt text" /></li>
 </ul>
 <h3 id="multiplexing">6.4 multiplexing</h3>
 <p>A <strong>multiplexer</strong> is a digital switch—it connects data
@@ -405,112 +419,130 @@ selects which of the n data inputs is to be transferred to the output,
 and an <strong>optional enable input EN</strong> may be provided to
 allow or block the transfer. If the S input has s bits, then n may be as
 large as <span class="math inline">\(2^s\)</span>. - four-input
-multiplexer circuit with gate <img src="/.com//image-8.png" alt="alt text"> -
-multiplexer circuit with a decoder and gates <img src="/.com//image-10.png" alt="alt text"> <img src="/.com//image-11.png" alt="alt text"></p>
+multiplexer circuit with gate <img src="image-8.png" alt="alt text" /> -
+multiplexer circuit with a decoder and gates <img src="image-10.png"
+alt="alt text" /> <img src="image-11.png" alt="alt text" /></p>
 <h4 id="standard-msi-multiplexers">6.4.1 standard MSI Multiplexers</h4>
 <ul>
-<li>74x151 multiplexer 8选1数据选择器 <img src="/.com//image-12.png" alt="alt text">{:height=“100px” width=“200px”}</li>
-<li>74*157 2输入4位MUX <img src="/.com//image-13.png" alt="alt text">{:height=“100px” width=“200px”}</li>
-<li>74*153 双4选1数据选择器(4输入2位MUX) <img src="/.com//image-14.png" alt="alt text">{:height=“100px” width=“200px”}</li>
+<li>74x151 multiplexer 8选1数据选择器 <img src="image-12.png"
+width="200" height="100" alt="alt text" /></li>
+<li>74*157 2输入4位MUX <img src="image-13.png" width="200" height="100"
+alt="alt text" /></li>
+<li>74*153 双4选1数据选择器(4输入2位MUX) <img src="image-14.png"
+width="200" height="100" alt="alt text" /></li>
 </ul>
 <h4 id="expanding-multiplexers">6.4.2 Expanding multiplexers</h4>
 <ul>
 <li>use 74××151 to implement a 16-to-1 MUX, some gates can be used if
-necessary <img src="/.com//image-15.png" alt="alt text"></li>
-<li>用数据选择器设计组合逻辑电路 <img src="/.com//image-16.png" alt="alt text"></li>
-<li>卡诺图的降维 <img src="/.com//image-19.png" alt="alt text"></li>
+necessary <img src="image-15.png" alt="alt text" /></li>
+<li>用数据选择器设计组合逻辑电路 <img src="image-16.png"
+alt="alt text" /></li>
+<li>卡诺图的降维 <img src="image-19.png" alt="alt text" /></li>
 </ul>
 <h4 id="demultiplexer">6.4.3 demultiplexer</h4>
 <p>a demultiplexer can be used to route the bus data to one of m
-destinations <img src="/.com//image-20.png" alt="alt text"></p>
+destinations <img src="image-20.png" alt="alt text" /></p>
 <h2 id="第七章-组合逻辑元件">第七章 组合逻辑元件</h2>
 <h3 id="三态器件">7.1 三态器件</h3>
 <h4 id="三态缓冲器">7.1.1 三态缓冲器</h4>
 <ul>
-<li>图示 <img src="/.com//image-21.png" alt="alt text"> Enable means: the
+<li>图示 <img src="image-21.png" alt="alt text" /> Enable means: the
 buffer output normal logic 0、1 when EN is asserted； the buffer output
 Hi-Z when EN is negated.</li>
 </ul>
 <h4 id="standard-ssi-and-msi-three-state-buffers">7.1.2 Standard SSI and
 MSI Three-State Buffers</h4>
 <ul>
-<li>74x541：两个公共使能端，低电平使能，施密特触发输入，输出不反相 <img src="/.com//image-22.png" alt="alt text">{:height=“200px” width=“400px”}</li>
-<li>74x245：低电平使能，输出不反相，双向传输 <img src="/.com//image-23.png" alt="alt text">{:height=“200px” width=“200px”}</li>
+<li>74x541：两个公共使能端，低电平使能，施密特触发输入，输出不反相 <img
+src="image-22.png" width="400" height="200" alt="alt text" /></li>
+<li>74x245：低电平使能，输出不反相，双向传输 <img src="image-23.png"
+width="200" height="200" alt="alt text" /></li>
 </ul>
 <h3 id="exclusive-or-gates-and-parity-circuit">7.3 Exclusive-OR Gates
 and Parity Circuit</h3>
 <h4 id="exclusive-or-an-exclusive-nor-gate">7.3.3 exclusive-OR an
 exclusive-NOR gate</h4>
 <ul>
-<li>truth table <img src="/.com//image-24.png" alt="alt text"></li>
+<li>truth table <img src="image-24.png" alt="alt text" /></li>
 <li>Any two signals (inputs or output) of an XOR gate or XNOR gate may
-be complemented without changing the resulting logic function. <img src="/.com//image-25.png" alt="alt text"></li>
+be complemented without changing the resulting logic function. <img
+src="image-25.png" alt="alt text" /></li>
 </ul>
 <h4 id="奇偶校验电路">7.3.2 奇偶校验电路</h4>
 <ul>
-<li>odd-parity circuit（奇校验电路） 如果输入有奇数个1，则输出为1。 <img src="/.com//image-26.png" alt="alt text"></li>
+<li>odd-parity circuit（奇校验电路） 如果输入有奇数个1，则输出为1。 <img
+src="image-26.png" alt="alt text" /></li>
 <li>even-parity circuit（偶校验电路） 如果输入有偶数个1，则输出为1。 If
 the output of either circuit is inverted, we get an even-parity
 circuit.</li>
-<li>9位奇偶校验发生器74x280 <img src="/.com//image-27.png" alt="alt text"></li>
+<li>9位奇偶校验发生器74x280 <img src="image-27.png"
+alt="alt text" /></li>
 </ul>
 <h4 id="parity-checking-applications">7.3.3 Parity-Checking
 Applications</h4>
 <ul>
-<li>用于检测代码在传输和存储过程中是否出现差错 <img src="/.com//image-28.png" alt="alt text"></li>
+<li>用于检测代码在传输和存储过程中是否出现差错 <img src="image-28.png"
+alt="alt text" /></li>
 </ul>
 <h3 id="comparing">7.4 Comparing</h3>
 <h4 id="comparator-structure">7.4.1 comparator structure</h4>
 <ul>
-<li>4-bit comparator <img src="/.com//image-29.png" alt="alt text"></li>
+<li>4-bit comparator <img src="image-29.png" alt="alt text" /></li>
 </ul>
 <h4 id="a-iterative-comparator-circuits">7.4.2 a iterative comparator
 Circuits</h4>
 <ul>
-<li>n-steps compara <img src="/.com//image-30.png" alt="alt text"></li>
-<li>1 bit comparators(一位数值比较器) <img src="/.com//image-31.png" alt="alt text"></li>
+<li>n-steps compara <img src="image-30.png" alt="alt text" /></li>
+<li>1 bit comparators(一位数值比较器) <img src="image-31.png"
+alt="alt text" /></li>
 </ul>
 <h4 id="standard-msi-comparators">7.4.4 Standard MSI Comparators</h4>
 <ul>
-<li>the 74x85 4-bit comparator <img src="/.com//image-32.png" alt="alt text">{:height=“200px” width=“200px”}</li>
-<li>比较器的串行扩展 <img src="/.com//image-35.png" alt="alt text"></li>
-<li>比较器的并行扩展 <img src="/.com//image-36.png" alt="alt text"></li>
+<li>the 74x85 4-bit comparator <img src="image-32.png" width="200"
+height="200" alt="alt text" /></li>
+<li>比较器的串行扩展 <img src="image-35.png" alt="alt text" /></li>
+<li>比较器的并行扩展 <img src="image-36.png" alt="alt text" /></li>
 </ul>
 <h2 id="第八章-组合算术电路">第八章 组合算术电路</h2>
 <h3 id="加法与减法">8.1 加法与减法</h3>
 <h4 id="半加器与全加器">8.1.1 半加器与全加器</h4>
 <p>Half Adder （半加器）—— 不考虑来自低位的进位信号 - Truth Table of
-Half Adder <img src="/.com//image-37.png" alt="alt text">{:height=“200px”
-width=“200px”} Sum (相加的和): S = X’·Y + X·Y’=X⊕Y Carry
-(向高位的进位)：CO = X·Y - Truth Table of Full Adder <img src="/.com//image-38.png" alt="alt text">{:height=“200px” width=“200px”} sum:
-S = A ⊕ B ⊕ CIN = A ⋅ B′ ⋅ CIN′ + A′ ⋅ B ⋅ CIN′ + A′ ⋅ B′ ⋅ CIN + A ⋅ B
-⋅ CIN carry: COUT = A ⋅ B + A ⋅ CIN + B ⋅ CIN</p>
+Half Adder <img src="image-37.png" width="200" height="200"
+alt="alt text" /> Sum (相加的和): S = X’·Y + X·Y’=X⊕Y Carry
+(向高位的进位)：CO = X·Y - Truth Table of Full Adder <img
+src="image-38.png" width="200" height="200" alt="alt text" /> sum: S = A
+⊕ B ⊕ CIN = A ⋅ B′ ⋅ CIN′ + A′ ⋅ B ⋅ CIN′ + A′ ⋅ B′ ⋅ CIN + A ⋅ B ⋅ CIN
+carry: COUT = A ⋅ B + A ⋅ CIN + B ⋅ CIN</p>
 <h4 id="串行进位加法器">8.1.2 串行进位加法器</h4>
 <ul>
-<li>4-bit ripple adder <img src="/.com//image-39.png" alt="alt text"></li>
+<li>4-bit ripple adder <img src="image-39.png" alt="alt text" /></li>
 </ul>
 <h4 id="减法器">8.1.3 减法器</h4>
 <ul>
-<li>Truth table of subtractor <img src="/.com//image-40.png" alt="alt text">{:height=“200px” width=“200px”} D = A ⊕ B ⊕ BIN BOUT =
-A′ ⋅ B + A′ ⋅ BIN + B ⋅ BIN</li>
-<li>利用加法器实现减法器 <img src="/.com//image-42.png" alt="alt text"> D = A
+<li>Truth table of subtractor <img src="image-40.png" width="200"
+height="200" alt="alt text" /> D = A ⊕ B ⊕ BIN BOUT = A′ ⋅ B + A′ ⋅ BIN
++ B ⋅ BIN</li>
+<li>利用加法器实现减法器 <img src="image-42.png" alt="alt text" /> D = A
 ⊕ B ⊕ BIN = A ⊕ B′ ⊕ BIN′ BOUT = A′ ⋅ B + A′ ⋅ BIN + B ⋅ BIN BOUT′ =(A +
 B′) ⋅ (A + BIN′) ⋅ (B′ + BIN′) = A ⋅ B′ + A ⋅ BIN′ + B′ ⋅ BIN′</li>
 </ul>
 <h4 id="carry-lookahead-adder">8.1.4 Carry-Lookahead adder</h4>
 <p>超前进位法：第 i 位的进位输入信号可以由该位以前的各位状态决定。 carry
 generate：<span class="math inline">\(g_i = a_i ⋅ b_i\)</span> carry
-propagate: <span class="math inline">\(pi = ai + bi\)</span> <span class="math inline">\(c_{i+1}= g_i + p_i ⋅ c_i\)</span> - internal carry
-lookahead <img src="/.com//image-43.png" alt="alt text">{:height=“200px”
-width=“400px”}</p>
+propagate: <span class="math inline">\(pi = ai + bi\)</span> <span
+class="math inline">\(c_{i+1}= g_i + p_i ⋅ c_i\)</span> - internal carry
+lookahead <img src="image-43.png" width="400" height="200"
+alt="alt text" /></p>
 <h4 id="msi-adders">8.1.5 MSI Adders</h4>
 <ul>
-<li>4位二进制先行进位加法器 74x283 <img src="/.com//image-44.png" alt="alt text">{:height=“200px” width=“200px”}</li>
+<li>4位二进制先行进位加法器 74x283 <img src="image-44.png" width="200"
+height="200" alt="alt text" /></li>
 </ul>
 <h4 id="msi-arithmetic-and-logic-units">8.1.7 MSI Arithmetic and Logic
 Units</h4>
 <ul>
-<li>74*181 对2个b位的操作数进行若干不同的算术和逻辑运算 <img src="/.com//image-45.png" alt="alt text"></li>
+<li>74*181 对2个b位的操作数进行若干不同的算术和逻辑运算 <img
+src="image-45.png" alt="alt text" /></li>
 </ul>
 <h2 id="第九章-状态机">第九章 状态机</h2>
 <h3 id="状态机基础概念">9.1 状态机基础概念</h3>
@@ -518,8 +550,10 @@ Units</h4>
 variable, contain all the information about the past necessary to
 account for the circuit’s future behaviors. <strong>state
 variable:</strong> the symbol representation of state. - state changes
-at time specified by a free-running clock signal <img src="/.com//image-46.png" alt="alt text">{:height=“200px” width=“400px”} - The logic symbol for
-a positive-edge-triggered D flip-flop <img src="/.com//image-47.png" alt="alt text"></p>
+at time specified by a free-running clock signal <img src="image-46.png"
+width="400" height="200" alt="alt text" /> - The logic symbol for a
+positive-edge-triggered D flip-flop <img src="image-47.png"
+alt="alt text" /></p>
 <h3 id="状态机的结构及分析">9.2 状态机的结构及分析</h3>
 <p>“State machine” is a generic name given to these sequential circuits;
 <strong>状态机:</strong> 时序电路的通称. “clocked” refers to the fact
@@ -531,7 +565,7 @@ of the flip-flops use the same clock signal. <strong>同步:</strong>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%94%E8%AE%B0/" data-id="cmp1edwbe0000bkkpgr89e4i6" data-title="数字电路笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/05/08/digital-circuit/" data-id="cmp57pwzl0003bgkp1doc02in" data-title="数字电路笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -545,9 +579,9 @@ of the flip-flops use the same clock signal. <strong>同步:</strong>
 
 
   
-    <article id="post-模拟电子技术基础笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-analog-electronics" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/05/05/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" class="article-date">
+    <a href="/2026/05/05/analog-electronics/" class="article-date">
   <time class="dt-published" datetime="2026-05-04T16:00:00.000Z" itemprop="datePublished">2026-05-05</time>
 </a>
     
@@ -559,7 +593,7 @@ of the flip-flops use the same clock signal. <strong>同步:</strong>
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/05/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/">模拟电子技术笔记</a>
+      <a class="p-name article-title" href="/2026/05/05/analog-electronics/">模拟电子技术笔记</a>
     </h1>
   
 
@@ -804,7 +838,7 @@ class="math inline">\(U_{SB}\)</span>为源-衬底电压。 3. 亚阈区导电�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/05/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" data-id="cmp1edwbg0001bkkp81hehont" data-title="模拟电子技术笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/05/05/analog-electronics/" data-id="cmp57pwzg0000bgkp1hr2db4m" data-title="模拟电子技术笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -863,11 +897,11 @@ class="math inline">\(U_{SB}\)</span>为源-衬底电压。 3. 亚阈区导电�
       <ul>
         
           <li>
-            <a href="/2026/05/08/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E7%AC%94%E8%AE%B0/">数字电路笔记</a>
+            <a href="/2026/05/08/digital-circuit/">数字电路笔记</a>
           </li>
         
           <li>
-            <a href="/2026/05/05/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/">模拟电子技术笔记</a>
+            <a href="/2026/05/05/analog-electronics/">模拟电子技术笔记</a>
           </li>
         
       </ul>
