@@ -6,12 +6,12 @@
   
   <title>数字电路笔记 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="第三章、开关代数和组合逻辑 3.1 开关代数 3.1.1 基本公理 \[ （A1）X &#x3D; 0  \quad if  X \neq 1,        （A1’） X &#x3D; 1  \quad if X \neq 0 \\\\ （A2）If X &#x3D; 0,then X’ &#x3D; 1（A2’）If X &#x3D; 1 , then X’ &#x3D;0 \\\\ （A3） 0·0 &#x3D; 0">
+  <meta name="description" content="第三章、开关代数和组合逻辑 3.1 开关代数 3.1.1 基本公理 \[ \begin{gathered} （A1）X &#x3D; 0  \quad if  X \neq 1,        （A1’） X &#x3D; 1  \quad if X \neq 0 \\ （A2）If X &#x3D; 0,then X’ &#x3D; 1（A2’）If X &#x3D; 1 , then X’ &#x3D;0 \\ （A3） 0·0 &#x3D; 0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字电路笔记">
 <meta property="og:url" content="http://example.com/2026/05/08/digital-circuit/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第三章、开关代数和组合逻辑 3.1 开关代数 3.1.1 基本公理 \[ （A1）X &#x3D; 0  \quad if  X \neq 1,        （A1’） X &#x3D; 1  \quad if X \neq 0 \\\\ （A2）If X &#x3D; 0,then X’ &#x3D; 1（A2’）If X &#x3D; 1 , then X’ &#x3D;0 \\\\ （A3） 0·0 &#x3D; 0">
+<meta property="og:description" content="第三章、开关代数和组合逻辑 3.1 开关代数 3.1.1 基本公理 \[ \begin{gathered} （A1）X &#x3D; 0  \quad if  X \neq 1,        （A1’） X &#x3D; 1  \quad if X \neq 0 \\ （A2）If X &#x3D; 0,then X’ &#x3D; 1（A2’）If X &#x3D; 1 , then X’ &#x3D;0 \\ （A3） 0·0 &#x3D; 0">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2026/05/08/digital-circuit/image-17.png">
 <meta property="og:image" content="http://example.com/2026/05/08/digital-circuit/image.png">
@@ -49,7 +49,7 @@
 <meta property="og:image" content="http://example.com/2026/05/08/digital-circuit/image-46.png">
 <meta property="og:image" content="http://example.com/2026/05/08/digital-circuit/image-47.png">
 <meta property="article:published_time" content="2026-05-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-18T09:18:40.662Z">
+<meta property="article:modified_time" content="2026-05-18T09:47:42.116Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -155,39 +155,46 @@
 <h3 id="开关代数">3.1 开关代数</h3>
 <h4 id="基本公理">3.1.1 基本公理</h4>
 <p><span class="math display">\[
+\begin{gathered}
 （A1）X = 0  \quad if  X \neq 1,        （A1’） X = 1  \quad if X \neq 0
-\\\\
-（A2）If X = 0,then X’ = 1（A2’）If X = 1 , then X’ =0 \\\\
-（A3） 0·0 = 0                    （A3’） 1+1 = 1 \\\\
-（A4） 1·1 = 1                    （A4’） 0+0 = 0 \\\\
+\\
+（A2）If X = 0,then X’ = 1（A2’）If X = 1 , then X’ =0 \\
+（A3） 0·0 = 0                    （A3’） 1+1 = 1 \\
+（A4） 1·1 = 1                    （A4’） 0+0 = 0 \\
 （A5） 0·1 = 1·0 = 0          （A5’） 1+0 = 0+1 = 1
+\end{gathered}
 \]</span></p>
 <h4 id="单变量开关代数定理">3.1.2 单变量开关代数定理</h4>
 <p><span class="math display">\[
-Identities (自等律)：\\(T1) X + 0 = X \quad(T1’) X · 1 = X \\
-Null Elements(0-1律)：\\(T2) X + 1 = 1 \quad (T2’) X · 0 = 0 \\
-Idempotency (同一律):\\ (T3) X + X = X \quad(T3’) X · X = X\\
-Involution (还原律)：\\(T4) ( X’)’ = X\\
-Complements (互补律): \\(T5) X + X’  = 1 \quad (T5’) X · X’ =0
+\begin{gathered}
+Identities (自等律)：(T1) X + 0 = X \quad(T1’) X · 1 = X \\
+Null Elements(0-1律)：(T2) X + 1 = 1 \quad (T2’) X · 0 = 0 \\
+Idempotency (同一律): (T3) X + X = X \quad(T3’) X · X = X\\
+Involution (还原律)：(T4) ( X’)’ = X\\
+Complements (互补律): (T5) X + X’  = 1 \quad (T5’) X · X’ =0
+\end{gathered}
 \]</span></p>
 <h4 id="多变量开关代数定理">3.1.3 多变量开关代数定理</h4>
 <p><span class="math display">\[
-Commutativity   (交换律)\\ (T6)X + Y = Y + X        \quad       (T6’) X
-· Y= Y ·X \\
-Associativity   (结合律)\\ (T7) X·(Y·Z) = (X·Y)·Z   \quad      (T7’)
+\begin{gathered}
+Commutativity   (交换律) (T6)X + Y = Y + X        \quad       (T6’) X ·
+Y= Y ·X \\
+Associativity   (结合律) (T7) X·(Y·Z) = (X·Y)·Z   \quad      (T7’)
 X+(Y+Z) = (X+Y)+Z\\
-Distributivity (分配律)\\ (T8) X·(Y+Z) = X·Y+X·Z  \quad    (T8’) X+Y·Z =
+Distributivity (分配律) (T8) X·(Y+Z) = X·Y+X·Z  \quad    (T8’) X+Y·Z =
 (X+Y)·(X+Z)\\
-Covering(吸收律)\\ (T9)  X + X·Y = X    \quad     (T9’)   X·(X+Y) = X\\
-Combining(合并律)\\ (T10)  X·Y + X·Y’ = X \quad  (T10’)  (X+Y)·(X+Y’) =
+Covering(吸收律) (T9)  X + X·Y = X    \quad     (T9’)   X·(X+Y) = X\\
+Combining(合并律) (T10)  X·Y + X·Y’ = X \quad  (T10’)  (X+Y)·(X+Y’) =
 X\\
-Consensus（添加律（一致性定理））\\(T11)     X·Y + X’·Z + Y·Z = X·Y +
-X&#39;·Z\\ (T11’)    (X+Y)·(X’+Z)·(Y+Z) = (X+Y)·(X’+Z)
+Consensus（添加律（一致性定理））(T11)     X·Y + X’·Z + Y·Z = X·Y +
+X&#39;·Z (T11’)    (X+Y)·(X’+Z)·(Y+Z) = (X+Y)·(X’+Z)
+\end{gathered}
 \]</span> <strong>代入定理：</strong> 在含有变量 X
 的逻辑等式中，如果将式中所有出现 X 的地方都用另一个函数 F
 来代替，则等式仍然成立。</p>
 <h4 id="n变量定理">3.1.4 n变量定理</h4>
 <p><span class="math display">\[
+\begin{gathered}
 Generalized idempotency(广义同一律)\\
 (T12) X + X + … + X = X  \quad(T12’)  X · X · … · X = X\\
 DeMorgan’s Theorems(德.摩根定理)\\
@@ -195,6 +202,7 @@ DeMorgan’s Theorems(德.摩根定理)\\
 (T13’) (X1+ X2+ ……+X n)’= X1’ · X2’ ·……· X n’\\
 Generalized DeMorgan’s Theorems (广义德.摩根定理)\\
 (T14)[F(X1 ,X2 …,X n,+, ·)]’=F(X1’, X2’,…,X n’, ·,+)
+\end{gathered}
 \]</span> <strong>反演定理：</strong> <span class="math display">\[
 [F(X_1, X_2, \dots, X_n, +, \cdot, 0, 1)]&#39; = F(X_1&#39;, X_2&#39;,
 \dots, X_n&#39;, \cdot, +, 1, 0)
@@ -620,7 +628,7 @@ of the flip-flops use the same clock signal. <strong>同步:</strong>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/08/digital-circuit/" data-id="cmpb07q660000ookpduao8al6" data-title="数字电路笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/05/08/digital-circuit/" data-id="cmpb22oxk0003b8kp89cih2dy" data-title="数字电路笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
