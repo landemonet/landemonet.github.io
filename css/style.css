@@ -588,9 +588,11 @@ a.article-title:hover {
 .article-entry img,
 .article-entry video {
   max-width: 100%;
-  height: auto;
   display: block;
   margin: auto;
+}
+.article-entry img:not([width][height]) {
+  height: auto;
 }
 .article-entry iframe {
   border: none;
@@ -599,15 +601,17 @@ a.article-title:hover {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
+  display: block;
+  overflow-x: auto;
 }
 .article-entry th {
   font-weight: bold;
   border-bottom: 3px solid #ddd;
-  padding-bottom: 0.5em;
+  padding: 0.5em 0.75em;
 }
 .article-entry td {
   border-bottom: 1px solid #ddd;
-  padding: 10px 0;
+  padding: 10px 0.75em;
 }
 .article-entry blockquote {
   font-family: Georgia, "Times New Roman", serif;

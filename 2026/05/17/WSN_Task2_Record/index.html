@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>WSN任务2学习记录 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Chapter 1 AI communication Q1 现在进入恶意节点检测优化阶段，首先如果让你设计你会如何设计? 多维度特征工程 特征维度（~10维）: 123456789101112┌─────────────────────────────────────────────┐│ F1  累积转发率       forwarded&#x2F;received      │ 已有│ F2  转">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WSN任务2学习记录">
+<meta property="og:url" content="http://example.com/2026/05/17/WSN_Task2_Record/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Chapter 1 AI communication Q1 现在进入恶意节点检测优化阶段，首先如果让你设计你会如何设计? 多维度特征工程 特征维度（~10维）: 123456789101112┌─────────────────────────────────────────────┐│ F1  累积转发率       forwarded&#x2F;received      │ 已有│ F2  转">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-05-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-18T09:12:53.157Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+  
+  
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-WSN_Task2_Record" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/05/17/WSN_Task2_Record/" class="article-date">
+  <time class="dt-published" datetime="2026-05-16T16:00:00.000Z" itemprop="datePublished">2026-05-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      WSN任务2学习记录
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="chapter-1-ai-communication">Chapter 1 AI communication</h2>
+<h3 id="q1-现在进入恶意节点检测优化阶段首先如果让你设计你会如何设计">Q1
+现在进入恶意节点检测优化阶段，首先如果让你设计你会如何设计?</h3>
+<p>多维度特征工程 特征维度（~10维）:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────┐</span><br><span class="line">│ F1  累积转发率       forwarded/received      │ 已有</span><br><span class="line">│ F2  转发率方差       跨轮次的rate波动程度     │ 新增</span><br><span class="line">│ F3  趋势系数         线性拟合斜率             │ 新增</span><br><span class="line">│ F4  突变次数         相邻轮次rate骤降&gt;阈值的次数│ 新增</span><br><span class="line">│ F5  节点度           通信邻居数量             │ 已有（task3）</span><br><span class="line">│ F6  到sink距离       归一化跳数              │ 已有</span><br><span class="line">│ F7  中介中心性       经过该节点的路由条数     │ 新增</span><br><span class="line">│ F8  IN观测置信度      IN实际观测到的包数/期望  │ 新增</span><br><span class="line">│ F9  平均跳数         该节点在所有路由中的平均位置│ 新增</span><br><span class="line">│ F10 能量衰减速率     跨轮次剩余能量下降速度   │ 可选</span><br><span class="line">└─────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+<p>F2/F3/F4（时序特征）：恶意节点可能间歇性丢包（突变为0再恢复），而正常节点波动平缓。单纯的累积率抹平了这种模式。
+F7（中介中心性）：高价值路由节点更可能被策反，但也承担更多转发，需要在上下文中判断。
+F8（IN置信度）：IN距离RN越远、链路越差，能观测到的包越少，该观测的可信度越低。这为后续加权提供依据。</p>
+<p><br /></p>
+<h3
+id="q2-只对in可观测的rn节点做检测是什么意思恶意节点不在其中分布该如何检测出">Q2
+只对IN可观测的RN节点做检测是什么意思，恶意节点不在其中分布该如何检测出?</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">     有转发数据的节点                无转发数据的节点</span><br><span class="line">┌─────────────────────┐         ┌──────────────┐</span><br><span class="line">│ 被IN监控的RN（高置信）│         │ 从未参与路由   │</span><br><span class="line">│ 未被IN监控的转发节点  │         │ 标记为unknown  │</span><br><span class="line">│ （较低置信，但仍有数据）│         │ 不做判决      │</span><br><span class="line">└─────────────────────┘         └──────────────┘</span><br></pre></td></tr></table></figure>
+<p>IN提供的是”置信度权重”，不是”检测边界”。</p>
+<p>IN监控的RN → 样本量充足（中转大量包），方差低 → 高置信判决
+纯EN（无IN）→ 每轮仅20包，方差高但多轮可累积 → 稍低置信但仍有足够数据
+既非EN也非RN → 零观测，不可能评估 那IN机制到底带来了什么
+回到你的原问题——IN给转发率检测带来的增量价值：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>无IN（当前任务六）</th>
+<th>有IN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>检测范围</td>
+<td>所有received&gt;0的节点</td>
+<td>相同（不缩小）</td>
+</tr>
+<tr>
+<td>样本量</td>
+<td>RN&gt;1000包，纯EN≈4000包（200轮×20）</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>置信度权重</td>
+<td>无</td>
+<td>IN信誉分可作为该观测的可信度</td>
+</tr>
+<tr>
+<td>空间定位</td>
+<td>无</td>
+<td>知道哪个IN在监视哪个RN，可追责</td>
+</tr>
+<tr>
+<td>新特征</td>
+<td>无</td>
+<td>IN-TO-RN链路质量、IN自身剩余能量等</td>
+</tr>
+<tr>
+<td>交叉验证</td>
+<td>无</td>
+<td>多个节点可能同时观测同一RN的转发</td>
+</tr>
+</tbody>
+</table>
+<p>IN没有减少可检测节点数，而是给同一份转发率数据附加了元信息——谁观测的、链路质量如何、观测者是否可信。
+好，让我先完整理解当前数据流和需要改动的点，然后给出实现方案。</p>
+<hr />
+<ol type="1">
+<li><strong>task5</strong> — 不再丢弃
+<code>reputation_scores</code>，存入
+<code>ForwardingRateResult</code></li>
+<li><strong>task6_kmeans</strong>（共享模块）— 每轮累加
+<code>monitored_rn_stats</code> 中的IN监控数据，新增
+<code>compute_in_features()</code> 产出置信度权重</li>
+<li><strong>task6_dpc</strong> —
+自动继承，DPC密度计算用IN置信度加权</li>
+<li><strong>CNN/LSTM/GNN/TGCN</strong> —
+各自的序列累加函数同样改动，IN特征作为额外输入通道</li>
+<li><strong>范围不变</strong> —
+所有有转发数据的节点都参与检测，IN只是提供权重</li>
+</ol>
+<p>Here is Claude’s plan:</p>
+<h1 id="in机制集成到恶意节点检测-实现方案">IN机制集成到恶意节点检测 —
+实现方案</h1>
+<h2 id="目标">目标</h2>
+<p>将IN监控机制的元信息（信誉分、监控关系）作为<strong>置信度权重和附加特征</strong>引入检测管线，不缩小检测范围。</p>
+<h2 id="当前丢弃的in数据">当前丢弃的IN数据</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>丢弃数据</th>
+<th>位置</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>monitored_rn_stats</code>（每轮）</td>
+<td><code>ForwardingRateResult</code> 内</td>
+<td>task6内循环忽略</td>
+</tr>
+<tr>
+<td><code>reputation_scores</code></td>
+<td><code>MonitoringResult</code> 内</td>
+<td>task5 <code>simulate_round</code> 用 <code>_</code> 丢弃</td>
+</tr>
+<tr>
+<td><code>monitoring_node_indices</code></td>
+<td>存入 <code>MultiRound*Result</code></td>
+<td>从未被任何检测逻辑读取</td>
+</tr>
+</tbody>
+</table>
+<h2 id="实现步骤">实现步骤</h2>
+<h3 id="step-1-task5-传递in信誉分">Step 1: task5 — 传递IN信誉分</h3>
+<p><strong>文件</strong>:
+<code>task5_forwarding_rate_monitoring.py</code></p>
+<ul>
+<li><code>ForwardingRateResult</code> 新增字段
+<code>in_reputation_scores: np.ndarray</code></li>
+<li><code>simulate_round()</code> 不再丢弃
+<code>monitoring_result</code>，提取 <code>reputation_scores</code> 存入
+result</li>
+<li>行 100:
+<code>nodes, _, monitoring_result, routing_paths = ...</code> → 保留
+monitoring_result</li>
+<li>行 190 附近: result 构造时传入 reputation_scores</li>
+</ul>
+<h3 id="step-2-task6_kmeans-in累积-特征提取">Step 2: task6_kmeans —
+IN累积 + 特征提取</h3>
+<p><strong>文件</strong>:
+<code>task6_kmeans_malicious_detection.py</code>（DPC复用此文件函数）</p>
+<p><strong>2a.</strong> <code>MultiRoundObservationResult</code>
+新增字段: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node_in_monitored_rounds: np.ndarray    <span class="comment"># [N] 每节点被IN监控的轮次数</span></span><br><span class="line">node_in_reputation_sum: np.ndarray      <span class="comment"># [N] 每节点IN信誉分累积和</span></span><br><span class="line">in_reputation_scores: np.ndarray        <span class="comment"># [N] 所有节点信誉分（第一轮基准）</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>2b.</strong> <code>simulate_multi_round_observation()</code>
+修改: - 首轮：从 <code>first_round_result.monitored_rn_stats</code>
+初始化累加器 - 每轮内循环：解析
+<code>round_result.monitored_rn_stats</code>，为每个被监控RN累加
+IN监控轮次 + IN信誉分 - 构造 observation_result 时填充新字段</p>
+<p><strong>2c.</strong> 新增
+<code>compute_in_features(observation_result)</code>: <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回两个 [N] 数组（无转发数据的节点填 0）</span></span><br><span class="line">in_confidence      = <span class="built_in">min</span>(<span class="number">1.0</span>, (in_monitored_rounds / <span class="built_in">max</span>(<span class="number">1</span>, rounds_with_data)) * norm_reputation)</span><br><span class="line">in_monitored_ratio = in_monitored_rounds / <span class="built_in">max</span>(<span class="number">1</span>, rounds_with_data)</span><br></pre></td></tr></table></figure> -
+<code>rounds_with_data</code> = <code>node_received_counts &gt; 0</code>
+的掩码对应轮次数（近似用总轮数 × 收到包比例） -
+<code>norm_reputation</code> =
+<code>reputation_sum / max(1, monitored_rounds)</code> 归一化</p>
+<h3 id="step-3-task6_kmeans-检测算法使用in特征">Step 3: task6_kmeans —
+检测算法使用IN特征</h3>
+<p><strong>3a.</strong> K-means：将 <code>in_confidence</code>
+作为样本权重引入加权1D k-means（质心更新时按权重加权平均）</p>
+<p><strong>3b.</strong> 判决阶段：节点的 <code>in_monitored_ratio</code>
+作为”观测可靠度” — 高可靠且高置信的判决优先采纳，低可靠节点标记为
+suspicious 而非直接定论</p>
+<h3 id="step-4-task6_dpc-复用kmeans改动">Step 4: task6_dpc —
+复用kmeans改动</h3>
+<p><strong>文件</strong>:
+<code>task6_dpc_malicious_detection.py</code></p>
+<ul>
+<li>自动继承 Step 2 的 <code>simulate_multi_round_observation()</code>
+和 <code>compute_in_features()</code>（已导入）</li>
+<li>DPC局部密度计算时，用 <code>in_confidence</code> 加权：密度 =
+Σ(in_confidence[j] * kernel(distance))</li>
+<li>聚类分配时融入 IN 特征距离</li>
+</ul>
+<h3 id="step-5-task6_cnnlstmgnntgcn-in序列特征">Step 5:
+task6_cnn/lstm/gnn/tgcn — IN序列特征</h3>
+<p><strong>文件</strong>: <code>task6_cnn_malicious_detection.py</code>,
+<code>task6_lstm_malicious_detection.py</code>,
+<code>task6_gnn_malicious_detection.py</code>,
+<code>task6_tgcn_malicious_detection.py</code></p>
+<p>每个文件的 <code>simulate_multi_round_sequences()</code> 做相同改动：
+- 首轮提取 <code>monitored_rn_stats</code> 初始化 - 内循环每轮累加 IN
+数据到 <code>MultiRoundSequenceObservationResult</code> -
+<code>MultiRoundSequenceObservationResult</code> 新增同样的 3 个 IN 字段
+- 各自的 <code>compute_observed_rate()</code> 或等价函数也支持 IN
+特征</p>
+<p>检测模型改动： - CNN/LSTM: 输入从 <code>(rounds, 1)</code> 扩为
+<code>(rounds, 2)</code> — 加 <code>in_confidence_per_round</code> 通道
+- GNN/TGCN: 节点特征矩阵增加 IN 特征列</p>
+<h3 id="step-6-验证">Step 6: 验证</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python task6_kmeans_malicious_detection.py</span><br><span class="line">python task6_dpc_malicious_detection.py</span><br></pre></td></tr></table></figure>
+<p>检查: 1. <code>in_confidence</code> 值域在 [0,1] 且 IN 监控节点值更高
+2. miss rate &lt; 3%, false-positive rate &lt; 5% 指标不退化 3.
+对比修改前后的准确率、召回率</p>
+<h2 id="关键原则">关键原则</h2>
+<ul>
+<li><strong>范围不变</strong>: 所有 <code>received &gt; 0</code>
+的节点仍然参与检测</li>
+<li><strong>IN做增强</strong>: 有IN监控 → 高权重高置信；无IN →
+低权重但仍有数据支撑</li>
+<li><strong>向后兼容</strong>: 不改变 <code>simulate_round()</code>
+的返回签名（只增加 ForwardingRateResult 字段）</li>
+</ul>
+<p>好问题。让我分析恶意节点成为RN的情况。</p>
+<h2 id="恶意节点作为rn的场景">恶意节点作为RN的场景</h2>
+<p>当恶意节点恰好被选为RN时：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>恶意RN</th>
+<th>恶意纯EN</th>
+<th style="text-align: center;">恶意非路由节点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>包量</td>
+<td><strong>极高</strong>（中转大量包）</td>
+<td>低（仅20包/轮）</td>
+<td style="text-align: center;">零</td>
+</tr>
+<tr>
+<td>IN监控</td>
+<td><strong>有</strong>（task3强制每个RN分配IN）</td>
+<td>无</td>
+<td style="text-align: center;">无</td>
+</tr>
+<tr>
+<td>统计置信度</td>
+<td><strong>最高</strong></td>
+<td>低</td>
+<td style="text-align: center;">不可检测</td>
+</tr>
+<tr>
+<td>检测难度</td>
+<td><strong>最容易</strong></td>
+<td>中等</td>
+<td style="text-align: center;">不可能</td>
+</tr>
+</tbody>
+</table>
+<p>恶意RN反倒是<strong>最容易被检测到的</strong>——它转发的包多，IN盯着它的样本量最大，统计上最容易暴露异常的转发率。</p>
+<h2 id="但有一个关键问题">但有一个关键问题</h2>
+<p>任务五中 <code>assign_forwarding_rates()</code>
+是<strong>全网随机分配</strong>恶意节点的（<code>task5 line 86</code>），与路由角色无关。恶意节点成为RN纯粹是随机的。而我方案中的IN置信度权重会让<strong>有IN监控的节点判决权重更高</strong>，这恰好与”恶意RN最容易被检测”吻合——设计是自洽的。</p>
+<h2 id="有一个边界情况需要考虑">有一个边界情况需要考虑</h2>
+<p>恶意节点能否成为<strong>IN本身</strong>？如果IN是恶意的，它监控的数据还可信吗？</p>
+<p>当前实现中IN选择基于
+<code>reputation_scores</code>（能量+度+近sink），恶意性是独立随机分配的，所以恶意节点<strong>可能被选为IN</strong>。但当前系统中IN并不独立”报告”数据——IN统计同样来自全局计数器，所以IN的恶意性不影响观测数据本身。不过这是架构上的一个隐患。</p>
+<hr />
+<h3 id="q3-现在可使用哪些特征解释这些特征的实际含义">Q3
+现在可使用哪些特征，解释这些特征的实际含义</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>特征</th>
+<th>实际含义</th>
+<th>一般异常信号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>observed_rate / cumulative_forwarding_rate</td>
+<td>节点累计转发率 = 转发包数 / 接收包数</td>
+<td>明显偏低常表示选择性转发</td>
+</tr>
+<tr>
+<td>rate_seq_mean</td>
+<td>多轮转发率序列的平均水平</td>
+<td>长期偏低更可疑</td>
+</tr>
+<tr>
+<td>rate_trend</td>
+<td>转发率趋势（末轮 - 首轮）</td>
+<td>持续下降可能是攻击逐步加重</td>
+</tr>
+<tr>
+<td>rate_std</td>
+<td>转发率波动大小</td>
+<td>过大可能表示不稳定或间歇攻击</td>
+</tr>
+<tr>
+<td>fulfillment_ratio</td>
+<td>实际转发量 / 期望转发量</td>
+<td>明显 &lt; 1 说明“该转没转够”</td>
+</tr>
+<tr>
+<td>neighbor_rate_mean</td>
+<td>邻居节点平均转发率</td>
+<td>作为本地基线</td>
+</tr>
+<tr>
+<td>neighbor_rate_std</td>
+<td>邻居转发率离散度</td>
+<td>小方差下自身偏离更可信</td>
+</tr>
+<tr>
+<td>neighbor_deviation</td>
+<td>自身转发率 - 邻居均值</td>
+<td>显著为负时可疑</td>
+</tr>
+<tr>
+<td>role_zscore</td>
+<td>相对“同角色”节点的标准化偏差</td>
+<td>负值很大说明该角色里异常差</td>
+</tr>
+<tr>
+<td>role_id</td>
+<td>节点角色（EN/RN/IN/backbone/ordinary）</td>
+<td>不同角色阈值应不同</td>
+</tr>
+<tr>
+<td>participation_log</td>
+<td>参与路由/事件次数（log后）</td>
+<td>参与越多，统计越稳定</td>
+</tr>
+<tr>
+<td>hop_norm</td>
+<td>到 sink 的归一化跳数</td>
+<td>反映位置与转发压力差异</td>
+</tr>
+<tr>
+<td>degree_norm</td>
+<td>归一化邻居数（连通度）</td>
+<td>低度数节点天然更易波动</td>
+</tr>
+<tr>
+<td>in_confidence</td>
+<td>IN监测置信度（覆盖率×信誉）</td>
+<td>低时该样本结论应降权</td>
+</tr>
+<tr>
+<td>in_monitored_ratio</td>
+<td>被IN监测轮次占比</td>
+<td>低覆盖意味着观测不充分</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/05/17/WSN_Task2_Record/" data-id="cmpb01f4f00007kkp1ph27eub" data-title="WSN任务2学习记录" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/05/08/digital-circuit/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数字电路笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">学习笔记</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">May 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/05/17/WSN_Task2_Record/">WSN任务2学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/08/digital-circuit/">数字电路笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/05/analog-electronics/">模拟电子技术笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
