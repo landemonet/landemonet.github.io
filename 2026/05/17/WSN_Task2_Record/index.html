@@ -14,7 +14,7 @@
 <meta property="og:description" content="Chapter 1 AI communication Q1 现在进入恶意节点检测优化阶段，首先如果让你设计你会如何设计? 多维度特征工程 特征维度（~10维）: 123456789101112┌─────────────────────────────────────────────┐│ F1  累积转发率       forwarded&#x2F;received      │ 已有│ F2  转">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-05-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-18T09:12:53.157Z">
+<meta property="article:modified_time" content="2026-05-18T14:00:21.893Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -448,11 +448,213 @@ task6_cnn/lstm/gnn/tgcn — IN序列特征</h3>
 </tr>
 </tbody>
 </table>
+<table style="width:6%;">
+<colgroup>
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr>
+<td>### Q4对比两文件结果优劣，并从实现逻辑上解释原因 结果对比 指标 原版
+增强版 Miss rate (FNR) 28.00% 20.00% False rate (FPR) 0.00% 1.68%
+Throughput 0.7093 0.7107 增强版更优：漏检率从 28% 降到 20%（降低 8
+个百分点），虽然误报率从 0 微升至 1.68%，但仍在项目 5%
+的目标范围内，这是合理的代价。</td>
+</tr>
+<tr>
+<td>从实现逻辑解释原因
+核心区别在于<strong>“聚类输入是什么”</strong>：</td>
+</tr>
+<tr>
+<td>原版：直接对原始转发率做 1D K-means</td>
+</tr>
+<tr>
+<td>节点 → 累积转发率 → K-means(k=3) → 按质心排序 → malicious /
+suspicious / normal
+只有一个信号维度——转发率，然后加了一个简单的置信度修正（confidence &lt;
+0.15 的 malicious 降级）。</td>
+</tr>
+<tr>
+<td>增强版：先计算多维恶意分数，再聚类 引入 compute_malicious_scores()
+函数，将转发率与三个维度融合成一个恶意分数（malicious
+score），然后对分数做 K-means：</td>
+</tr>
+<tr>
+<td>score = 0.40 × rate_term + 0.20 × neigh_term + 0.40 ×
+amplified_role_term 三个维度及其作用：</td>
+</tr>
+<tr>
+<td>1. rate_term（权重 0.40）—— 1 - 转发率 基础信号，率越低越可疑。</td>
+</tr>
+<tr>
+<td>2. neigh_term（权重 0.20）—— 邻居转发率均值与自己的差距</td>
+</tr>
+<tr>
+<td>neigh_term = max(0, neighbor_rate_mean - self_rate)
+如果邻居都高转发（0.85+）而你只有
+0.5，这个差距会放大你的可疑度。这利用了局部拓扑一致性——选择性转发攻击在同一路由路径上往往只有恶意节点异常。</td>
+</tr>
+<tr>
+<td>3. amplified_role_term（权重 0.40）—— 同角色节点的中位数与自己差距
+引入 build_adjacency 和参与次数，将节点分为三类：</td>
+</tr>
+<tr>
+<td>纯 EN（仅参与事件感知，不参与中继） 纯 Relay（仅做中继转发）
+Double（既感知又中继） 每类节点的”正常”转发率基线不同（纯 EN 约 0.85，纯
+Relay 约 0.83）。如果一个纯 Relay 节点的转发率是 0.5，而同类中位数是
+0.83，这个 0.33 的落差会被放大，尤其是被充分观测的节点（amplified =
+role_term × (1 + 0.5 × participation_factor)）。</td>
+</tr>
+<tr>
+<td>更精细的后处理 增强版还引入了：</td>
+</tr>
+<tr>
+<td>角色感知提升：纯 EN 节点（rate &lt; 0.78, score ≥ 0.20）和 Relay
+节点（rate &lt; 0.72, score ≥ 0.20）使用不同阈值，因为 EN 行为模式更规律
+低置信度降级：confidence &lt; 0.08 且 rate &gt; 0.62 的 “malicious” 降为
+“suspicious” 高参与度保护：被观测超过 30 次、rate &gt; 0.72 且 score
+&lt; 0.18 的纯 EN 不判恶意 总结 原版精度高但漏检严重（0% FPR 但 28%
+FNR），本质上是信息不足——单靠转发率一个维度无法区分”恶意选择性丢弃”和”网络拓扑导致的低转发率”。增强版通过引入邻居对比和角色归一化，多出了两个维度的鉴别力，从而多抓到了
+8% 的恶意节点，代价是少量误报（1.68%），总体更优。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q5">Q5</h3>
+<p>Enhanced Two-Stage 检测方法总结 一、方法架构 增强型两阶段检测器采用
+“规则初筛 + MLP精分类 + 后处理纠偏” 三级流水线：</p>
+<p>500节点 → [Stage 1: 拓扑残差规则] → ~250节点候选池 → [Stage 2:
+Enhanced MLP] → 恶意/可疑/正常 → [后处理规则(5条)] 排除~350正常节点
+7维特征 × 单隐层MLP 仅降级(恶意→可疑)，不升级 核心设计理念：Stage 1
+利用领域知识（网络拓扑、角色期望）以极低FPR（~3%）排除大多数正常节点；Stage
+2 的 MLP 只需在剩余的模糊候选池中做精细分类，大幅降低学习难度。</p>
+<p>二、涉及公式 1. Stage 1：拓扑残差恶意概率（4项加权） <span
+class="math display">\[P_{\text{mal}}(i) = \text{clip}\left(0.60 \cdot
+T_{\text{rate}} + 0.10 \cdot T_{\text{neigh}} + 0.05 \cdot
+T_{\text{conf}} + 0.25 \cdot T_{\text{role}},\ 0,\ 1\right)\]</span></p>
+<p>四项分量的物理含义：</p>
+<p>分量 公式 权重 含义 速率项 <span
+class="math inline">\(T_{\text{rate}}\)</span> <span
+class="math inline">\(1 - r_i^{\text{obs}}\)</span> 0.60
+转发率越低，越可疑 邻居偏差项 <span
+class="math inline">\(T_{\text{neigh}}\)</span> <span
+class="math inline">\(\max(0,\ \bar{r}_{\text{neigh}}(i) -
+r_i^{\text{obs}})\)</span> 0.10 邻居转发正常而本节点异常→可疑 置信度项
+<span class="math inline">\(T_{\text{conf}}\)</span> <span
+class="math inline">\(1 - C(i)\)</span> 0.05
+监测数据越不可靠，不确定性越高 角色期望项 <span
+class="math inline">\(T_{\text{role}}\)</span> <span
+class="math inline">\(w_{\text{part}}(i) \cdot \max(0,\ r_i^{\text{exp}}
+- r_i^{\text{obs}})\)</span> 0.25 偏离同角色期望速率越大越可疑
+其中角色期望速率： <span class="math display">\[r_i^{\text{exp}} =
+\begin{cases} 0.88 &amp; \text{纯EN（仅作为事件节点）} \ 0.86 &amp;
+\text{中继节点（RN/骨干/双重角色）} \end{cases}\]</span></p>
+<p>参与度权重：<span class="math inline">\(w_{\text{part}}(i) =
+\min\left(1.0,\ \frac{N_i^{\text{en}} +
+N_i^{\text{intermediate}}}{15}\right)\)</span></p>
+<p>阈值判定：</p>
+<p><span class="math inline">\(P_{\text{mal}} \geq 0.26\)</span> →
+malicious <span class="math inline">\(0.15 \leq P_{\text{mal}} &lt;
+0.26\)</span> → suspicious <span class="math inline">\(P_{\text{mal}}
+&lt; 0.15\)</span> → normal 候选池门槛：<span
+class="math inline">\(P_{\text{mal}} \geq
+0.14\)</span>（比正常/可疑边界更宽松，确保不漏掉恶意节点）</p>
+<ol start="2" type="1">
+<li>Stage 2：7维增强特征向量 <span class="math display">\[\mathbf{f}(i)
+= [f_{\text{obs}},\ f_{\text{trend}},\ f_{\text{rate_std}},\
+f_{\text{fulfill}},\ f_{z},\ f_{\text{early_rate}},\
+f_{\text{downstream_gap}}]^T\]</span></li>
+</ol>
+<p>特征 定义 维度含义 与标签相关性 <span
+class="math inline">\(f_{\text{obs}}\)</span> <span
+class="math inline">\(\frac{\text{forwarded}_i}{\text{received}_i}\)</span>
+累计转发率 -0.70 <span class="math inline">\(f_{\text{trend}}\)</span>
+<span class="math inline">\(r_i[T] - r_i[1]\)</span>
+速率变化趋势（末减初） -0.35 <span
+class="math inline">\(f_{\text{rate_std}}\)</span> <span
+class="math inline">\(\sigma(r_i[1:T])\)</span> 速率序列波动性 +0.30
+<span class="math inline">\(f_{\text{fulfill}}\)</span> <span
+class="math inline">\(\frac{\text{fwd}i}{(N_i^{\text{en}} +
+N_i^{\text{inter}}) \cdot P{\text{perEN}}}\)</span>
+流量履行率（实际/期望） -0.65 <span class="math inline">\(f_{z}\)</span>
+<span class="math inline">\(\frac{r_i^{\text{obs}} -
+\text{median}{\text{role}(i)}}{\max(\text{MAD}{\text{role}(i)},\
+0.05)}\)</span> 角色内标准化偏差（鲁棒z-score） -0.55 <span
+class="math inline">\(f_{\text{early_rate}}\)</span> <span
+class="math inline">\(\frac{1}{50}\sum_{t=1}^{50} r_i[t]\)</span>
+前50轮平均速率（收敛方向） -0.63 <span
+class="math inline">\(f_{\text{downstream_gap}}\)</span> <span
+class="math inline">\(\bar{r}_{\text{down}}(i) -
+r_i^{\text{obs}}\)</span> 下游邻居平均速率 − 本节点速率 +0.55
+关键创新特征：</p>
+<p><span
+class="math inline">\(f_{\text{early_rate}}\)</span>（早期速率）：恶意节点从一开始转发率就偏低，正常节点初始接近1.0后逐渐收敛。早期均值直接捕捉这一差异，与标签的相关系数
+r = -0.63。</p>
+<p><span
+class="math inline">\(f_{\text{downstream_gap}}\)</span>（方向性下游间隙）：与原来的全向邻居偏差
+<span
+class="math inline">\(f_{\text{neigh_dev}}\)</span>不同，只考虑跳数严格小于本节点的下游邻居。恶意EN节点形成流量瓶颈时，下游邻居（离sink更近的中继节点）转发率正常而EN自身偏低，产生正间隙。与标签相关系数
+r = +0.55，且与其他特征完全独立。</p>
+<ol start="3" type="1">
+<li>Enhanced MLP 结构 单隐层MLP：7 → 4 → 1，共37个参数。</li>
+</ol>
+<p>前向传播： <span class="math display">\[\mathbf{h} =
+\text{ReLU}(\mathbf{X}\mathbf{W}_1 + \mathbf{b}_1)\]</span> <span
+class="math display">\[\hat{y} = \sigma(\mathbf{h}\mathbf{W}_2 + b_2) =
+\frac{1}{1 + e^{-(\mathbf{h}\mathbf{W}_2 + b_2)}}\]</span></p>
+<p>损失函数（加权二元交叉熵 + L2正则）： <span
+class="math display">\[\mathcal{L} = -\frac{1}{N}\sum_{n=1}^{N}
+w_n\left[y_n \log \hat{y}_n + (1-y_n)\log(1-\hat{y}_n)\right] +
+\lambda\left(|\mathbf{W}_1|_F^2 + |\mathbf{W}_2|_F^2\right)\]</span></p>
+<p>其中类别平衡权重：<span class="math inline">\(w_n = \begin{cases}
+N_{\text{neg}} / N_{\text{pos}} &amp; y_n = 1 \ 1 &amp; y_n = 0
+\end{cases}\)</span></p>
+<p>正则化策略（4项）：</p>
+<p>Cosine学习率衰减：<span class="math inline">\(\eta_t = \eta_{\min} +
+\frac{1}{2}(\eta_{\max} - \eta_{\min})\left(1 + \cos\frac{\pi
+t}{T}\right)\)</span>，从0.005降至0.0005 输入噪声注入：<span
+class="math inline">\(\mathbf{X}_{\text{noisy}} = \mathbf{X} +
+\mathcal{N}(0, 0.005^2)\)</span>（隐式正则化） He初始化：<span
+class="math inline">\(W \sim \mathcal{N}\left(0,
+\sqrt{2/n_{\text{in}}}\right)\)</span>（适配ReLU激活） 梯度裁剪：<span
+class="math inline">\(|\nabla| \leq 5.0\)</span> 分类阈值：<span
+class="math inline">\(\hat{y} \geq 0.55\)</span> → 预测为malicious</p>
+<ol start="4" type="1">
+<li>后处理规则（5条，仅降级不升级） <span
+class="math display">\[L_{\text{final}}(i) = \begin{cases}
+\text{normal} &amp; r_i &gt; 0.83 \
+\text{suspicious} &amp; r_i &gt; 0.78 \land \bar{r}{\text{neigh}} &gt;
+0.84 \
+\text{suspicious} &amp; r_i &gt; 0.72 \land d{\text{gap}} &lt; 0.03
+\land \bar{r}_{\text{neigh}} &gt; 0.80 \
+\text{suspicious} &amp; \text{received}_i &lt; 15 \
+\text{suspicious} &amp; \text{isPureEN}(i) \land r_i &gt; 0.78 \
+\text{malicious} &amp; \text{otherwise}
+\end{cases}\]</span></li>
+</ol>
+<p>设计原则：只将 malicious → suspicious 降级，绝不将 suspicious →
+malicious 升级。保证 FPR 下降的同时不增加 FNR。</p>
+<ol start="5" type="1">
+<li>评价指标 <span class="math display">\[\text{FNR} =
+\frac{\text{FN}}{\text{TP} + \text{FN}}, \quad \text{FPR} =
+\frac{\text{FP}}{\text{FP} + \text{TN}}\]</span></li>
+</ol>
+<p>仅在已观测节点（received &gt;
+0）上评估，不包括从未参与转发的背景节点。</p>
+<p>三、横向指标对比（5%恶意比例，200轮观测，500节点） 方法 FNR (↓) FPR
+(↓) 检出/总恶意 核心策略 K-means (1D score) 20.0% 2.53% 20/25 3项评分 +
+1D加权k-means + 角色感知后处理 Two-Stage (TinyMLP) 20.0% 5.47% 20/25
+4项规则初筛 + 7→8→1 MLP（73参） Enhanced Two-Stage 16.0% 5.47% 21/25
+4项规则初筛 + 7→4→1 Enhanced MLP（37参）+ 5条后处理 分析：</p>
+<p>Enhanced Two-Stage 的 FNR 比 K-means 降低 4
+个百分点（多检出1个恶意节点），FPR 在项目要求（&lt;5%）边界 K-means 的
+FPR 最低但 FNR 更高，偏向”保守”策略 所有方法均无法突破
+伯努利转发重叠极限：恶意节点速率区间 [0.0, 0.8] 与正常节点 [0.7, 1.0] 在
+[0.7, 0.8]
+区间内重叠，在此区间的恶意节点行为与正常节点在信息论意义上不可区分</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/17/WSN_Task2_Record/" data-id="cmpb22oxg0000b8kpgdulgj62" data-title="WSN任务2学习记录" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/05/17/WSN_Task2_Record/" data-id="cmpsk1y5w0009zokp2qn02gop" data-title="WSN任务2学习记录" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -463,6 +665,15 @@ task6_cnn/lstm/gnn/tgcn — IN序列特征</h3>
   
     
 <nav id="article-nav">
+  
+    <a href="/2026/05/30/Principles%20of%20Communications/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          通信原理笔记
+        
+      </div>
+    </a>
   
   
     <a href="/2026/05/08/digital-circuit/" id="article-nav-older" class="article-nav-link-wrap">
@@ -517,6 +728,10 @@ task6_cnn/lstm/gnn/tgcn — IN序列特征</h3>
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2026/05/30/Principles%20of%20Communications/">通信原理笔记</a>
+          </li>
         
           <li>
             <a href="/2026/05/17/WSN_Task2_Record/">WSN任务2学习记录</a>

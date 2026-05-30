@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>通信原理笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="第一章 绪论 课程内容纲要  一、 通信的基本概念 二、 通信系统分类与通信方式 三、 信息及其度量 四、 通信系统主要性能指标 五、 确知信号  一、通信的基本概念  通信的目的： 传递消息中所包含的信息。 消息 (Message)： 是物质或精神状态的一种反映，例如语音、文字、音乐、数据、图片或活动图像等。 信息 (Information)： 是消息中包含的有效内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通信原理笔记">
+<meta property="og:url" content="http://example.com/2026/05/30/Principles%20of%20Communications/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第一章 绪论 课程内容纲要  一、 通信的基本概念 二、 通信系统分类与通信方式 三、 信息及其度量 四、 通信系统主要性能指标 五、 确知信号  一、通信的基本概念  通信的目的： 传递消息中所包含的信息。 消息 (Message)： 是物质或精神状态的一种反映，例如语音、文字、音乐、数据、图片或活动图像等。 信息 (Information)： 是消息中包含的有效内容">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-1.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-72.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-73.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-86.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-87.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-80.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-88.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-75.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-76.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-78.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-79.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-89.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-90.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-92.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-81.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-83.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-96.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-97.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-100.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-2.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-103.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-106.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-104.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-105.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-110.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-111.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-114.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-115.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-112.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-116.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-5.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-6.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-7.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-8.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-11.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-12.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-14.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-15.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-20.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-16.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-17.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-21.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-22.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-23.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-25.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-26.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-28.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-30.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-119.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-50.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-51.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-53.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-54.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-55.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-123.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-57.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-58.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-59.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-60.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-61.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-62.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-63.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-125.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-64.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-65.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-66.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-68.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-69.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-32.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-33.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-126.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-34.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-36.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-128.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-37.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-38.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-39.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-40.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-41.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-133.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-47.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-135.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-136.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-48.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-137.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-139.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-140.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-141.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-142.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-143.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-144.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-145.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-146.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-147.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-148.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-149.png">
+<meta property="og:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image-150.png">
+<meta property="article:published_time" content="2026-05-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-30T16:18:12.066Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2026/05/30/Principles%20of%20Communications/image.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+  
+  
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Principles of Communications" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/05/30/Principles%20of%20Communications/" class="article-date">
+  <time class="dt-published" datetime="2026-05-29T16:00:00.000Z" itemprop="datePublished">2026-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      通信原理笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第一章-绪论">第一章 绪论</h1>
+<h2 id="课程内容纲要">课程内容纲要</h2>
+<ul>
+<li>一、 通信的基本概念</li>
+<li>二、 通信系统分类与通信方式</li>
+<li>三、 信息及其度量</li>
+<li>四、 通信系统主要性能指标</li>
+<li>五、 确知信号</li>
+</ul>
+<h2 id="一通信的基本概念">一、通信的基本概念</h2>
+<ul>
+<li><strong>通信的目的：</strong> 传递消息中所包含的信息。</li>
+<li><strong>消息 (Message)：</strong>
+是物质或精神状态的一种反映，例如语音、文字、音乐、数据、图片或活动图像等。</li>
+<li><strong>信息 (Information)：</strong> 是消息中包含的有效内容。</li>
+<li><strong>信号(Signal)：</strong> 消息的传输载体。</li>
+</ul>
+<h3 id="信号的分类">信号的分类</h3>
+<h4 id="模拟信号-analog-signal">模拟信号 (Analog Signal)</h4>
+<ul>
+<li><strong>定义：</strong>
+代表消息的信号参数取值<strong>连续</strong>。</li>
+<li><strong>示例：</strong> 麦克风输出电压。</li>
+</ul>
+<h4 id="数字信号-digital-signal">数字信号 (Digital Signal)</h4>
+<ul>
+<li><strong>定义：</strong>
+代表消息的信号参数取值为<strong>有限个</strong>。</li>
+<li><strong>示例：</strong> 电报信号、计算机输入输出信号。</li>
+<li>信号通常表现为矩形脉冲，代表不同的<strong>码元</strong>。</li>
+</ul>
+<h2 id="二通信系统模型">二、通信系统模型</h2>
+<h3 id="通信系统的一般模型">1、通信系统的一般模型</h3>
+<ul>
+<li>信息源：将各种消息转换为原始电信号。</li>
+<li>发送设备：产生适合在信道中传输的信号。</li>
+<li>信道：将来自发送设备的信号传送到接收端。</li>
+<li>噪声源：噪声源是信道中的噪声及分布在通信系统其他各处的噪声的集中表现。</li>
+<li>接收设备： 从受到损耗的接收信号中还原出原始电信号。</li>
+<li>受信者（信宿）：将原始电信号还原为相应的信息。</li>
+</ul>
+<h3 id="模拟通信系统模型">2、模拟通信系统模型</h3>
+<p>模拟通信系统是利用模拟信号传递信息的系统：
+<strong>两种变换</strong>： 模拟信息转换为原始电信号（基带信号）
+基带信号转换为已调信号（带通信号）</p>
+<h3 id="数字通信系统模型">3、数字通信系统模型</h3>
+<p>数字通信系统是利用数字信号传递信息的系统：</p>
+<ul>
+<li>信源编码与译码的目的：一：提高信息传输的有效性，通过压缩编码技术设法减少码元数量以降低码元速率;二：完成模数转换，将模拟信号转为数字信号。</li>
+<li>信道编码与译码的目的：进行差错控制，通过加入纠错码和检错码实现。</li>
+<li>加密与解密的目的:加上密码。</li>
+<li>数字调制与解调的目的：将数字基带信号的频谱搬移到高频处。</li>
+<li>同步的目的：确保收发两端的信号在时间上保持步调一致。</li>
+</ul>
+<h3 id="数字通信的特点">4、数字通信的特点</h3>
+<p><strong>优点</strong>： 1、抗干扰能力强，噪声不积累；
+2、传输差错可控； 3、便于进行处理变换储存；
+4、易于集成·，使通信设备微型化，重量减轻； 5、易于加密处理，且保密性好。
+<strong>缺点</strong>： 1、需要较大的传输带宽； 2、对同步要求较高。</p>
+<h2 id="三通信系统的分类与通信方式">三、通信系统的分类与通信方式</h2>
+<h3 id="通信系统的分类">1、通信系统的分类</h3>
+<ul>
+<li>按通信业务分类：电报通信系统，电话通信系统，数据通信系统，图像通信系统等。</li>
+<li>按调制方式分类：基带传输系统，带通传输系统。</li>
+<li>按信号特征分类：模拟通信系统，数字通信系统。</li>
+<li>按传输媒介分类：有线通信系统，无线通信系统。</li>
+<li>按工作波段分类：长波通信，短波通信，中波通信，短红外通信等。</li>
+<li>按信号复用方式分类：频分复用，时分复用，码分复用。</li>
+</ul>
+<h3 id="通信方式">2、通信方式</h3>
+<h4 id="单工全双工半双工通信">1、单工，全双工，半双工通信</h4>
+<p>单工:通信双方只有一端可以发送，另一个只能接收。
+半双工：通信双方都能收发信息，但不能同时进行收发的工作方式。
+全双工:通信双方可以同时收发信息，一般需要双向信道。</p>
+<h4 id="并行传输和串行传输">2、并行传输和串行传输</h4>
+<ul>
+<li>并行传输：数字码元序列按组通过多条并行信道同时传输。</li>
+<li><strong>优点：</strong>
+节省传输时间，速度快，不需要字符同步措施。</li>
+<li><strong>缺点：</strong> 需要n条通信线路，成本高</li>
+<li>串行传输：数字码元序列以串行方式一个接一个码元在一条信道上传输。</li>
+<li><strong>优点：</strong> 只需要一条通信信道，成本低。</li>
+<li><strong>缺点：</strong> 速度慢，需要外加同步措施。</li>
+</ul>
+<h3 id="常考填空题">常考填空题</h3>
+<p>按照同步方式不同，数据通信可分为同步通信和异步通信。</p>
+<ul>
+<li>同步通信：收发双方在同一时钟信号的控制下进行数据的接收和发送，数据之间是不能有间隔的，因为双方在同一个时钟下工作。</li>
+<li>异步通信：异步通信在发送字符时，所发送的字符之间的时间间隔可以是任意的。因为每一帧的数据都有开始和停止位，他们之间的数据位才是实际数据。</li>
+</ul>
+<h2 id="四通信系统的主要性能指标">四、通信系统的主要性能指标</h2>
+<h3 id="有效性">1、有效性</h3>
+<p>模拟通信系统：传输同样的信源信号频带利用率越高，有效性越好。
+数字通信系统：频带利用率定义为<span
+class="math inline">\(\eta=\frac{R_B}{B}\)</span>，其中<span
+class="math inline">\(R_B\)</span>为码元传输速率</p>
+<ul>
+<li>若有 <span class="math inline">\(M\)</span> 个等概率波形（ <span
+class="math inline">\(P= \frac 1M\)</span>
+），且每一个波形的出现是独立的，则传送M进制波形之一的信息量为 <span
+class="math inline">\(I=\log_2\frac 1P=\log_2M\)</span>
+若M是2的整数次幂，即 <span class="math inline">\(M=2^k\)</span> ,则有
+<span class="math inline">\(I=\log_22^k=k\)</span></li>
+</ul>
+<h3 id="可靠性">2、可靠性</h3>
+<p>模拟通信系统：常用接受端信号的输出信号与噪声的功率比来衡量（S/N）。
+数字通信系统：可靠性用差错概率来衡量。</p>
+<h1 id="第二章-确知信号">第二章 确知信号</h1>
+<h2 id="一确知信号的类型">一、确知信号的类型</h2>
+<p>按照是否具有周期重复性，分为周期信号和非周期信号。
+按照能量是否有限,分为能量信号与功率信号。</p>
+<h2 id="二确知信号的频域类型">二、确知信号的频域类型</h2>
+<ul>
+<li>周期性功率信号的频谱为其指数型傅里叶级数。</li>
+<li>能量信号的频谱密度为其傅里叶变换。</li>
+<li>能量信号的能量谱密度为其频谱密度模的平方。</li>
+<li>功率信号的功率谱密度为截短时间内形成的能量信号的频谱密度平方与时间之比的极限。</li>
+</ul>
+<h2 id="三确知信号的时域性质">三、确知信号的时域性质</h2>
+<ul>
+<li>能量信号的自相关函数与其能量谱密度为一对傅里叶变换对。</li>
+<li>功率信号的自相关函数与其功率谱密度为一对傅里叶变换对。</li>
+</ul>
+<h1 id="第三章-随机过程">第三章 随机过程</h1>
+<h2 id="一随机过程的基本概念">一、随机过程的基本概念</h2>
+<ol type="1">
+<li>随机过程是所有样本函数的集合。</li>
+<li>随机过程是在时间进程中处于不同时刻的随机变量的集合。</li>
+</ol>
+<h3 id="随机过程的分布函数">1、随机过程的分布函数</h3>
+<h3 id="随机过程的数字特征">2、随机过程的数字特征</h3>
+<ol type="1">
+<li>均值（数学期望）</li>
+<li>方差</li>
+<li>相关函数：衡量随机过程在任意两个时刻上获得的随机变量之间的关联程度。</li>
+</ol>
+<h2 id="二平稳随机过程">二、平稳随机过程</h2>
+<h3 id="定义">1、定义</h3>
+<h4 id="严平稳随机过程">严平稳随机过程</h4>
+<ol type="1">
+<li>时间平移不影响其任何统计特性。</li>
+</ol>
+<h4 id="广义平稳随机过程">广义平稳随机过程</h4>
+<ol type="1">
+<li>其均值与t无关，为常数；</li>
+<li>其自相关函数只与时间间隔有关。</li>
+</ol>
+<ul>
+<li>平稳随机过程的一维分布函数与时间t无关，二维分布函数仅与时间间隔有关。</li>
+</ul>
+<h3 id="各态历经性">2、各态历经性</h3>
+<p>结论：在求解各种统计平均时，只要用一次实现的“时间平均值”代替过程的统计平均值即可。</p>
+<h3 id="平稳过程的自相关函数">3、平稳过程的自相关函数</h3>
+<h3 id="平稳过程的功率谱密度">4、平稳过程的功率谱密度</h3>
+<ul>
+<li>平稳随机过程的自相关函数与其功率谱密度是一对傅里叶变换对。</li>
+</ul>
+<h2 id="三高斯随机过程">三、高斯随机过程</h2>
+<p><strong>定义：</strong>
+高斯随机过程在任意时刻上的取值是一个正态分布的随机变量。
+<strong>重要性质：</strong> 1. 2. 广义平稳的高斯过程也是严平稳的 3.
+高斯过程在不同时刻的取值时不相关的，那么它们也是统计独立的。 4.
+高斯过程在经过线性变换之后生成的过程仍然是高斯过程。</p>
+<h2 id="四平稳随机过程通过线性系统">四、平稳随机过程通过线性系统</h2>
+<ol type="1">
+<li>输出过程的均值</li>
+<li>输出过程的自相关函数</li>
+<li>输出过程的功率谱密度</li>
+<li>输出过程的概率分布如果线性系统的输入过程是高斯型的，则系统的输出过程也是高斯型的。</li>
+</ol>
+<h2 id="五窄带随机过程">五、窄带随机过程</h2>
+<p>什么是窄带随机过程？ 若随机过程的谱密度集中在中心频率<span
+class="math inline">\(f_c\)</span>,相对窄的频带范围内<span
+class="math inline">\(\Delta{f}\)</span>内，即满足<span
+class="math inline">\(\Delta{f}\)</span>&lt;&lt;<span
+class="math inline">\(f_c\)</span>，且<span
+class="math inline">\(f_c\)</span>远离零频，则称该随机过程为窄带随机过程，可表示为</p>
+<p><span class="math display">\[
+\xi(t)=a_{\xi}(t)cos[\omega t+\varphi _{\xi}(t)]
+\]</span></p>
+<p><span
+class="math inline">\(a_{\xi}(t)\)</span>为随机过程的随机包络，<span
+class="math inline">\(\varphi
+_{\xi}(t)\)</span>为随机过程的随机相位。</p>
+<h3 id="常考结论">常考结论</h3>
+<ul>
+<li>一个均值为零的窄带平稳高斯过程<span
+class="math inline">\(\xi(t)\)</span>，它的同向分量<span
+class="math inline">\(\xi_{c}(t)\)</span>和正交分量<span
+class="math inline">\(\xi_{s}(t)\)</span>同样是高斯过程，而且均值为零。方差相同。在同一时刻上得到的正交分量和同向分量是互不相关的。</li>
+<li>一个均值为零，方差为<span
+class="math inline">\(\sigma^2\)</span>的窄带平稳高斯过程，其随机包络<span
+class="math inline">\(a_{\xi}(t)\)</span>的一维分布是瑞利分布，随机相位<span
+class="math inline">\(\varphi_{\xi}(t)\)</span>的一维分布是均匀分布，并且就一维分布而言包络和相位是统计独立的。</li>
+</ul>
+<h2 id="六正弦波加窄带高斯噪声">六、正弦波加窄带高斯噪声</h2>
+<p>正弦波加窄带高斯噪声的包络分布<span
+class="math inline">\(f(z)\)</span>与信噪比有关。</p>
+<ul>
+<li><p>小信噪比时， <span class="math inline">\(f(z)\)</span>
+接近于瑞利分布；</p></li>
+<li><p>大信噪比时， <span class="math inline">\(f(z)\)</span>
+接近于高斯分布；</p></li>
+<li><p>一般情况下为广义瑞利分布，又称莱斯分布。正弦波加窄带高斯噪声的相位分布
+<span class="math inline">\(f(\varphi)\)</span> 与信噪比有关。</p></li>
+<li><p>小信噪比时， <span class="math inline">\(f(\varphi)\)</span>
+接近于均匀分布；</p></li>
+<li><p>大信噪比时， <span class="math inline">\(f(\varphi)\)</span>
+主要集中在有用信号相位附近。</p></li>
+</ul>
+<h2 id="七高斯白噪声和带限白噪声">七、高斯白噪声和带限白噪声</h2>
+<h3 id="白噪声">1、白噪声</h3>
+<ul>
+<li><p>双边功率谱密度： $ P_n(f)= (-&lt; f &lt; +)$</p></li>
+<li><p>单边功率谱密度： <span class="math inline">\(P_n(f)={n_0}(0 &lt;
+f &lt; +\infty)\)</span></p></li>
+<li><p>白噪声的自相关函数：对双边功率谱密度做傅里叶反变换，得到自相关函数：
+<span class="math inline">\(R(\tau)=\frac{n_0}{2}\delta(\tau)\)</span>
+如果白噪声取值的概率分布服从高斯分布，则成为高斯白噪声为什么称“白”噪声：功率谱密度在所有频率上均为一常数。在实际中，噪声的功率谱均匀分布的频率范围远远大于通信系统的工作频段，就可以视为白噪声。</p></li>
+</ul>
+<h3 id="低通白噪声">2、低通白噪声</h3>
+<p><span class="math display">\[
+P_n(f)=
+\begin{cases}
+\frac{n_0}{2}, &amp; |f|\le B \\
+0, &amp; |f|&gt;B
+\end{cases}
+\]</span></p>
+<h3 id="带通白噪声">3、带通白噪声</h3>
+<p><span class="math display">\[
+P_n(f)=
+\begin{cases}
+\frac{n_0}{2}, &amp; |f-f_c|\le \frac{B}{2} \ \text{或} \ |f+f_c|\le
+\frac{B}{2} \\
+0, &amp; \text{其他}
+\end{cases}
+\]</span></p>
+<h3 id="窄带高斯白噪声">4、窄带高斯白噪声</h3>
+<p>窄带高斯白噪声的平均功率<span
+class="math inline">\(N=n_0*B\)</span></p>
+<h1 id="第四章-信道">第四章 信道</h1>
+<h2 id="一信道的数学模型">一、信道的数学模型</h2>
+<h3 id="信道分类">信道分类：</h3>
+<ul>
+<li>无线信道-电磁波（含光波）无线信道中信号的传输是利用电磁波在空间的传播来实现的。</li>
+<li>有线信道-电线，光纤传输电信号的有线信道：明线，对称电缆，同轴电缆。
+传输光信号的有线信道：光纤。</li>
+</ul>
+<h3 id="电磁波传播的分类">电磁波传播的分类：</h3>
+<ul>
+<li>地波：2MHz以下，有一定绕射能力。</li>
+<li>天波：2MHz~30MHz,能够利用电离层反射。</li>
+<li>视线传播：30MHz以上，类似光波。</li>
+<li>散射传播：由于传播媒体的不均匀性，使电磁波的传播产生向许多方向折射的现象。散射现象具有强的方向性，散射的能量主要集中在前方，故常称其为前向散射。</li>
+</ul>
+<ol type="1">
+<li>电离层散射</li>
+<li>对流层散射</li>
+<li>流星余迹散射</li>
+</ol>
+<h3 id="调制信道模型">2、调制信道模型</h3>
+<p>输入端信号电压<span
+class="math inline">\(e_i(t)\)</span>和输出端电压<span
+class="math inline">\(e_o(t)\)</span>间的关系可以用下式表示</p>
+<p><span class="math display">\[
+e_o(t)=f[e_i(t)]+n(t)
+\]</span></p>
+<p>加性噪声（噪声干扰）：噪声n(t)是叠加在信号上的，无论有无信号，噪声是始终存在的。</p>
+<p><span class="math display">\[
+e_o(t)=k(t)*e_i(t)+n(t)
+\]</span></p>
+<p>乘性干扰的特点：无信号输入时不存在。</p>
+<ul>
+<li><p>随参信道： <span class="math inline">\(k(t)\)</span>
+随时间变化的信道。</p></li>
+<li><p>恒参信道： <span class="math inline">\(k(t)\)</span>
+缓慢变化或不变化的信道。</p></li>
+</ul>
+<h3 id="编码信道模型">3、编码信道模型</h3>
+<p>编码信道对信号的影响是使传输的数字序列发生变化，即序列中的数字发生变化，可以用转移概率来描述编码信道的特性。</p>
+<h2 id="二信道特性的信号传输的影响">二、信道特性的信号传输的影响</h2>
+<h3 id="恒参信道的影响">1、恒参信道的影响</h3>
+<p>无失真传输：</p>
+<ul>
+<li>振幅-频率特性曲线是一条水平直线；</li>
+<li>相位-频率特性曲线要求其为通过原点的直线，即群延时为常数时无失真。</li>
+</ul>
+<p>若信道的振幅-频率特性不理想，则信号发生的失真称为<strong>频率失真</strong>。
+在传输数字信号时，波形畸变可引起相邻码元之间发生部分重叠，造成<strong>码间串扰</strong>。
+若信道的相位-频率特性不理想，则信号发生的失真称为<strong>相位失真</strong>。
+相位失真对于数字信号的传输影响很大，会引起<strong>码间串扰</strong>，使误码率增大。
+<strong>非线性失真：</strong>
+信道输入与输出信号的振幅关系不是直线关系，会使信号产生新的谐波分量，造成谐波失真。
+<strong>频率偏移：</strong> 信道输入信号的频谱经过信道传输后发生了平移。
+<strong>相位抖动：</strong> 由于振荡器的频率不稳定产生的。</p>
+<h3 id="随参信道的影响">2、随参信道的影响</h3>
+<p>特性：信号的传输衰减和时延随时间变化，存在多径传播现象。
+多径效应下接收信号<span
+class="math inline">\(R(t)\)</span>可以看作是一个包络和相位随机缓慢变化的窄带信号。
+这种信号包络因传播有了起伏的现象称为衰落。
+由多径效应引起的包络起伏周期与数字信号的一个码元周期相比的衰落称为<strong>快衰落</strong>。
+衰落起伏周期较长的衰落称为<strong>慢衰落</strong>。</p>
+<h3 id="常考简答题">常考简答题</h3>
+<p>多径效应：信号经过几条路径到达接收端，而且每条路径的长度和衰减都随时间变化，多径传播现象对信号的影响称为多径效应。
+多径效应的影响：多径效应会使数字信号的码间串扰增大，未来减小码间串扰的影响，通常要降低码元传输速率。</p>
+<h3 id="常考结论-1">常考结论</h3>
+<p>对于给定频率的信号，信号的强度随时间而变，这种现象称为衰落现象，由于这种衰落和频率有关，常称其为频率选择性衰落。
+结论：发送信号为单频恒幅正弦波时，接收信号因多径效应编程包络起伏的窄带信号，这种包络起伏称为快衰落。</p>
+<h3 id="接收信号的分类">3、接收信号的分类</h3>
+<ul>
+<li>确知信号：</li>
+<li>随相信号：</li>
+<li>起伏信号：包络随机起伏，相位随机变化。多径信道传输的信号具有起伏信号的特性。</li>
+</ul>
+<h2 id="三信道中的噪声">三、信道中的噪声</h2>
+<h3 id="常考结论-2">常考结论</h3>
+<ul>
+<li>按噪声来源分类：人为噪声（开关火花，电台辐射），自然噪声（闪电）。</li>
+<li>热噪声：来自一切电阻性元器件中电子的热运动。</li>
+<li>按噪声性质分类：脉冲噪声，窄带噪声，起伏噪声。由于在一般通信系统的工作频率范围内热噪声的频谱是均匀分布的，所以热噪声又称为白噪声。</li>
+</ul>
+<h2 id="四信道容量">四、信道容量</h2>
+<p><strong>定义：</strong> 信道能够传输的最大平均信息速率。</p>
+<h3 id="离散信道容量">1、离散信道容量：</h3>
+<p>在给定信道统计特性下，输入与输出之间的最大平均信息传输速率，通常表示为</p>
+<p><span class="math display">\[
+C=\max I(X;Y)
+\]</span></p>
+<h3 id="连续信道容量">2、连续信道容量</h3>
+<p><span class="math display">\[
+C=B\log_2\left(1+\frac{S}{N}\right)
+\]</span></p>
+<h3 id="常考结论-3">常考结论</h3>
+<p>当给定<span class="math inline">\(\frac
+Sn_0\)</span>时，若带宽B趋于无穷大，信道容量不会趋于无穷大，而只是<span
+class="math inline">\(\frac
+Sn_0\)</span>的1.44倍。这是因为带宽B增大时，噪声功率也随之增大。</p>
+<h1 id="第五章-模拟调制系统">第五章 模拟调制系统</h1>
+<h2 id="一模拟调制系统概述">一、模拟调制系统概述</h2>
+<p><strong>调制</strong>就是把信号形式转换成适合在信道中传输中的一种过程。广义的调制分为基带调制和带通调制（载波调制）。
+<strong>载波调制</strong>就是用调制信号去控制载波的参数。载波受调制后称为<strong>已调信号</strong>。
+根据调制信号是数字信号还是模拟信号，载波是连续波还是还是脉冲序列可以分为连续波模拟调制，脉冲模拟调制，连续波数字调制，脉冲数字调制。</p>
+<ul>
+<li><p>按基带信号的类型分类：模拟调制和数字调制。</p></li>
+<li><p>模拟调制分类：<strong>角度调制（非线性调制）：</strong>
+频率调制，相位调制。<strong>幅度调制（线性调制）：</strong>
+调幅，双边带调制，单边带调制和残留边带调制。</p></li>
+</ul>
+<h3 id="常考简答题-1">常考简答题</h3>
+<p>调制的目的</p>
+<ol type="1">
+<li>提高无线信号通信时的天线辐射效率。</li>
+<li>把多个基带信号分别搬移到不同的载频处，以实现信道的多路复用，提高信道的利用率。</li>
+<li>扩展信号带宽，提高系统抗干扰，抗衰落能力，还可实现传输带宽与信噪比之间的互换。</li>
+</ol>
+<h3 id="线性调制的一般模型">2、线性调制的一般模型</h3>
+<ol type="1">
+<li>滤波法模型 <img src="image.png" alt="线性调制滤波法模型" /></li>
+<li>相移法模型 <img src="image-1.png" alt="线性调制相移法模型" /></li>
+</ol>
+<ul>
+<li>线性调制的一般表达式：<span class="math inline">\(s(t)=A_c[1+k_a
+m(t)]\cos \omega_ct\)</span>，其中<span
+class="math inline">\(|k_am(t)|\le 1\)</span>。</li>
+<li>线性调制的特点：已调信号的频谱是把基带频谱搬移到载频附近。</li>
+</ul>
+<h3 id="相干解调与包络检波">3、相干解调与包络检波</h3>
+<ol type="1">
+<li><p>相干解调：接受端必须提供一个与接收的已调载波严格同步（同频同相）的本地载波（称为相干载波），它与接收的已调信号相乘后，经过低通滤波器取出低频分量，即可得到原始的基带调制信号。
+<img src="image-72.png" height="200" alt="相干解调原理框图" /></p></li>
+<li><p>包络检波：由全波整流器和低通滤波器构成 <img src="image-73.png"
+alt="包络检波原理框图" /></p></li>
+</ol>
+<h3 id="线性调制系统的抗噪声性能">4、线性调制系统的抗噪声性能</h3>
+<ul>
+<li>噪声分析：设白噪声单边功率谱密度为<span
+class="math inline">\(n_0\)</span>，带通滤波器是高度为1，带宽为B的理想矩形波形函数，则解调器的输入噪声功率为<span
+class="math inline">\(N_i=n_0*B\)</span></li>
+<li>输出信噪比：<span
+class="math inline">\(\rho_o=\frac{S_o}{N_o}\)</span></li>
+<li>调制制度增益（信噪比增益）：<span
+class="math inline">\(G=\frac{\rho_o}{\rho_i}\)</span></li>
+</ul>
+<h2 id="二am调制">二、AM调制</h2>
+<h3 id="am调幅原理">1、AM调幅原理</h3>
+<ul>
+<li><p>时域表达式： <span class="math inline">\(s_{AM}(t)=[A_0+m(t)]\cos
+\omega_ct\)</span> 式中 <span class="math inline">\(A_0\)</span>
+为外加的直流分量； <span class="math inline">\(m(t)\)</span>
+可以是确知信号，也可以是随机信号。</p></li>
+<li><p>模型：载波振幅随调制信号线性变化 <img src="image-86.png"
+alt="AM调幅模型" /></p></li>
+<li><p>频谱表达式： <span
+class="math inline">\(S_{AM}(f)=\frac{A_c}{2}[\delta(f-f_c)+\delta(f+f_c)]+\frac{A_c\mu}{2}[M(f-f_c)+M(f+f_c)]\)</span></p></li>
+</ul>
+<h3 id="常考简答题-2">常考简答题</h3>
+<p>什么是AM调制过调幅？ 当满足条件：<span
+class="math inline">\(|m(t)|\le
+A_0\)</span>时，其包络与调制信号波形相同，否则出现过调幅现象，此时使用包络检波会导致信号失真。</p>
+<h3 id="am信号的频谱图">2、AM信号的频谱图</h3>
+<ul>
+<li>AM信号的频谱由载频分量，上边带，下边带，三部分构成。 <img
+src="image-74.png" alt="AM信号频谱图" /></li>
+<li>带宽:设调制信号带宽为 <span class="math inline">\(f_H\)</span> ，则
+<span class="math inline">\(B=2f_H\)</span></li>
+</ul>
+<h3 id="am包络检波的性能">3、AM包络检波的性能</h3>
+<ul>
+<li><p>包络检波器分析模型 <img src="image-87.png"
+alt="包络检波器分析模型" /></p></li>
+<li><p><strong>1） 大信噪比情况：</strong></p></li>
+<li><p>解调器输入噪声功率： <span
+class="math inline">\(N_i=n_0B\)</span></p></li>
+<li><p>解调器输出噪声功率： <span
+class="math inline">\(N_o=n_0B\)</span></p></li>
+<li><p>解调器输入信号功率： <span
+class="math inline">\(S_i=P_c+P_s\)</span> 式中： <span
+class="math inline">\(P_c=\frac{A_0^2}{2}\)</span> 为载波功率， <span
+class="math inline">\(P_s=\frac{m(t)^2}{2}\)</span> 边带功率。</p></li>
+<li><p>调制效率：<span
+class="math inline">\(\eta_{AM}=\frac{P_s}{P_c+P_s}\)</span></p></li>
+<li><p>解调器输出信号功率： <span
+class="math inline">\(S_o=2P_s=m(t)^2\)</span></p></li>
+</ul>
+<!---->
+<ul>
+<li>调制制度增益： <span
+class="math inline">\(G_{AM}=\frac{\rho_o}{\rho_i}=\frac{2P_s}{P_s+P_c}\)</span></li>
+</ul>
+<!---->
+<ul>
+<li><strong>2） 小信噪比情况：</strong></li>
+<li>输出信噪比不是按比例的随输入信噪比下降，而是急剧恶化，这种现象称为解调器的门限效应。</li>
+<li>门限值：开始出现门限效应的输入信噪比。</li>
+</ul>
+<h3 id="常考结论-4">常考结论</h3>
+<p><span
+class="math inline">\(|m(t)|_{max}=A_0\)</span>时，调制效率最大为1/3</p>
+<ol type="1">
+<li>AM信号的调制制度增益<span
+class="math inline">\(G_{AM}\)</span>随<span
+class="math inline">\(A_0\)</span>的减小而增加。</li>
+<li><span
+class="math inline">\(G_{AM}\)</span>总是小于1，这说明包络检波器对输入信噪比没有改善。</li>
+<li>对于100%的调制，且m(t)是单频正弦信号，这时AM的最大信噪比增益为<span
+class="math inline">\(G_{AM}=2/3\)</span></li>
+<li>采用相干解调AM信号时，得到的制度增益与上式给出的结果相同。</li>
+<li>对于AM调制系统，在大信噪比时，采用包络检波器解调时的性能与同步检测器时的性能几乎一样。</li>
+</ol>
+<h3 id="常考结论-5">常考结论</h3>
+<ol type="1">
+<li>门限效应是由包络检波器的非线性解调作用引起的。</li>
+<li>用相干解调的方法解调各种线性调制信号时不存在门限效应。原因是信号与噪声可分别进行解调，解调器输出端总是单独存在有用信号项。</li>
+<li>在大信噪比情况下，AM信号包络检波器的性能几乎与相干调制法相同。</li>
+</ol>
+<h2 id="三双边带dsb调制">三、双边带（DSB）调制</h2>
+<h3 id="dsb调制原理">1、DSB调制原理</h3>
+<ul>
+<li>时域表达式：<span class="math inline">\(s_{DSB}(t)=A_c m(t)\cos
+\omega_ct\)</span></li>
+<li>模型： <img src="image-80.png" alt="DSB调制模型" /></li>
+<li>频谱表达式：<span
+class="math inline">\(S_{DSB}(f)=\frac{A_c}{2}[M(f-f_c)+M(f+f_c)]\)</span></li>
+<li>带宽:设调制信号带宽为<span
+class="math inline">\(f_H\)</span>，则<span
+class="math inline">\(B=2f_H\)</span></li>
+</ul>
+<h3 id="常考结论-6">常考结论</h3>
+<p>双边带调制效率：100%</p>
+<ul>
+<li>双边带调制优点：节省了载波功率</li>
+<li>双边带调制缺点：不能使用包络检波，相干解调较复杂。</li>
+</ul>
+<h3 id="dsb调制系统的性能">2、DSB调制系统的性能</h3>
+<ul>
+<li>分析模型： <img src="image-88.png"
+alt="DSB调制系统性能分析模型" /></li>
+<li>输出信号：<span class="math inline">\(m_0(t)=\frac12
+m(t)\)</span></li>
+<li>输出噪声功率：<span class="math inline">\(N_0=\frac14 N_i=\frac14
+n_0B\)</span></li>
+<li>制度增益：<span class="math inline">\(G_{DSB}=2\)</span></li>
+</ul>
+<h3 id="常考结论-7">常考结论</h3>
+<p>DSB信号的解调器使信噪比改善一倍，这是因为采用相干解调，使输入噪声中的正交分量被消除的缘故。</p>
+<h2 id="四单边带ssb调制">四、单边带（SSB）调制</h2>
+<h3 id="单边带调制原理">1、单边带调制原理</h3>
+<ul>
+<li>产生方法：滤波法和移相法</li>
+<li>单边带信号的一般表达式：<span
+class="math inline">\(s_{SSB}(t)=A_c[m(t)\cos \omega_ct\mp \hat m(t)\sin
+\omega_ct]\)</span></li>
+</ul>
+<h3 id="常考简答题-3">常考简答题</h3>
+<p>什么是单边带调制？
+双边带信号中的任意一个边带都包含了调制信号频谱的所有频谱成分，因此只传送一个边带即可，既节省发送功率，又节省了一半传输频带。</p>
+<h3 id="滤波法及ssb信号的频域表示">2、滤波法及SSB信号的频域表示</h3>
+<ul>
+<li>模型： <img src="image-75.png" height="150"
+alt="SSB滤波法模型" /></li>
+<li>频谱图： <img src="image-76.png" alt="SSB信号频谱图" /></li>
+<li>带宽:设调制信号带宽为<span
+class="math inline">\(f_H\)</span>，则<span
+class="math inline">\(B=f_H\)</span></li>
+</ul>
+<h3 id="相移法ssb调制器方框图">3、相移法SSB调制器方框图</h3>
+<ul>
+<li>模型 <img src="image-78.png" alt="SSB相移法调制器方框图" />
+希尔伯特滤波器<span
+class="math inline">\(H_h(\omega)\)</span>实质上是一个宽带相移网络，对<span
+class="math inline">\(m(t)\)</span>中的任意频率分量均相移<span
+class="math inline">\(\frac{\pi}{2}\)</span>,即可得到<span
+class="math inline">\(\hat m(t)\)</span>。
+优点：不需要滤波器具有陡峭的截止特性。
+缺点：宽带相移网络难以用硬件实现。</li>
+</ul>
+<h3 id="ssb信号的解调">4、SSB信号的解调</h3>
+<p>输出信号：<span class="math inline">\(m_0(t)=\frac14 m(t)\)</span>
+输出噪声功率：<span class="math inline">\(N_0=\frac14 N_i=\frac14
+n_0B\)</span> 制度增益：<span
+class="math inline">\(G_{SSB}=1\)</span></p>
+<h3 id="常考结论-8">常考结论</h3>
+<p>SSB信号的实现比AM、DSB要复杂，但SSB调制方式在传输信息时既节省发送功率，又节省了一半传输频带。</p>
+<h3 id="常考简答题-4">常考简答题</h3>
+<p><strong>由制度增益，是否能说明DSB系统的抗噪声性能比SSB系统好？</strong>
+不能。因为，两者的输入信号功率不同，带宽不同，在相同的噪声功率谱密度条件下，输入噪声功率也不同，所有两者的输出信噪比是在不同条件下得到的。设定相同条件后，可以发现他们的输出信噪比是相同的，因此两者的抗噪声性能是相同的。但SSB所需的传输带宽是DSB的一半，因此SSB得到普遍应用。</p>
+<h2 id="五vsb调制">五、VSB调制</h2>
+<h3 id="常考结论-9">常考结论</h3>
+<p>残留边带调制是介于SSB与DSB之间的一种折中方式，它克服了DSB信号占用频带宽的缺点，又解决了SSB调制难以实现的不足。</p>
+<h3 id="调制方法">2、调制方法</h3>
+<ul>
+<li>原理框图 <img src="image-79.png" alt="VSB调制原理框图" /></li>
+<li>残留边带滤波器<span
+class="math inline">\(H(w)\)</span>具有互补对称的特性。</li>
+<li>残留边带滤波传输特性需满足：<span
+class="math inline">\(H(f_c+f)+H(f_c-f)=C\,( |f|\le
+f_H)\)</span>，其中<span class="math inline">\(C\)</span>为常数。</li>
+<li>残留边带信号可表示为：<span
+class="math inline">\(S_{VSB}(f)=S_{DSB}(f)H_{VSB}(f)\)</span></li>
+<li>残留边带调制的带宽介于DSB和SSB之间。</li>
+</ul>
+<h2 id="六角度调制">六、角度调制</h2>
+<h3 id="概念">1、概念</h3>
+<p>角度调制：频率调制和相位调制。</p>
+<ul>
+<li>角度调制的一般表达式： <span
+class="math inline">\(s(t)=A_c\cos[\omega_ct+\varphi(t)]\)</span></li>
+</ul>
+<h3 id="常考结论-10">常考结论</h3>
+<p>已调信号频谱不再是原调制信号频谱的线性搬移，而是频谱的非线性变换，会产生与频谱搬移不同的新的频率成分，故又称非线性调制。
+与幅度调制技术相比，角度调制最突出的优势是其较高的抗噪声性能。</p>
+<h3 id="频率调制">2、频率调制</h3>
+<ul>
+<li>瞬时角频率偏移随调制信号成比例变化</li>
+<li>FM表达式：当<span class="math inline">\(m(t)=A_m\cos
+w_mt=A_m\cos2\pi f_mt\)</span>，</li>
+<li>FM信号表达式：<span
+class="math inline">\(s_{FM}(t)=A_c\cos\left[\omega_ct+k_f\int_{-\infty}^{t}m(\tau)d\tau\right]\)</span></li>
+<li>调频指数：<span class="math inline">\(m_f=\frac{K_fA_m}{w_m}=\frac
+{\Delta w}{w_m}\)</span></li>
+<li>带宽：<span class="math inline">\(B_{FM}=2(\delta
+f+f_m)\)</span></li>
+</ul>
+<h3 id="相位调制">3、相位调制</h3>
+<ul>
+<li>瞬时相位偏移随调制信号成线性变化</li>
+<li>PM表达式：当<span class="math inline">\(m(t)=A_m\cos
+w_mt=A_m\cos2\pi f_mt\)</span>，</li>
+<li>PM信号表达式：<span
+class="math inline">\(s_{PM}(t)=A_c\cos[\omega_ct+K_pm(t)]\)</span></li>
+<li>调相指数：<span class="math inline">\(m_p=K_pA_m\)</span></li>
+<li>带宽：<span class="math inline">\(B_{PM}=2(\delta
+f+f_m)\)</span></li>
+</ul>
+<h3 id="fm信号和pm信号波形">4、FM信号和PM信号波形</h3>
+<figure>
+<img src="image-89.png" alt="FM信号和PM信号波形" />
+<figcaption aria-hidden="true">FM信号和PM信号波形</figcaption>
+</figure>
+<h3 id="常考结论-11">常考结论</h3>
+<p>PM是相位偏移随调制信号<span
+class="math inline">\(m(t)\)</span>线性变化，FM是相位偏移随调制信号<span
+class="math inline">\(m(t)\)</span>的积分线性变化。 在未知<span
+class="math inline">\(m(t)\)</span>的具体形式下，无法判断已调信号是调相信号还是调频信号。</p>
+<h3 id="窄带调频nbfm">5、窄带调频(NBFM)</h3>
+<ul>
+<li>定义：如果FM信号的最大瞬时相位偏移<span
+class="math inline">\(\Delta\varphi_{\max}=\left|k_f\int_{-\infty}^{t}m(\tau)d\tau\right|_{\max}\ll
+0.5\)</span>，则称为窄带调频。</li>
+<li>近似表达式：<span class="math inline">\(s_{NBFM}(t)\approx A\cos
+\omega_ct- [A*k_f\int_{-\infty}^{t}m(\tau)d\tau] \sin
+\omega_ct\)</span></li>
+</ul>
+<h3 id="宽带调频wbfm">6、宽带调频(WBFM)</h3>
+<h3 id="调频信号的产生">7、调频信号的产生</h3>
+<ol type="1">
+<li>直接调制法：用调制信号直接去控制振荡器的频率，可以由外部电压控制振荡频率的振荡器叫做<strong>压控震荡器(VCO)</strong>，压控震荡器就是一个FM调制器。</li>
+<li>间接法调制原理：先将调制信号积分，然后对载波进行调相，即可产生一个窄带调频信号，再经n次倍频可以得到宽带调频信号。
+<img src="image-90.png" alt="间接法调频原理框图" /></li>
+</ol>
+<h3 id="常考结论-12">常考结论</h3>
+<p>直接调频法的 <strong>优点：</strong> 可以获得较大的频偏。
+<strong>缺点：</strong> 频率稳定性不高。
+改进措施：采用锁相环（PLL）调制器。</p>
+<h3 id="调频信号的解调">7、调频信号的解调</h3>
+<ol type="1">
+<li>非相干解调：非相干解调电路称为鉴频器。微分器和包络检波器构成鉴频器。微分器的作用是将幅度恒定的调频波变成幅度和频率都随调制信号变化的调幅调频波。包络检波器则将其幅度变化检出并滤去直流，经过低通滤波后得出解调信号。</li>
+<li>相干解调：仅适用于NBFM信号解调输出:<span
+class="math inline">\(m_o(t)=\frac{AK_f}{2}m(t)\)</span> <img
+src="image-91.png" alt="NBFM相干解调框图" /></li>
+</ol>
+<h3 id="常考结论-13">常考结论</h3>
+<p>鉴频器的种类很多，例如振幅鉴频器，相位鉴频器，比例鉴频器，正交鉴频器，斜率鉴频器，频率负反馈解调器，锁相环鉴频器等。</p>
+<h3 id="调频系统的抗噪声性能">8、调频系统的抗噪声性能</h3>
+<ul>
+<li>模型 <img src="image-92.png"
+alt="调频系统抗噪声性能分析模型" /></li>
+</ul>
+<ol type="1">
+<li>大信噪比时的解调制度增益：<span
+class="math inline">\(G_{FM}=\frac{3}{2}m_f^2\frac{B_{FM}}{f_m}\)</span></li>
+<li>小信噪比时的门限效应当输入信噪比低于一定数值时，解调器的输出信噪比急剧恶化。</li>
+</ol>
+<h3 id="常考结论-14">常考结论</h3>
+<ul>
+<li>结论 <img src="image-81.png" alt="调频系统抗噪声性能结论1" /> <img
+src="image-82.png" alt="调频系统抗噪声性能结论2" /></li>
+</ul>
+<h2 id="七各种模拟调制系统的比较">七、各种模拟调制系统的比较</h2>
+<p><img src="image-83.png" alt="各种模拟调制系统比较1" /> <img
+src="image-84.png" alt="各种模拟调制系统比较2" /> <img
+src="image-85.png" alt="各种模拟调制系统比较3" /></p>
+<h2 id="八频分复用">八、频分复用</h2>
+<p>时分复用：通常用于数字信号的多路传输。
+频分复用：通常用于模拟信号的多路传输。</p>
+<h1 id="第六章-数字基带传输系统">第六章 数字基带传输系统</h1>
+<h2 id="一数字基带信号">一、数字基带信号</h2>
+<h3 id="概念-1">1、概念</h3>
+<p>数字信息既可以是来自数据终端的各种数字信号，也可以是模拟信号经数字化处理后的脉冲编码信号。
+数字基带信号：占据频谱是从零频或很低频率开始。
+数字传输系统分为数字基带传输系统和数字带通传输系统</p>
+<h3 id="常见波形">2、常见波形</h3>
+<ul>
+<li>单极性波形：正电平和零电平分别对应二进制数字”1”和”0”。 <img
+src="image-93.png" alt="单极性波形" /></li>
+<li>双极性波形：正电平和负电平分别对应二进制数字”1”和”0”。 <img
+src="image-94.png" alt="双极性波形" /></li>
+<li>单极性归零波形：归零（RZ）波形是指有电脉冲宽度 <span
+class="math inline">\(\tau\)</span> 小于码元宽度 <span
+class="math inline">\(T_B\)</span> 。 <img src="image-96.png"
+alt="单极性归零波形" /></li>
+<li>双极性归零波形: <img src="image-97.png" alt="双极性归零波形" /></li>
+<li>差分波形：用相邻码元的电平跳变和不变来表示信息。（相对码波形） <img
+src="image-98.png" alt="差分波形" /></li>
+<li>多电平波形：多电平波形的一个脉冲对应多个二进制码。 <img
+src="image-99.png" alt="多电平波形" /></li>
+</ul>
+<h3 id="常考结论-15">常考结论</h3>
+<p><img src="image-100.png" alt="常见波形常考结论1" /> <img
+src="image-101.png" alt="常见波形常考结论2" /></p>
+<h2 id="二基带传输的常用码型">二、基带传输的常用码型</h2>
+<h3 id="常考结论-16">常考结论</h3>
+<p><img src="image-2.png" alt="基带传输常用码型结论1" /> <img
+src="image-102.png" alt="基带传输常用码型结论2" /></p>
+<h3 id="常见的传输码型">1、常见的传输码型</h3>
+<ul>
+<li>AMI码：传号交替反转码，将消息码的（传号）交替地变换为”+1”和”-1”，而”0”空号保持不变。
+<img src="image-103.png" alt="AMI码波形" /> <img src="image-106.png"
+alt="AMI码示例" /></li>
+<li>HDB3码:3阶高密度双极性码 <img src="image-104.png"
+alt="HDB3码波形" /> <img src="image-105.png" alt="HDB3码示例1" /> <img
+src="image-107.png" alt="HDB3码示例2" /></li>
+<li>双相码：曼彻斯特码。”0”用”01”两位码表示，”1”用”10”两位码表示。 <img
+src="image-108.png" alt="双相码波形" /></li>
+<li>差分双向码：每个码元中间的电平跳变用于同步，而每个码元的开始处是否存在额外的跳变来确定信码。有跳变则表示二进制”1”，无跳变则表示二进制”0”。</li>
+<li>米勒码： <img src="image-110.png" alt="米勒码波形" /></li>
+<li>CMI码 <img src="image-111.png" alt="CMI码波形" /></li>
+</ul>
+<h2 id="三数字基带传输和码间串扰">三、数字基带传输和码间串扰</h2>
+<h3 id="数字基带信号传输系统的组成">1、数字基带信号传输系统的组成</h3>
+<ul>
+<li>基本结构 <img src="image-114.png"
+alt="数字基带传输系统基本结构" /></li>
+</ul>
+<h3 id="常考结论-17">常考结论</h3>
+<figure>
+<img src="image-115.png" alt="数字基带传输系统常考结论" />
+<figcaption aria-hidden="true">数字基带传输系统常考结论</figcaption>
+</figure>
+<h3 id="数字基带信号传输的定量分析">2、数字基带信号传输的定量分析</h3>
+<figure>
+<img src="image-112.png" alt="数字基带信号传输定量分析" />
+<figcaption aria-hidden="true">数字基带信号传输定量分析</figcaption>
+</figure>
+<h3 id="常见无码间串扰的传输特性">3、常见无码间串扰的传输特性</h3>
+<p><strong>码间串扰（ISI）</strong>：由于系统传输总特性（包括收、发滤波器和信道的特性）不理想，导致前后码元的波形畸变、占款，并使前面波形出现很长的拖尾，蔓延到当前码元的抽样时刻上，从而对当前码元的判决造成干扰。
+<img src="image-116.png" alt="无码间串扰传输特性1" /> <img
+src="image-117.png" alt="无码间串扰传输特性2" /> <img
+src="image-118.png" alt="无码间串扰传输特性3" /></p>
+<h3 id="常考结论-18">常考结论</h3>
+<p>滚降系数<span class="math inline">\(\alpha\)</span>越大，<span
+class="math inline">\(h(t)\)</span>拖尾衰减越快</p>
+<h2 id="四无码间串扰的基带传输特性">四、无码间串扰的基带传输特性</h2>
+<p>消除码间串扰的基本思想<span class="math inline">\(\Sigma_{n\neq
+k}a_nh[(k-n)T_B+t_0]=0\)</span></p>
+<h3 id="无码间串扰的条件">1、无码间串扰的条件</h3>
+<ul>
+<li>无码间串扰的<strong>时域条件</strong>：</li>
+</ul>
+<p><span class="math display">\[
+h(kT_B)=
+\begin{cases}
+1\quad k=0 \\
+0 \quad k为其他整数
+\end{cases}
+\]</span></p>
+<ul>
+<li>无码间串扰的<strong>频域条件</strong>：</li>
+</ul>
+<p><span class="math inline">\(\sum_i H(w+2\pi R_Bi)=C\)</span>
+物理意义：将<span class="math inline">\(H(\omega)\)</span>在<span
+class="math inline">\(\omega\)</span>轴上以<span
+class="math inline">\(2\pi/T_B\)</span>为间隔期望开，然后分段沿<span
+class="math inline">\(\omega\)</span>轴平移到<span
+class="math inline">\((-\pi/T_B,\pi/T_B)\)</span>区间内，将它们进行叠加，其结果为一常数，等效为一个理想低通滤波器。</p>
+<h2 id="五基带传输系统的抗噪声性能">五、基带传输系统的抗噪声性能</h2>
+<h3 id="二进制双极性基带系统">1、二进制双极性基带系统</h3>
+<figure>
+<img src="image-5.png" alt="二进制双极性基带系统" />
+<figcaption aria-hidden="true">二进制双极性基带系统</figcaption>
+</figure>
+<h3 id="常考结论-19">常考结论</h3>
+<figure>
+<img src="image-6.png" alt="二进制双极性基带系统结论" />
+<figcaption aria-hidden="true">二进制双极性基带系统结论</figcaption>
+</figure>
+<h3 id="二进制单极性基带系统">2、二进制单极性基带系统</h3>
+<figure>
+<img src="image-7.png" alt="二进制单极性基带系统" />
+<figcaption aria-hidden="true">二进制单极性基带系统</figcaption>
+</figure>
+<h3 id="常考结论-20">常考结论</h3>
+<figure>
+<img src="image-8.png" alt="二进制单极性基带系统结论" />
+<figcaption aria-hidden="true">二进制单极性基带系统结论</figcaption>
+</figure>
+<h2 id="六眼图">六、眼图</h2>
+<ul>
+<li>定义：是指通过用示波器观察接收端的基带信号波形，从而估计和调整系统性能的一种方法。</li>
+<li>结论：眼图的眼睛张开的越大，且眼图越端正，表示码间串扰越小</li>
+</ul>
+<h3 id="常考结论-21">常考结论</h3>
+<figure>
+<img src="image-11.png" alt="眼图常考结论" />
+<figcaption aria-hidden="true">眼图常考结论</figcaption>
+</figure>
+<h2 id="七部分相应和时域均衡">七、部分相应和时域均衡</h2>
+<p><img src="image-12.png" alt="奈奎斯特准则示意图" />
+<strong>奈奎斯特第一准则：</strong>
+抽样点无失真准则，或无码间串扰（ISI-Free）准则。即如果信号经传输后整个波形发生了变化，但只要其特定点的抽样值保持不变，那么用再次抽样的方法仍然可以准确无误地恢复原始信码。该准则规定，理想低通信道的带宽为<span
+class="math inline">\(f_N\)</span>时，系统无码间干扰的最高传输速率为<span
+class="math inline">\(2f_N\)</span>。</p>
+<p><strong>奈奎斯特第二准则：</strong>
+转换点无失真准则，或无抖动（Jitter-Free）准则。有控制地在某些码元的抽样时刻引入码间干扰，而在其余码元的抽样时刻无码间干扰，就能使频带利用率达到理论上的最大值，同时又可降低对定时精度的要求。</p>
+<h3 id="部分响应">1、部分响应</h3>
+<ol type="1">
+<li>第一类部分响应<img src="image-14.png" alt="第一类部分响应1" /><img
+src="image-19.png" alt="第一类部分响应2" /><img src="image-15.png"
+alt="第一类部分响应3" />2.第四类部分相应<img src="image-20.png"
+alt="第四类部分响应1" /><img src="image-16.png"
+alt="第四类部分响应2" /><img src="image-17.png"
+alt="第四类部分响应3" /></li>
+</ol>
+<h3 id="时域均衡">2、时域均衡</h3>
+<p><img src="image-21.png" alt="时域均衡1" /> <img src="image-22.png"
+alt="时域均衡2" /></p>
+<h1 id="第七章-数字带通传输系统">第七章 数字带通传输系统</h1>
+<figure>
+<img src="image-23.png" alt="数字带通传输系统概述" />
+<figcaption aria-hidden="true">数字带通传输系统概述</figcaption>
+</figure>
+<h2 id="一二进制振幅键控">一、二进制振幅键控</h2>
+<h3 id="二进制振幅键控调制">1、二进制振幅键控调制</h3>
+<h3
+id="二进制振幅键控信号的产生方法">2、二进制振幅键控信号的产生方法</h3>
+<figure>
+<img src="image-25.png" alt="2ASK信号产生方法" />
+<figcaption aria-hidden="true">2ASK信号产生方法</figcaption>
+</figure>
+<h3
+id="二进制振幅键控信号的功率谱密度">3、二进制振幅键控信号的功率谱密度</h3>
+<p><img src="image-26.png" alt="2ASK功率谱密度1" /> <img
+src="image-27.png" alt="2ASK功率谱密度2" /></p>
+<h3 id="二进制振幅键控信号解调方法">4、二进制振幅键控信号解调方法</h3>
+<p><img src="image-28.png" alt="2ASK解调方法1" /> <img
+src="image-29.png" alt="2ASK解调方法2" /> <img src="image-30.png"
+alt="2ASK解调方法3" /></p>
+<h2 id="二二进制频移键控">二、二进制频移键控</h2>
+<h3 id="基本原理">1、基本原理</h3>
+<p><img src="image-119.png" alt="2FSK基本原理1" /> <img
+src="image-49.png" alt="2FSK基本原理2" /></p>
+<h3
+id="二进制频移键控信号的产生方法">2、二进制频移键控信号的产生方法</h3>
+<figure>
+<img src="image-50.png" alt="2FSK信号产生方法" />
+<figcaption aria-hidden="true">2FSK信号产生方法</figcaption>
+</figure>
+<h3 id="功率谱密度">3、功率谱密度</h3>
+<p><img src="image-51.png" alt="2FSK功率谱密度1" /> <img
+src="image-52.png" alt="2FSK功率谱密度2" /> <img src="image-53.png"
+alt="2FSK功率谱密度3" /></p>
+<h3 id="常考结论-22">常考结论</h3>
+<figure>
+<img src="image-54.png" alt="2FSK常考结论" />
+<figcaption aria-hidden="true">2FSK常考结论</figcaption>
+</figure>
+<h3
+id="二进制频移键控信号的解调方法">4、二进制频移键控信号的解调方法</h3>
+<p><img src="image-55.png" alt="2FSK解调方法1" /> <img
+src="image-56.png" alt="2FSK解调方法2" /> <img src="image-123.png"
+alt="2FSK解调方法3" /> <img src="image-57.png"
+alt="2FSK解调方法4" /></p>
+<h3 id="常考结论-23">常考结论</h3>
+<figure>
+<img src="image-58.png" alt="2FSK解调常考结论" />
+<figcaption aria-hidden="true">2FSK解调常考结论</figcaption>
+</figure>
+<h2 id="三二进制相移键控信号">三、二进制相移键控信号</h2>
+<h3 id="二进制相移键控">1、二进制相移键控</h3>
+<figure>
+<img src="image-59.png" alt="2PSK基本原理" />
+<figcaption aria-hidden="true">2PSK基本原理</figcaption>
+</figure>
+<h3 id="二进制相移键控信号的产生">2、二进制相移键控信号的产生</h3>
+<figure>
+<img src="image-60.png" alt="2PSK信号产生方法" />
+<figcaption aria-hidden="true">2PSK信号产生方法</figcaption>
+</figure>
+<h3 id="二进制相移键控的功率谱密度">3、二进制相移键控的功率谱密度</h3>
+<figure>
+<img src="image-61.png" alt="2PSK功率谱密度" />
+<figcaption aria-hidden="true">2PSK功率谱密度</figcaption>
+</figure>
+<h3 id="二进制相移键控的相干解调">4、二进制相移键控的相干解调</h3>
+<figure>
+<img src="image-62.png" alt="2PSK相干解调" />
+<figcaption aria-hidden="true">2PSK相干解调</figcaption>
+</figure>
+<h3 id="常考简答题-5">常考简答题</h3>
+<figure>
+<img src="image-63.png" alt="2PSK常考简答题" />
+<figcaption aria-hidden="true">2PSK常考简答题</figcaption>
+</figure>
+<h2 id="四二进制差分相移键控">四、二进制差分相移键控</h2>
+<h3 id="二进制差分相移键控原理">1、二进制差分相移键控原理</h3>
+<figure>
+<img src="image-125.png" alt="2DPSK原理" />
+<figcaption aria-hidden="true">2DPSK原理</figcaption>
+</figure>
+<h3
+id="二进制差分相移键控信号调制器原理">2、二进制差分相移键控信号调制器原理</h3>
+<figure>
+<img src="image-64.png" alt="2DPSK调制器原理" />
+<figcaption aria-hidden="true">2DPSK调制器原理</figcaption>
+</figure>
+<h3 id="功率谱密度-1">3、功率谱密度</h3>
+<figure>
+<img src="image-65.png" alt="2DPSK功率谱密度" />
+<figcaption aria-hidden="true">2DPSK功率谱密度</figcaption>
+</figure>
+<h3 id="二进制差分相移键控的解调">4.二进制差分相移键控的解调</h3>
+<p><img src="image-66.png" alt="2DPSK解调方法1" /> <img
+src="image-67.png" alt="2DPSK解调方法2" /></p>
+<h3 id="常考结论-24">常考结论</h3>
+<figure>
+<img src="image-68.png" alt="2DPSK常考结论" />
+<figcaption aria-hidden="true">2DPSK常考结论</figcaption>
+</figure>
+<h2 id="本章小结">本章小结</h2>
+<p><img src="image-69.png" alt="数字带通传输系统小结1" /> <img
+src="image-70.png" alt="数字带通传输系统小结2" /> <img
+src="image-71.png" alt="数字带通传输系统小结3" /></p>
+<h1 id="第十章-信源编码">第十章 信源编码</h1>
+<h2 id="一模拟信号的抽样">一、模拟信号的抽样</h2>
+<h3 id="低通模拟信号的抽样定理">1、低通模拟信号的抽样定理</h3>
+<figure>
+<img src="image-32.png" alt="低通模拟信号抽样定理" />
+<figcaption aria-hidden="true">低通模拟信号抽样定理</figcaption>
+</figure>
+<h3 id="带通模拟信号的抽样定理">2、带通模拟信号的抽样定理</h3>
+<figure>
+<img src="image-33.png" alt="带通模拟信号抽样定理" />
+<figcaption aria-hidden="true">带通模拟信号抽样定理</figcaption>
+</figure>
+<h2 id="二抽样信号的量化">二、抽样信号的量化</h2>
+<h3 id="量化原理">1、量化原理</h3>
+<p>将抽样值的范围划分成M个区间，每个区间用一个电平表示。共用M个离散电平，它们称为量化电平。用这M个量化电平表示连续抽样值的方法称为量化。</p>
+<h3 id="量化过程图">2、量化过程图</h3>
+<figure>
+<img src="image-126.png" alt="量化过程图" />
+<figcaption aria-hidden="true">量化过程图</figcaption>
+</figure>
+<h3 id="量化器">3、量化器</h3>
+<p>量化过程可以认为是在一个量化器内完成的。</p>
+<h3 id="均匀量化">4、均匀量化</h3>
+<p><img src="image-34.png" alt="均匀量化示意图1" /> <img
+src="image-35.png" alt="均匀量化示意图2" /></p>
+<h2 id="三模拟脉冲调制">三、模拟脉冲调制</h2>
+<p><img src="image-36.png" alt="模拟脉冲调制1" /> <img
+src="image-127.png" alt="模拟脉冲调制2" /></p>
+<h2 id="四脉冲编码调制pcm">四、脉冲编码调制（PCM）</h2>
+<p>将从模拟信号抽样、量化，直到变换为二进制的基本过程，称为脉冲编码调制（PCM）</p>
+<p><img src="image-128.png" alt="PCM脉冲编码调制1" /> <img
+src="image-130.png" alt="PCM脉冲编码调制2" /> <img src="image-37.png"
+alt="PCM脉冲编码调制3" /> <img src="image-38.png"
+alt="PCM脉冲编码调制4" /> <img src="image-39.png"
+alt="PCM脉冲编码调制5" /> <img src="image-40.png"
+alt="PCM脉冲编码调制6" /></p>
+<h2 id="五差分脉冲编码调制dpcm">五、差分脉冲编码调制（DPCM）</h2>
+<p><img src="image-41.png" alt="DPCM差分脉冲编码调制1" /> <img
+src="image-43.png" alt="DPCM差分脉冲编码调制2" /> <img
+src="image-131.png" alt="DPCM差分脉冲编码调制3" /> <img
+src="image-132.png" alt="DPCM差分脉冲编码调制4" /> <img
+src="image-45.png" alt="DPCM差分脉冲编码调制5" /> <img
+src="image-46.png" alt="DPCM差分脉冲编码调制6" /></p>
+<h2 id="六频分复用和时分复用">六、频分复用和时分复用</h2>
+<p><img src="image-133.png" alt="频分复用和时分复用1" /> <img
+src="image-134.png" alt="频分复用和时分复用2" /> <img src="image-47.png"
+alt="频分复用和时分复用3" /> <img src="image-135.png"
+alt="频分复用和时分复用4" /> <img src="image-136.png"
+alt="频分复用和时分复用5" /> <img src="image-48.png"
+alt="频分复用和时分复用6" /></p>
+<h2 id="七数字信号的最佳接收">七、数字信号的最佳接收</h2>
+<p><img src="image-137.png" alt="数字信号最佳接收1" /> <img
+src="image-138.png" alt="数字信号最佳接收2" /> <img src="image-139.png"
+alt="数字信号最佳接收3" /> <img src="image-140.png"
+alt="数字信号最佳接收4" /></p>
+<h1 id="第十三章-同步原理">第十三章 同步原理</h1>
+<p>数字通信系统中的同步种类：载波同步，码元同步，群同步和网同步。</p>
+<h2 id="载波同步">载波同步</h2>
+<p><img src="image-141.png" alt="载波同步1" /> <img src="image-142.png"
+alt="载波同步2" /> <img src="image-143.png" alt="载波同步3" /></p>
+<h2 id="码元同步">码元同步</h2>
+<p><img src="image-144.png" alt="码元同步1" /> <img src="image-145.png"
+alt="码元同步2" /> <img src="image-146.png" alt="码元同步3" /></p>
+<h2 id="群同步">群同步</h2>
+<p><img src="image-147.png" alt="群同步1" /> <img src="image-148.png"
+alt="群同步2" /> <img src="image-149.png" alt="群同步3" /></p>
+<h2 id="网同步">网同步</h2>
+<figure>
+<img src="image-150.png" alt="网同步" />
+<figcaption aria-hidden="true">网同步</figcaption>
+</figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/05/30/Principles%20of%20Communications/" data-id="cmpsk1y5q0000zokp507xc360" data-title="通信原理笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/05/17/WSN_Task2_Record/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">WSN任务2学习记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">学习笔记</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">May 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/05/30/Principles%20of%20Communications/">通信原理笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/17/WSN_Task2_Record/">WSN任务2学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/08/digital-circuit/">数字电路笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/05/analog-electronics/">模拟电子技术笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
