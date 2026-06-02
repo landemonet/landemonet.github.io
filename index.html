@@ -48,7 +48,7 @@
         }
       };
     </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
   
 <meta name="generator" content="Hexo 7.3.0"></head>
 
@@ -248,8 +248,9 @@ class="math inline">\(\tilde{x}[k]=-\tilde{x}[-k]=-\tilde{x}[N-k]\)</span>
 则 \quad\tilde{x}^*[k] \longleftrightarrow \tilde{X}^*[-m] \\[4pt]
 \quad\tilde{x}^*[-k] \longleftrightarrow \tilde{X}^*[m]
 \]</span> 若<span class="math inline">\(\tilde{x}^*[k]\)</span>为实序列(
-<span class="math inline">\(\tilde{x}^*[k]=\tilde{x}[k]\)</span>)，则有$
-[m]=^*[-m]$</p></li>
+<span
+class="math inline">\(\tilde{x}^*[k]=\tilde{x}[k]\)</span>)，则有<span
+class="math inline">\(\tilde{X}[m]=\tilde{X}^*[-m]\)</span></p></li>
 <li><p>周期卷积 <span class="math display">\[\begin{aligned}
 &amp;\tilde{x}_1[k]*\tilde{x}_2[k] \xleftrightarrow{DFS}
 \tilde{X}_1[m]\cdot\tilde{X}_2[m] \\
@@ -267,10 +268,10 @@ class="math inline">\(x[k]\)</span></strong></p>
 </blockquote>
 <p><strong>IDTFT：</strong><span class="math inline">\(x[k] =
 \frac{1}{2\pi}\int_{\langle 2\pi\rangle}X(e^{j\Omega})\cdot e^{j\Omega
-k}d\Omega\)</span> <strong>DTFT：</strong>$
-X(e<sup>{j})=_{k=-}</sup>{+}x[k]e^{-jk}$ <span
-class="math inline">\(X(e^{j\Omega})\)</span>特点： （1）<span
-class="math inline">\(X(e^{j\Omega})\)</span>是<span
+k}d\Omega\)</span> <strong>DTFT：</strong><span
+class="math inline">\(X(e^{j\Omega})=\sum_{k=-\infty}^{+\infty}x[k]e^{-j\Omega
+k}\)</span> <span class="math inline">\(X(e^{j\Omega})\)</span>特点：
+（1）<span class="math inline">\(X(e^{j\Omega})\)</span>是<span
 class="math inline">\(\Omega\)</span>的连续函数 （2）<span
 class="math inline">\(X(e^{j\Omega})\)</span>是周期为<span
 class="math inline">\(2\pi\)</span>的周期函数</p>
