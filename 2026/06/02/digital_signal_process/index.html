@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>数字信号处理笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="第1章 离散信号与系统分析 1.1 离散时间信号 1.1.1 基本离散信号  单位脉冲序列  \[\delta[k]&#x3D;\begin{cases} 1 &amp; k&#x3D;0 \\ 0 &amp; k \neq 0 \end{cases}\] \[\delta[k-n]&#x3D;\begin{cases} 1 &amp; k&#x3D;n \\ 0 &amp; k \neq n \end{cases}\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字信号处理笔记">
+<meta property="og:url" content="http://example.com/2026/06/02/digital_signal_process/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第1章 离散信号与系统分析 1.1 离散时间信号 1.1.1 基本离散信号  单位脉冲序列  \[\delta[k]&#x3D;\begin{cases} 1 &amp; k&#x3D;0 \\ 0 &amp; k \neq 0 \end{cases}\] \[\delta[k-n]&#x3D;\begin{cases} 1 &amp; k&#x3D;n \\ 0 &amp; k \neq n \end{cases}\">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-1.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-3.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-6.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-7.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-8.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-9.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-10.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-11.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-12.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-14.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-15.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-17.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-18.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-19.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-21.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-22.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-23.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-25.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-26.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-28.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-30.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-31.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-32.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-33.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-36.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-37.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-38.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-39.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-41.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-42.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-43.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-44.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-45.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-47.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-48.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-49.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-50.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-51.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-52.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-53.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-54.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-55.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-56.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-58.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-59.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-60.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-61.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-62.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-64.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-65.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-67.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-68.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-69.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-70.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-71.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-72.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-73.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-75.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-78.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-79.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-83.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-84.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-85.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-86.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-87.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-88.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-89.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-92.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-93.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-94.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-95.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-97.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-98.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-100.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-101.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-102.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-104.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-106.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-107.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-109.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-110.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-111.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-113.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-114.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-115.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-116.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-117.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-118.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-120.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-121.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-124.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-125.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-126.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-127.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-128.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-129.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-132.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-133.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-134.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-136.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-137.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-138.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-140.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-141.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-142.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-145.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-143.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-144.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-147.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-148.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-150.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-153.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-154.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-155.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-156.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-157.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-158.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-159.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-160.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-161.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-162.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-163.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-164.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-165.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-166.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-167.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-168.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-169.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-170.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-173.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-172.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-175.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-176.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-177.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-178.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-180.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-181.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-183.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-184.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-185.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-186.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-187.png">
+<meta property="og:image" content="http://example.com/2026/06/02/digital_signal_process/image-188.png">
+<meta property="article:published_time" content="2026-06-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-02T12:02:26.754Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2026/06/02/digital_signal_process/image-1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+  
+  
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-digital_signal_process" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/06/02/digital_signal_process/" class="article-date">
+  <time class="dt-published" datetime="2026-06-01T16:00:00.000Z" itemprop="datePublished">2026-06-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      数字信号处理笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="第1章-离散信号与系统分析">第1章 离散信号与系统分析</h2>
+<h3 id="离散时间信号">1.1 离散时间信号</h3>
+<h4 id="基本离散信号">1.1.1 基本离散信号</h4>
+<ul>
+<li>单位脉冲序列</li>
+</ul>
+<p><span class="math display">\[\delta[k]=\begin{cases} 1 &amp; k=0 \\ 0
+&amp; k \neq 0 \end{cases}\]</span></p>
+<p><span class="math display">\[\delta[k-n]=\begin{cases} 1 &amp; k=n \\
+0 &amp; k \neq n \end{cases}\]</span></p>
+<ul>
+<li>单位阶跃序列</li>
+</ul>
+<p><span class="math display">\[u[k]=\begin{cases} 1, &amp; k \ge 0 \\
+0, &amp; k &lt; 0 \end{cases}\]</span></p>
+<p><span class="math display">\[u[k-n]=\begin{cases} 1, &amp; k \ge n \\
+0, &amp; k &lt; n \end{cases}\]</span></p>
+<ul>
+<li>矩形序列</li>
+</ul>
+<p><span class="math display">\[R_N[k]=\begin{cases} 1 &amp; 0 \le k \le
+N-1 \\ 0 &amp; \text{其他} \end{cases}\]</span></p>
+<p><strong>实指数序列</strong>：<span class="math inline">\(x[k]=a^k,
+\quad k \in \mathbb{Z}\)</span></p>
+<p><strong>有界序列定义</strong>:若 <span class="math inline">\(k \in
+\mathbb{Z}\)</span>，存在 <span class="math inline">\(|x[k]| &lt;
+M_x\)</span> （<span class="math inline">\(M_x\)</span> 是与 <span
+class="math inline">\(k\)</span> 无关的常数）</p>
+<p><strong>虚指数序列</strong>：<span
+class="math inline">\(x[k]=e^{j\Omega_0 k}\)</span></p>
+<p><strong>正弦序列</strong>：<span
+class="math inline">\(x[k]=A\cos(\Omega_0 k+\phi)\)</span></p>
+<p><strong>离散序列与连续信号关系：</strong> <span
+class="math inline">\(e^{j\Omega_0 k}\)</span> 可由 <span
+class="math inline">\(e^{j\omega t}\)</span> 抽样得到：<span
+class="math inline">\(e^{j\Omega_0 k}=e^{j\omega t}\big|_{t=kT}, \quad
+\Omega_0=\omega T\)</span></p>
+<p>若 <span class="math inline">\(e^{j\Omega_0 N}=1\)</span>，则 <span
+class="math inline">\(e^{j\Omega_0(k+N)}=e^{j\Omega_0 k}\)</span></p>
+<p>即 <span class="math inline">\(\Omega_0 N=2\pi M\)</span>，<span
+class="math inline">\(M\)</span> 为整数，信号为周期信号</p>
+<p>如果 <span
+class="math inline">\(\Omega_0/2\pi=M/N\)</span>，该离散信号为周期序列；</p>
+<p>当 <span class="math inline">\(N,M\)</span>
+是不可约的整数，信号的周期为 <span class="math inline">\(N\)</span>，而
+<span class="math inline">\(M\)</span> 表示离散序列一个周期 <span
+class="math inline">\(N\)</span>
+内包含<strong>原连续周期信号的周期数</strong>。</p>
+<h4 id="序列基本运算">1.1.2序列基本运算</h4>
+<p><strong>翻转</strong>：<span class="math inline">\(x[k]
+\longrightarrow x[-k]\)</span></p>
+<p><strong>位移</strong>：<span class="math inline">\(x[k]
+\longrightarrow x[k \pm n]\)</span></p>
+<p><strong>抽取</strong>：<span class="math inline">\(x[k]
+\longrightarrow x[Mk]\)</span>　<span class="math inline">\(M\)</span>
+为正整数，在原序列中每 <span class="math inline">\(M\)</span> 个点（间隔
+<span class="math inline">\(M-1\)</span> 个点）抽取一点</p>
+<p><strong>内插</strong>：<span class="math inline">\(y[k]=\begin{cases}
+x[k/L] &amp; k \text{ 是 } L \text{ 的整数倍} \\ 0 &amp; \text{其他}
+\end{cases}\)</span>，在原序列各点之间插入 <span
+class="math inline">\(L-1\)</span> 个点。</p>
+<p><strong>卷积</strong>：<span
+class="math inline">\(y[k]=x[k]*h[k]=\sum_{n=-\infty}^{\infty}x[n]\cdot
+h[k-n]\)</span></p>
+<p><strong>互相关</strong>：<span
+class="math inline">\(R_{xy}[n]=\sum_{k=-\infty}^{\infty}x[k]y[k+n]=x[-n]*y[n]\)</span></p>
+<p><span class="math inline">\(R_{xy}[n]=R_{yx}[-n]\)</span></p>
+<p><strong>自相关</strong>：<span
+class="math inline">\(R_x[n]=\sum_{k=-\infty}^{\infty}x[k]x[n+k]=x[-n]*x[n]\)</span></p>
+<p><span class="math inline">\(R_x[n]=R_x[-n]\)</span></p>
+<p><span class="math inline">\(R_x[0] \ge |R_x[n]|\)</span></p>
+<h3 id="离散系统的时域分析">1.2 离散系统的时域分析</h3>
+<h4 id="离散系统的定义及分类">1.2.1 离散系统的定义及分类</h4>
+<p><strong>线性系统</strong>：<span
+class="math inline">\(T\{ax_1[k]+bx_2[k]\}=ay_1[k]+by_2[k]\)</span></p>
+<p><strong>非时变系统</strong>：<span class="math inline">\(x[k-n]
+\longrightarrow y[k-n]\)</span></p>
+<p><strong>因果系统</strong>：系统的输出响应不超前于系统的输入信号 <img
+src="image.png" alt="alt text" /></p>
+<p><strong>稳定系统：</strong>
+系统对任意有界的输入其输出也有界（BIBO）。</p>
+<h4 id="离散lti系统的时域描述">1.2.2 离散LTI系统的时域描述</h4>
+<p><strong>线性常系数差分方程：</strong> <span
+class="math display">\[\begin{aligned}
+&amp;a_0 y[k] + a_1 y[k-1] + \cdots + a_{N-1} y[k-N+1] + a_N y[k-N] \\
+&amp;= b_0 x[k] + b_1 x[k-1] + \cdots + b_{M-1} x[k-M+1] + b_M x[k-M]
+\end{aligned}\]</span></p>
+<p>即 <span class="math inline">\(\displaystyle \sum_{i=0}^N a_i y[k-i]
+= \sum_{j=0}^M b_j x[k-j]\)</span></p>
+<p><strong>时域描述：</strong> <span class="math display">\[x[k]
+\longrightarrow \boxed{\text{离散LTI系统}} \longrightarrow h[k] =
+T\{x[k]\}\]</span></p>
+<p><strong>离散LTI系统是因果系统充要条件：</strong> <span
+class="math inline">\(h[k]=0,\ k&lt;0\)</span></p>
+<p><strong>离散LTI系统是稳定系统充要条件：</strong> <span
+class="math inline">\(\displaystyle \sum_{k=-\infty}^{\infty}|h[k]| = S
+&lt; \infty\)</span></p>
+<h3 id="离散信号的频域分析">1.3 离散信号的频域分析</h3>
+<h4 id="离散周期信号的频域分析">1.3.1 离散周期信号的频域分析</h4>
+<blockquote>
+<p><strong>周期为N的任意周期序列<span
+class="math inline">\(\tilde{x}[k]\)</span>可用N个虚指数序列表示</strong></p>
+</blockquote>
+<p><strong>IDFS：</strong> <span class="math inline">\(\displaystyle
+\tilde{x}[k] = \frac{1}{N}\sum_{m=0}^{N-1}\tilde{X}[m]e^{jm\Omega_0
+k},\quad \Omega_0=\frac{2\pi}{N}\)</span></p>
+<p><strong>DFS：</strong> <span class="math inline">\(\displaystyle
+\tilde{X}[m] = \sum_{k=0}^{N-1}\tilde{x}[k]e^{-jm\Omega_0 k}\)</span>
+<span class="math inline">\(\tilde{X}[m]\)</span>称为离散周期信号<span
+class="math inline">\(\tilde{x}[k]\)</span>的频谱。 1. <span
+class="math inline">\(\tilde{X}[m]\)</span>是离散谱 2. <span
+class="math inline">\(\tilde{X}[m]\)</span>是周期为N的周期序列</p>
+<p><img src="image-1.png" alt="alt text" /> <img src="image-3.png"
+alt="alt text" /></p>
+<h4 id="离散周期信号dfs的性质">1.3.2 离散周期信号DFS的性质</h4>
+<ul>
+<li><p>线性特性 <span class="math display">\[\begin{aligned}
+&amp;\tilde{x}_1[k] \xleftrightarrow{DFS} \tilde{X}_1[m] \\
+&amp;\tilde{x}_2[k] \xleftrightarrow{DFS} \tilde{X}_2[m]
+\end{aligned}\]</span> 则 <span
+class="math inline">\(a\tilde{x}_1[k]+b\tilde{x}_2[k]=a\tilde{X}_1[m]+b\tilde{X}_2[m]\)</span></p></li>
+<li><p>位移特性 <span class="math display">\[\begin{aligned}
+&amp;\tilde{x}[k-n] \xleftrightarrow{DFS}
+\tilde{X}[m]e^{-j\frac{2\pi}{N}mn} \\
+&amp;\tilde{x}[k]e^{j\Omega_0 lk} \xleftrightarrow{DFS} \tilde{X}[m+l]
+\end{aligned}\]</span> 序列在时域的位移，对应其频域的相移
+序列在时域的相移，对应其频域的位移</p></li>
+<li><p>对称特性 周期序列的偶对称：<span
+class="math inline">\(\tilde{x}[k]=\tilde{x}[-k]=\tilde{x}[N-k]\)</span>
+周期序列的奇对称：<span
+class="math inline">\(\tilde{x}[k]=-\tilde{x}[-k]=-\tilde{x}[N-k]\)</span>
+<span class="math display">\[
+若 \quad \tilde{x}[k] \xleftrightarrow{DFS} \tilde{X}[m]　\\[4pt]
+则 \quad\tilde{x}^*[k] \longleftrightarrow \tilde{X}^*[-m] \\[4pt]
+\quad\tilde{x}^*[-k] \longleftrightarrow \tilde{X}^*[m]
+\]</span> 若<span class="math inline">\(\tilde{x}^*[k]\)</span>为实序列(
+<span class="math inline">\(\tilde{x}^*[k]=\tilde{x}[k]\)</span>)，则有$
+[m]=^*[-m]$</p></li>
+<li><p>周期卷积 <span class="math display">\[\begin{aligned}
+&amp;\tilde{x}_1[k]*\tilde{x}_2[k] \xleftrightarrow{DFS}
+\tilde{X}_1[m]\cdot\tilde{X}_2[m] \\
+&amp;\tilde{x}_1[k]\cdot\tilde{x}_2[k] \xleftrightarrow{DFS}
+\frac{1}{N}\tilde{X}_1[m]*\tilde{X}_2[m]
+\end{aligned}\]</span></p></li>
+</ul>
+<p><span class="math display">\[\tilde{x}_1[k]*\tilde{x}_2[k] =
+\sum_{n=0}^{N-1}\tilde{x}_1[n]\tilde{x}_2[k-n] \quad
+\text{两个等周期序列的周期卷积，结果仍为相同周期的周期序列}\]</span></p>
+<h4 id="离散非周期信号的频域分析">1.3.3 离散非周期信号的频域分析</h4>
+<blockquote>
+<p><strong>满足一定收敛条件的非周期序列<span
+class="math inline">\(x[k]\)</span></strong></p>
+</blockquote>
+<p><strong>IDTFT：</strong><span class="math inline">\(x[k] =
+\frac{1}{2\pi}\int_{\langle 2\pi\rangle}X(e^{j\Omega})\cdot e^{j\Omega
+k}d\Omega\)</span> <strong>DTFT：</strong>$
+X(e<sup>{j})=_{k=-}</sup>{+}x[k]e^{-jk}$ <span
+class="math inline">\(X(e^{j\Omega})\)</span>特点： （1）<span
+class="math inline">\(X(e^{j\Omega})\)</span>是<span
+class="math inline">\(\Omega\)</span>的连续函数 （2）<span
+class="math inline">\(X(e^{j\Omega})\)</span>是周期为<span
+class="math inline">\(2\pi\)</span>的周期函数</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">时域</th>
+<th style="text-align: center;">频域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">连续 周期信号表示</td>
+<td style="text-align: center;">离散 非周期变换</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(\tilde{x}(t)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(X(n\omega_0)=\frac{1}{T}\int_0^T
+\tilde{x}(t)e^{-jn\omega_0 t}dt\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">连续 非周期表示</td>
+<td style="text-align: center;">连续 非周期变换</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(x(t)\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(X(j\omega)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">离散 周期表示</td>
+<td style="text-align: center;">离散 周期变换</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(\tilde{x}[k]\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\tilde{X}[m]\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">离散 非周期</td>
+<td style="text-align: center;">连续 周期</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(x[k]\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(X(e^{j\Omega})\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>线性特性：</li>
+</ul>
+<p><span class="math display">\[x_1[k] \xleftrightarrow{\text{DTFT}}
+X_1(e^{j\Omega})\]</span></p>
+<p><span class="math display">\[x_2[k] \xleftrightarrow{\text{DTFT}}
+X_2(e^{j\Omega})\]</span> 则 <span class="math inline">\(ax_1[k]
++bx_2[k]=aX_1(e^{j\Omega})+bX_2(e^{j\Omega})\)</span></p>
+<ul>
+<li>对称特性：</li>
+</ul>
+<p><span class="math display">\[x^*[k] \xleftrightarrow{\text{DTFT}}
+X^*(e^{-j\Omega})\]</span></p>
+<p><span class="math display">\[x^*[-k] \xleftrightarrow{\text{DTFT}}
+X^*(e^{j\Omega})\]</span></p>
+<p>当 <span class="math inline">\(x[k]\)</span> 是实序列时:<span
+class="math inline">\(X(e^{j\Omega})=X^*(e^{-j\Omega})\)</span></p>
+<ul>
+<li>位移特性：</li>
+</ul>
+<p><span class="math display">\[x[k-n] \xleftrightarrow{\text{DTFT}}
+e^{-j\Omega n}X(e^{j\Omega})\]</span></p>
+<p><span class="math display">\[e^{j\Omega_0 k}x[k]
+\xleftrightarrow{\text{DTFT}} X(e^{j(\Omega-\Omega_0)})\]</span></p>
+<ol start="4" type="1">
+<li>卷积特性：</li>
+</ol>
+<p><span class="math display">\[x[k]*h[k] \xleftrightarrow{\text{DTFT}}
+X(e^{j\Omega})H(e^{j\Omega})\]</span></p>
+<p><span class="math display">\[x[k]\cdot h[k]
+\xleftrightarrow{\text{DTFT}}
+\frac{1}{2\pi}\int_{-\pi}^{\pi}X(e^{j\theta})H(e^{j(\Omega-\theta)})d\theta\]</span></p>
+<ol start="5" type="1">
+<li>Parseval’s law:</li>
+</ol>
+<p><span class="math display">\[\sum_{k=-\infty}^{\infty}|x[k]|^2 =
+\frac{1}{2\pi}\int_{-\pi}^{\pi}|X(e^{j\Omega})|^2 d\Omega\]</span></p>
+<h4 id="频域抽样定理">1.3.4 频域抽样定理</h4>
+<p>离散非周期序列<span class="math inline">\(x[k]\)</span>的频谱 <span
+class="math inline">\(X(e^{j\Omega})\)</span>特点： （1）<span
+class="math inline">\(X(e^{j\Omega})\)</span>是<span
+class="math inline">\(\Omega\)</span>的连续函数 （2）<span
+class="math inline">\(X(e^{j\Omega})\)</span>是周期为<span
+class="math inline">\(2\pi\)</span>的周期函数
+为了能够利用数值方法计算频谱<span
+class="math inline">\(X(e^{j\Omega})\)</span>，需对<span
+class="math inline">\(X(e^{j\Omega})\)</span>
+进行频域抽样，得到其对应的离散谱。 <img src="image-6.png"
+alt="alt text" /> <img src="image-7.png" alt="alt text" />
+<strong>频域抽样定理：</strong> 若<span
+class="math inline">\(\tilde{X}[m]\)</span>表示<span
+class="math inline">\(X(e^{j\Omega})\)</span>在等间隔(<span
+class="math inline">\(\Omega=2\pi/N\)</span>)抽样点上的周期序列： <span
+class="math display">\[
+\tilde{X}[m]=X(e^{j\Omega})\big|_{\Omega=2\pi n/M} \quad m=0,1,2,...\\
+则\tilde{x}[k]=IDFS{\tilde{X}[m]}=\sum_{l=-\infty}^{\infty}x[k+lN]
+\]</span> 序列<span class="math inline">\(x[k]\)</span>的频谱<span
+class="math inline">\(X(e^{j\Omega})\)</span>的离散化，对应其时域序列<span
+class="math inline">\(x[k]\)</span>的周期化。 对<span
+class="math inline">\(X(e^{j\Omega})\)</span>在一个周期内进行N点抽样得,求IDFS{<span
+class="math inline">\(\tilde{X}[m]\)</span>}。 <img src="image-8.png"
+alt="alt text" /> <img src="image-9.png" alt="alt text" /> 当序列长度L≤N
+时，周期化序列包含原序列的数值， 当序列长度L&gt;N
+时，周期化过程中将出现混叠现象。</p>
+<h3 id="离散系统的频域分析">1.4 离散系统的频域分析</h3>
+<h4 id="离散lti系统的频域描述">1.4.1 离散LTI系统的频域描述</h4>
+<p><img src="image-10.png" alt="alt text" /> #### 1.4.2
+离散LTI系统响应的频域分析 <img src="image-11.png" alt="alt text" /> ####
+1.4.3 理想数字滤波器 <img src="image-12.png" alt="alt text" /> <img
+src="image-13.png" alt="alt text" /> <img src="image-14.png"
+alt="alt text" /> <img src="image-15.png" alt="alt text" /> <img
+src="image-16.png" alt="alt text" /> <img src="image-17.png"
+alt="alt text" /></p>
+<h3 id="离散信号的复频域分析">1.5 离散信号的复频域分析</h3>
+<h4 id="双边z变换及其收敛域">1.5.1 双边z变换及其收敛域</h4>
+<p><span class="math display">\[\displaystyle
+X(z)=\sum_{k=0}^{\infty}x[k]z^{-k}
+\]</span> - 单边z变换的局限性： (1)只能描述因果系统；<br />
+(2)只能分析单边序列。</p>
+<p>正变换：<span class="math inline">\(\displaystyle
+X(z)=\sum_{k=-\infty}^{\infty}x[k]z^{-k}\)</span></p>
+<p>负变换：<span class="math inline">\(\displaystyle x[k]=\frac{1}{2\pi
+j}\oint_c X(z)z^{k-1}dz\)</span></p>
+<p>能够使上式收敛的z值区域称为z变换的收敛域， 简称为ROC(Region Of
+Convergence)。</p>
+<p>(1)有限长序列：<span class="math inline">\(\displaystyle
+X(z)=\sum_{k=N_1}^{N_2}x[k]z^{-k}\)</span>　　ROC: <span
+class="math inline">\(0&lt;|z|&lt;+\infty\)</span></p>
+<p>(2)右边序列：<span class="math inline">\(\displaystyle
+X(z)=\sum_{k=N_1}^{\infty}x[k]z^{-k}\)</span>　　ROC: <span
+class="math inline">\(|z|&gt;|a|\)</span></p>
+<p>(3)左边序列：<span class="math inline">\(\displaystyle
+X(z)=\sum_{k=-\infty}^{N_2}x[k]z^{-k}\)</span>　　ROC: <span
+class="math inline">\(0&lt;|z|&lt;R^+\)</span></p>
+<p>(4)双边序列：<span class="math inline">\(a^k u[k]-b^k
+u[-k-1]\)</span>　　<span
+class="math inline">\(|a|&lt;|z|&lt;|b|\)</span></p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>性质</th>
+<th>序列</th>
+<th>z变换</th>
+<th>ROC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>线性特性</td>
+<td><span class="math inline">\(a x[k]+b y[k]\)</span></td>
+<td><span class="math inline">\(aX(z)+bY(z)\)</span></td>
+<td><span class="math inline">\(R_X\cap R_Y\)</span></td>
+</tr>
+<tr>
+<td>共轭特性</td>
+<td><span class="math inline">\(x^{*}[k]\)</span></td>
+<td><span class="math inline">\(X^{*}\!(z^{*})\)</span></td>
+<td><span class="math inline">\(\{z:\ z^{*}\in R_X\}\)</span></td>
+</tr>
+<tr>
+<td>翻转特性</td>
+<td><span class="math inline">\(x[-k]\)</span></td>
+<td><span class="math inline">\(X(1/z)\)</span></td>
+<td><span
+class="math inline">\(1/R_{x,+}&lt;z&lt;1/R_{x,-}\)</span></td>
+</tr>
+<tr>
+<td>位移特性</td>
+<td><span class="math inline">\(x[k-n]\)</span></td>
+<td><span class="math inline">\(z^{-n}X(z)\)</span></td>
+<td><span class="math inline">\(R_X\)</span>（除非因移位导致 <span
+class="math inline">\(z=0\)</span> 或 <span
+class="math inline">\(z=\infty\)</span> 的包含/排除变化）</td>
+</tr>
+<tr>
+<td>卷积特性</td>
+<td><span class="math inline">\(x[k]*y[k]\)</span></td>
+<td><span class="math inline">\(X(z)Y(z)\)</span></td>
+<td>至少为 <span class="math inline">\(R_X\cap R_Y\)</span></td>
+</tr>
+<tr>
+<td>指数加权</td>
+<td><span class="math inline">\(a^{k}x[k]\)</span></td>
+<td><span class="math inline">\(X(z/a)\)</span></td>
+<td><span class="math inline">\(aR_x\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="双边z反变换的计算">1.5.3 双边z反变换的计算</h4>
+<p><img src="image-18.png" alt="alt text" /> ### 1.6
+离散系统的复频域分析 <img src="image-19.png" alt="alt text" /> <img
+src="image-20.png" alt="alt text" /> <img src="image-21.png"
+alt="alt text" /> <img src="image-22.png" alt="alt text" /> <img
+src="image-24.png" alt="alt text" /> <img src="image-23.png"
+alt="alt text" /></p>
+<p>若系统函数H(z)的收敛域包含z平面单位圆，则系统稳定。
+特例：对于<strong>因果系统</strong>，若H(z)的极点都在单位圆内，则系统稳定。</p>
+<h3 id="全通滤波器和最小相位系统">1.7 全通滤波器和最小相位系统</h3>
+<h4 id="全通滤波器">1.7.1 全通滤波器</h4>
+<p><span class="math display">\[
+A_m(z)=\frac{d_m+d_{m-1}z^{-1}+...+z^{-m}}{1+d_1z^{-1}+...+d_mz^{-m}}
+\]</span></p>
+<p><span class="math display">\[|A_m(e^{j\Omega})|=1\]</span></p>
+<p>一阶复系数全通数字滤波器：<span class="math inline">\(\displaystyle
+A_1(z)=\frac{z^{-1}-d^*}{1-dz^{-1}}\)</span>　　<span
+class="math inline">\(|d|&lt;1\)</span>　　<span
+class="math inline">\(d=re^{j\theta}\)</span></p>
+<ol type="a">
+<li>幅度响应 <img src="image-25.png" alt="alt text" /></li>
+<li>相位响应 <img src="image-26.png" alt="alt text" /> <img
+src="image-27.png" alt="alt text" /></li>
+<li>一阶全通滤波器的极点和零点: 零点：<span
+class="math inline">\(P_1=d=re^{j\theta}\)</span> 极点：<span
+class="math inline">\(Z_1=1/d^*=(1/r)e^{j\theta}\)</span>
+零点与极点存在共轭倒数的关系：<span
+class="math inline">\(P_i=(1/z_i)^*\)</span></li>
+</ol>
+<p>m 阶实系数全通滤波器：<span class="math inline">\(\displaystyle
+A_m(z)=\frac{z^{-m}D_m(z^{-1})}{D_m(z)}\)</span></p>
+<p>(a)幅度响应:　<span
+class="math inline">\(A_m(z)A_m(z^{-1})=1\)</span>，<span
+class="math inline">\(|A_m(e^{j\Omega})|^2=1\)</span></p>
+<p>(b)m阶实系数全通滤波器的极点和零点: <img src="image-28.png"
+alt="alt text" /> (c)m阶实系数全通滤波器的相位响应 <img
+src="image-29.png" alt="alt text" /></p>
+<h4 id="最小相位系统">1.7.2 最小相位系统</h4>
+<p><strong>定义：</strong> 系统函数零、极点都在 z
+平面单位圆内的因果系统，记为 <span
+class="math inline">\(H_{min}(z)\)</span> <strong>性质：</strong>
+在具有相同幅频特性的同阶系统中，最小相位系统具有最大的相位，最小的延时。
+实系数因果稳定系统的H(z)都可表示为：<span
+class="math inline">\(H(z)=H_{min}(z)A_m(z)\)</span>
+因果系统分解为最小相位系统与全通系统 <img src="image-30.png"
+alt="alt text" /> <img src="image-31.png" alt="alt text" /> #### 1.7.3
+全通滤波器的应用 <img src="image-32.png" alt="alt text" /> #### 1.7.4
+最小相位系统的应用 <img src="image-33.png" alt="alt text" /> <img
+src="image-34.png" alt="alt text" /></p>
+<h3 id="信号时域抽样与信号重建">1.8 信号时域抽样与信号重建</h3>
+<p><strong>Nyquist抽样（采样）准则:</strong>
+抽样率至少应为信号最高频率的2倍。 #### 1.8.1 信号时域抽样理论分析 <img
+src="image-35.png" alt="alt text" /> <img src="image-36.png"
+alt="alt text" /></p>
+<p><span
+class="math display">\[（1）x_{sam}(t)=\delta_T(t)*x(t)\]</span> <span
+class="math display">\[\begin{aligned}
+x_{sam}(j\omega) &amp;= \frac{1}{2\pi}X(j\omega) *
+\omega_{sam}\sum_{n=-\infty}^{\infty}\delta(\omega-n\omega_{sam}) \\
+&amp;= \frac{1}{T}\sum_{n=-\infty}^{\infty} X[j(\omega-n\omega_{sam})]
+\\
+\end{aligned}\]</span></p>
+<p><span class="math display">\[W_{sam} = \frac{2\pi}{T}\]</span></p>
+<p><span class="math display">\[（2）x_{sam}(t) =
+\sum_{k=-\infty}^{\infty} x(kT)\delta(t-kT)\]</span> <span
+class="math display">\[\begin{aligned}
+x_{sam}(j\omega) &amp;= \sum_{k=-\infty}^{\infty}x(kT)e^{-jk\omega t}\\
+&amp;= \sum_{k=-\infty}^{\infty} x[k]e^{-jk\Omega}=X(e^{j\Omega}) \\
+\end{aligned}\]</span> <img src="image-37.png" alt="alt text" /> ####
+1.8.2 抽样信号的重建 <img src="image-38.png" alt="alt text" /> <span
+class="math display">\[x_{rec}(t) = \sum_{k=-\infty}^{\infty}
+x[k]\delta(t-kT)\]</span> <img src="image-39.png" alt="alt text" /> <img
+src="image-40.png" alt="alt text" /> <img src="image-41.png"
+alt="alt text" /> <span class="math display">\[
+\begin{aligned}
+&amp;T_{2}=T_{1}: \quad x_{\text {out }}(t)=x(t) \\
+&amp;T_{2}=2 T_{1}: \quad x_{\text {out }}(t)=x\left(\frac{t}{2}\right)
+\\
+&amp;T_{2}=T_{1} / 2: \quad x_{\text {out }}(t)=x(2 t)
+\end{aligned}
+\]</span></p>
+<hr />
+<h2 id="第二章-离散傅里叶变换">第二章 离散傅里叶变换</h2>
+<h3 id="有限序列的fourier分析">2.1 有限序列的fourier分析</h3>
+<p><img src="image-42.png" alt="alt text" /> <img src="image-43.png"
+alt="alt text" /></p>
+<p><span class="math display">\[
+\begin{array}{ll}
+\text{DFT} &amp; X[m]=\sum_{k=0}^{N-1} x[k] e^{-j \frac{2 \pi}{N} m k}
+\quad m=0,1,2 \cdots, N-1 \\
+\text{IDFT} &amp; x[k]=\frac{1}{N} \sum_{m=0}^{N-1} X[m] e^{j \frac{2
+\pi}{N} m k}, \quad k=0,1,2, \cdots N-1
+\end{array}
+\]</span></p>
+<h3 id="the-property-of-dft">2.2 the property of DFT</h3>
+<ul>
+<li><p>线性特性 <span class="math inline">\(\quad a x_{1}[k]+b x_{2}[k]
+\xleftarrow{\text { DFT }} a X_{1}[m]+b X_{2}[m]\)</span>
+若两个序列的长度不等，需将较短序列补零。</p></li>
+<li><p>循环位移特性 <span class="math display">\[
+\begin{aligned}
+&amp;x[k] \xrightarrow{\text { 循环位移 }} x[(k+m)_N] \\
+&amp;x[k] \xleftrightarrow{\text { DFT }} X[m]
+\end{aligned}
+\]</span> （1）时域循环位移特性 <span class="math display">\[
+x[(k+n)_N] \xleftrightarrow{\text { DFT }} W_{N}^{-m n} X[m]
+\]</span> （2）频域循环位移特性 <span class="math display">\[
+W_{N}^{m k} x[k] \xleftrightarrow{\mathrm{DFT}} X[(m+1)_{N}]
+\]</span></p></li>
+<li><p>共轭特性 周期共轭对称: <span class="math inline">\(\quad
+x[k]=x^{*}[(-k)_{N}]=x^{*}[(N-k)_{N}]\)</span> 周期共轭反对称: <span
+class="math inline">\(\quad
+x[k]=-x^{*}[(-k)_{N}]=-x^{*}[(N-k)_{N}]\)</span></p></li>
+</ul>
+<p>当序列 <span class="math inline">\(x[k]\)</span> 为实序列时 <span
+class="math display">\[
+\begin{array}{l}
+x[k]=x[(-k)_{N}]=x[(N-k)_{N}] \quad \text { 周期偶对称 } \\
+x[k]=-x[(-k)_{N}]=-x[(N-k)_{N}]\quad \text { 周期奇对称 }
+\end{array}
+\]</span></p>
+<p>若 <span class="math inline">\(x[k] \xleftarrow{\mathrm{DFT}}
+X[m]\)</span> <span class="math display">\[
+\begin{array}{l}
+x^{*}[k] \xleftarrow{\mathrm{DFT}} X^{*}[(-m)_{N}] \\
+x^{*}[(-k)_{N}] \xleftarrow{\mathrm{DFT}} X^{*}[m]
+\end{array}
+\]</span></p>
+<p>若 <span class="math inline">\(x[k]\)</span> 为实序列, 则有 <span
+class="math inline">\(X[m]=X^{*}[(-m)_{N}]=X^{*}[(N-m)_{N}]\)</span></p>
+<ul>
+<li>循环卷积定理 <img src="image-44.png" alt="alt text" /></li>
+</ul>
+<p><span class="math display">\[
+x_{1}[k] \circledast x_{2}[k] \xleftrightarrow{\mathrm{DFT}} X_{1}[m]
+X_{2}[m]\\
+x_{1}[k] x_{2}[k] \xleftrightarrow{\mathrm{DFT}} \frac{1}{N} X_{1}[m]
+\circledast X_{2}[m]
+\]</span> <img src="image-45.png" alt="alt text" /> ### 2.3
+利用DFT计算线性卷积 #### 2.3.1 由DFT计算线性卷积的步骤 <img
+src="image-46.png" alt="alt text" /> <img src="image-47.png"
+alt="alt text" /> ### 2.3.2 长序列和短序列的线性卷积
+直接利用DFT计算长序列与短序列的卷积，存在缺点： (1)
+信号要全部输入后才能进行计算，延迟太多； (2) 内存要求较大； (3)
+算法效率不高。</p>
+<ul>
+<li><p><strong>重叠相加法</strong> <img src="image-48.png"
+alt="alt text" /> <img src="image-49.png" alt="alt text" /></p></li>
+<li><p>eg <img src="image-50.png" alt="alt text" /></p></li>
+<li><p><strong>重叠保留法</strong> <img src="image-51.png"
+alt="alt text" /> <img src="image-52.png" alt="alt text" /></p></li>
+<li><p>eg <img src="image-53.png" alt="alt text" /></p></li>
+</ul>
+<h3 id="利用dft分析信号频谱">2.4 利用DFT分析信号频谱</h3>
+<h4 id="连续非周期信号频谱的dft分析">2.4.1
+连续非周期信号频谱的DFT分析</h4>
+<p><img src="image-54.png" alt="alt text" /> <img src="image-55.png"
+alt="alt text" /> #### 2.4.2 混叠现象、泄漏现象、栅栏现象 - 混叠现象
+<img src="image-56.png" alt="alt text" /> - 泄露现象 <img
+src="image-57.png" alt="alt text" /> <img src="image-58.png"
+alt="alt text" /></p>
+<p><strong>矩形窗：</strong> <span class="math inline">\(W_N[k] = R_N[k]
+= \begin{cases} 1 &amp; 0 \leq k \leq N-1 \\ 0 &amp; \text{others}
+\end{cases}\)</span></p>
+<p><span class="math display">\[W_N(e^{j\Omega}) =
+\frac{\sin(N\Omega/2)}{\sin(\Omega/2)} e^{-j\Omega
+\frac{N-1}{2}}\]</span></p>
+<p>主瓣有效宽度：<span class="math inline">\(\Delta\Omega_w =
+\frac{2\pi}{N}\)</span></p>
+<p>旁瓣峰值损耗：<span class="math inline">\(A =
+-20\lg\left|\frac{W(e^{j3\pi/N})}{W(e^{j0})}\right| \approx
+13.46\text{dB}\)</span></p>
+<p>提高频率分辨率：增加窗函数的长度 <span
+class="math inline">\(N\)</span></p>
+<p><span class="math display">\[
+\Delta\Omega=\Omega_2-\Omega_1=\frac{2\pi(f_2-f_1)}{f_{sam}}=\frac{2\pi
+f_{sam}}{\Delta f}\\
+\Delta\Omega_w \leq \Delta\Omega/2
+\]</span></p>
+<p><span class="math display">\[N \geq \frac{2\pi f_{sam}}{\Delta f} =
+\frac{2f_{sam}}{f_2-f_1}\]</span></p>
+<p><strong>汉宁窗：</strong> <span class="math inline">\(W_N[k] = [0.5 -
+0.5\cos(\frac{2\pi}{N-1}k)]R_N(k) = \begin{cases} 0.5-0.5\cos(2\pi
+k/(N-1)) &amp; 0 \leq k \leq N-1 \\ 0 &amp; \end{cases}\)</span></p>
+<p>主瓣有效宽度：<span class="math inline">\(\Delta\Omega_w =
+\frac{4\pi}{N}\)</span> 旁瓣峰值损耗：<span class="math inline">\(A
+\approx 31\text{dB}\)</span></p>
+<p><strong>海明窗：</strong> <span class="math inline">\(W_N[k] = [0.54
+- 0.46\cos(\frac{2\pi}{N-1}k)]R_N(k) = \begin{cases} 0.54-0.46\cos(2\pi
+k/(N-1)) &amp; 0 \leq k \leq N-1 \\ 0 &amp; \end{cases}\)</span></p>
+<p>主瓣有效宽度：<span class="math inline">\(\Delta\Omega_w =
+\frac{4\pi}{N}\)</span> 旁瓣峰值损耗：<span class="math inline">\(A
+\approx 41\text{dB}\)</span></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">窗函数</th>
+<th style="text-align: center;">主瓣宽度</th>
+<th style="text-align: center;">旁瓣衰减</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">矩形（rectangle）</td>
+<td style="text-align: center;"><span
+class="math inline">\(2\pi/N\)</span></td>
+<td style="text-align: center;">13dB</td>
+</tr>
+<tr>
+<td style="text-align: center;">汉宁(hanning)</td>
+<td style="text-align: center;"><span
+class="math inline">\(4\pi/N\)</span></td>
+<td style="text-align: center;">31dB</td>
+</tr>
+<tr>
+<td style="text-align: center;">海明(hamming)</td>
+<td style="text-align: center;"><span
+class="math inline">\(4\pi/N\)</span></td>
+<td style="text-align: center;">41 dB</td>
+</tr>
+<tr>
+<td style="text-align: center;">布莱克曼(Blackman)</td>
+<td style="text-align: center;"><span
+class="math inline">\(6\pi/N\)</span></td>
+<td style="text-align: center;">57 dB</td>
+</tr>
+<tr>
+<td style="text-align: center;">凯塞(Kaiser)<span
+class="math inline">\(\beta=5.86\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(5\pi/N\)</span></td>
+<td style="text-align: center;">57 dB</td>
+</tr>
+</tbody>
+</table>
+<p>实际窗函数： - 主瓣窄、旁瓣衰耗小。 - 主瓣宽、旁瓣衰耗大。</p>
+<p>减小泄漏现象方法： - 选择合适的窗函数——减小旁瓣幅度的影响 -
+增加窗的长度（信号持续时间）——减小主瓣宽度的影响</p>
+<ul>
+<li><strong>栅栏现象：</strong> <img src="image-59.png"
+alt="alt text" /> <img src="image-60.png" alt="alt text" /></li>
+</ul>
+<p>谱线间距：<span class="math inline">\(\Delta f_d =
+\dfrac{f_{sm}}{N}\)</span> 序列补零后： <span
+class="math display">\[X[k]=\begin{cases} X_N[k] &amp; 0\leq k\leq N-1
+\\ 0 &amp; N\leq k\leq L-1 \end{cases}\]</span> 补零后的谱线间隔：<span
+class="math inline">\(\Delta f_d=\frac{f_{sam}}{L} \quad
+L&gt;N\)</span></p>
+<hr />
+<h2 id="第三章-离散fourier变换快速算法">第三章
+离散fourier变换快速算法</h2>
+<h3 id="fft引论">3.1 FFT引论</h3>
+<p>FFT算法的基本思想： - 将长序列DFT分解为短序列的DFT -
+利用旋转因子<span
+class="math inline">\(W_N^{km}\)</span>的周期性、对称性、可约性</p>
+<ul>
+<li>旋转因子<span class="math inline">\(W_N^{km}\)</span>的性质(<span
+class="math inline">\(W_N=e^{-j2\pi/N}\)</span>) <img src="image-61.png"
+alt="alt text" /> ### 3.2 基2时间抽取FFT算法 #### 3.2.1
+基2时间抽取FFT算法原理 <img src="image-62.png" alt="alt text" /> <img
+src="image-63.png" alt="alt text" /> <img src="image-64.png"
+alt="alt text" /> <img src="image-65.png" alt="alt text" /> #### 3.2.2
+基2时间抽取FFT算法流图 &gt; [图表：4点DIT-FFT蝶形流图] <img
+src="image-66.png" alt="alt text" /> <span
+class="math display">\[\begin{aligned}
+X[m] &amp;= X_1[m] + W_N^m X_2[m] \\
+X\left[m+\frac{N}{2}\right] &amp;= X_1[m] - W_N^m X_2[m]
+\end{aligned}\]</span></li>
+</ul>
+<blockquote>
+<p>[图表：8点DIF-FFT蝶形流图] <img src="image-67.png"
+alt="alt text" /></p>
+</blockquote>
+<p>原位运算：
+原位运算是指当数据输入到存储器后，每级运算的结果仍然存储在原来位置，直到最后的输出，无需存储中间计算结果。
+在N=8的FFT运算中，输入序列x[0]、x[4]、x[2]、x[6]、…、x[7]可以分别存入A(0)、A(1)、A(2)、A(3)、…、A(7)的8个存储单元中。
+&gt; [图表：原位运算示意图] <img src="image-68.png"
+alt="alt text" /></p>
+<h4 id="基2-时间抽取fft算法的复杂度">3.2.3 基2
+时间抽取FFT算法的复杂度</h4>
+<figure>
+<img src="image-69.png" alt="alt text" />
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<h3 id="基2频率抽取fft算法">3.3 基2频率抽取FFT算法</h3>
+<h4 id="基2频率抽取fft算法算法原理">3.3.1
+基2频率抽取FFT算法算法原理</h4>
+<p><img src="image-70.png" alt="alt text" /> <img src="image-71.png"
+alt="alt text" /> <img src="image-72.png" alt="alt text" /> #### 3.3.1
+基2频率抽取FFT算法算法流图 <img src="image-73.png" alt="alt text" /> ###
+3.4 FFT算法的运用 #### 3.4.1 利用N点复序列FFT，计算2个N点实序列FFT <img
+src="image-74.png" alt="alt text" /> - eg:已知两个4点的序列x[k]={1, 2,
+0, 1}, h[k]={2, 2, 1, 1}试用一次4点FFT流图,计算两个序列的DFT。 <img
+src="image-81.png" alt="alt text" /> <img src="image-75.png"
+alt="alt text" /> #### 3.4.2 利用N点复序列FFT，计算2N点实序列FFT <img
+src="image-77.png" alt="alt text" /> -
+eg:试利用4点基2时间抽取的FFT流图计算8点序列x[k]={1, -1, 1, -1, 2, -1,
+1,-1}的DFT <img src="image-78.png" alt="alt text" /></p>
+<h4 id="利用n点复序列fft计算n点复序列ifft">3.4.3
+利用N点复序列FFT，计算N点复序列IFFT</h4>
+<p><img src="image-79.png" alt="alt text" /> - 已知X[m]=DFT{x[k]}={10,
+-2+2j，-2, -2-2j}利用基2时间抽取FFT流图，计算x[k]。 <img
+src="image-80.png" alt="alt text" /> ### 3.5 混合基时间抽取FFT
+基2时间抽取FFT算法序列的长度N必需满足N=2^M
+基3时间抽取FFT算法序列的长度N必需满足N=3^M
+基4时间抽取FFT算法序列的长度N必需满足N=4^M
+如果N不满足此要求，则需对序列进行补零。
+FFT算法的计算复杂度与序列的长度成正比，
+因此，大量补零将降低FFT算法的实际效果。 -
+eg:利用混合基FFT算法计算N=12点序列的DFT，并画出其算法流图。 <img
+src="image-82.png" alt="alt text" /> <img src="image-83.png"
+alt="alt text" /> ### 3.6 FFT算法中的对称性 #### 3.6.1
+时间抽取FFT算法中的对称 <img src="image-84.png" alt="alt text" /> ####
+3.6.2 频率抽取FFT算法中的对称 <img src="image-85.png" alt="alt text" />
+#### 3.6.3 时间抽取与频率抽取之间的对称 <img src="image-86.png"
+alt="alt text" /></p>
+<hr />
+<h2 id="第四章-iir数字滤波器设计">第四章 IIR数字滤波器设计</h2>
+<h3 id="引言">4.1 引言</h3>
+<ul>
+<li><p>LTI系统 <span class="math display">\[H(z)=\frac{\sum_{j=0}^{M}
+b_j z^{-j}}{1+\sum_{i=1}^{N} a_i z^{-i}} = K
+\frac{(z-z_1)(z-z_2)\cdots(z-z_N)}{(z-p_1)(z-p_2)\cdots(z-p_N)} =
+\sum_{i=1}^{N} \frac{A_{iz}}{z-p_i}\]</span></p></li>
+<li><p>IIR滤波器 <span class="math display">\[h[k]=\sum_{i=1}^{N}
+A_i(p_i)^k u[k], \quad H(z) = \frac{\sum_{j=0}^{M} b_j
+z^{-j}}{1+\sum_{i=1}^{N} a_i z^{-i}}\]</span></p></li>
+<li><p>FIR滤波器</p></li>
+</ul>
+<p><span class="math display">\[H(z)=\sum_{j=0}^{M} b_j
+z^{-j}\]</span></p>
+<h4 id="iir数字滤波器设计步骤">4.1.1 IIR数字滤波器设计步骤</h4>
+<p><img src="image-87.png" alt="alt text" /> <img src="image-88.png"
+alt="alt text" /> ### 4.2 模拟低通滤波器设计 #### 4.2.1
+模拟滤波器的技术指标要求 <img src="image-89.png" alt="alt text" />
+衰减函数(dB):<span
+class="math inline">\(A(\omega)=-10\lg|H(j\omega)|^2=-20\lg|H(j\omega)|\)</span>
+通带最大衰减(dB):<span
+class="math inline">\(A_p=-10\lg(1-\delta_p)^2=-20\lg(1-\delta_p)\)</span>
+阻带最大衰减(dB):<span
+class="math inline">\(A_s=-10\lg\delta_s^2=-20\lg\delta_s\)</span> <img
+src="image-90.png" alt="alt text" /> #### 4.2.2
+Butterworth模拟低通滤波器 <img src="image-92.png" alt="alt text" /> <img
+src="image-91.png" alt="alt text" /></p>
+<p><strong>1. 阶数计算</strong> <span class="math display">\[N \geq
+\frac{\lg\left(\dfrac{10^{0.1A_S}-1}{10^{0.1A_P}-1}\right)}{2\lg|\omega_S/\omega_P|}\]</span></p>
+<p><strong>2. 截止频率范围</strong> <span
+class="math display">\[\frac{\omega_P}{(10^{0.1A_P}-1)^{1/2N}} \leq
+\omega_c \leq \frac{\omega_S}{(10^{0.1A_S}-1)^{1/2N}}\]</span></p>
+<p><strong>3. 极点位置</strong> <span class="math display">\[s_k =
+\omega_c e^{j\left(\frac{\pi}{2}+\frac{(2k-1)\pi}{2N}\right)}, \quad
+k=1,2,\cdots,N\]</span></p>
+<p><strong>4. 系统函数</strong> <span class="math display">\[H_L(s) =
+\prod_{k=1}^{N} \frac{-s_k}{s-s_k}\]</span></p>
+<h4 id="chebyshev模拟低通滤波器">4.2.3 chebyshev模拟低通滤波器</h4>
+<p><img src="image-93.png" alt="alt text" /> <img src="image-94.png"
+alt="alt text" /> <img src="image-95.png" alt="alt text" /> <img
+src="image-96.png" alt="alt text" /> <img src="image-97.png"
+alt="alt text" /> <img src="image-98.png" alt="alt text" /> <img
+src="image-99.png" alt="alt text" /> <img src="image-100.png"
+alt="alt text" /> <img src="image-101.png" alt="alt text" /> #### 4.2.4
+椭圆模拟低通滤波器 <img src="image-102.png" alt="alt text" /> <img
+src="image-103.png" alt="alt text" /> <img src="image-104.png"
+alt="alt text" /></p>
+<h4 id="滤波器类型比较">4.2.5 滤波器类型比较</h4>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">类型</th>
+<th style="text-align: left;">特性</th>
+<th style="text-align: left;">设计特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>BWF</strong><br>(巴特沃斯)</td>
+<td style="text-align: left;">在通带的频率响应曲线最平滑</td>
+<td
+style="text-align: left;">在相同设计指标下：BW型阶数最高，椭圆滤波器阶数最低</td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><strong>CBF</strong><br>(切比雪夫I型)</td>
+<td style="text-align: left;">在通带内等幅振荡</td>
+<td
+style="text-align: left;">在实现过程中：BW型最容易实现，而椭圆最不易实现</td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><strong>CBEF</strong><br>(切比雪夫II型)</td>
+<td style="text-align: left;">在阻带内等幅振荡</td>
+<td
+style="text-align: left;">在相同设计指标下：BW型滤波器的诺量最多，椭圆最少</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>椭圆</strong></td>
+<td style="text-align: left;">在通带与阻带均发生振荡</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="模拟非低通滤波器设计">4.3 模拟非低通滤波器设计</h3>
+<ul>
+<li>滤波器频率变换</li>
+</ul>
+$$
+<span class="math display">\[\begin{array}{lllll}
+\text{HP} &amp; \bar{\omega}=1/\omega &amp; \bar{s}=1/s &amp;
+\bar{\omega}_{p}=1/\omega_{p} &amp; \\
+&amp; &amp; &amp; \bar{\omega}_{s}=1/\omega_{s} &amp; \\[10pt]
+
+\text{BP} &amp; \bar{\omega}=\dfrac{\omega^{2}-\omega_{0}^{2}}{B\omega}
+&amp; \bar{s}=\dfrac{s^{2}+\omega_{0}^{2}}{Bs} &amp;
+\bar{\omega}_{p}=|\omega_{p1}|=|\omega_{p2}|=1 &amp;
+B=\omega_{p2}-\omega_{p1} \\
+&amp; &amp; &amp;
+\bar{\omega}_{s}=\min\{|\bar{\omega}_{1}|,|\bar{\omega}_{2}|\} &amp;
+\omega_{0}^{2}=\omega_{p2}\omega_{p1} \\[15pt]
+\text{BS} &amp; \bar{\omega}=\dfrac{B\omega}{-\omega^{2}+\omega_{0}^{2}}
+&amp; \bar{s}=\dfrac{Bs}{s^{2}+\omega_{0}^{2}} &amp;
+\bar{\omega}_{p}=\max\{|\bar{\omega}_{1}|,|\bar{\omega}_{2}|\} &amp;
+B=\omega_{s2}-\omega_{s1} \\
+&amp; &amp; &amp;
+\bar{\omega}_{s}=|\bar{\omega}_{s1}|=|\bar{\omega}_{s2}|=1 &amp;
+\omega_{0}^{2}=\omega_{s2}\omega_{s1}
+\end{array}\]</span>
+<p>$$</p>
+<h3 id="脉冲响应不变法">4.4 脉冲响应不变法</h3>
+<p><strong>时域逼近思想：</strong>
+利用DF的单位脉冲响应h[k]模仿AF的单位冲激响应h(t)。 -
+AF极点与DF极点的映射关系为： <span
+class="math display">\[z_i=e^{s_iT}=e^{\sigma_i T}e^{j\omega_i
+T}\]</span></p>
+<ul>
+<li><p><span
+class="math inline">\(\sigma_i=0\)</span>：(位于s平面虚轴上) <span
+class="math inline">\(\leftrightarrow\)</span> |z_i|=1
+（位于z平面单位圆上）</p></li>
+<li><p><span
+class="math inline">\(\sigma_i&lt;0\)</span>：(位于s左半平面)<span
+class="math inline">\(\leftrightarrow\)</span> |z_i|&lt;1
+（位于z平面单位圆内）</p></li>
+<li><p><span
+class="math inline">\(\sigma_i&gt;0\)</span>：(位于右半平面)<span
+class="math inline">\(\leftrightarrow\)</span> |z_i|&gt;1
+（位于z平面单位圆外）</p></li>
+<li><p><strong>优点</strong>：AF与DF的频率关系为线性</p></li>
+<li><p><strong>缺点</strong>：只能设计带限滤波器 <img
+src="image-105.png" alt="alt text" /></p></li>
+<li><p><strong>优化</strong>：增加待设计DF的阻带衰减 <span
+class="math inline">\(A_S\)</span></p></li>
+<li><p><strong>映射关系</strong>：<span
+class="math inline">\(\displaystyle \frac{1}{s-s_i} \longrightarrow
+\frac{1}{1-e^{s_iT}z^{-1}}\)</span></p></li>
+<li><p><strong>频率变换</strong>：<span class="math inline">\(\Omega_p,
+\Omega_s \xrightarrow{\omega_i=\Omega_i/T} \omega_p, \omega_s
+\xrightarrow{} H(s) \xrightarrow{} H(z)\)</span></p></li>
+</ul>
+<h3 id="双线性变换法">4.5 双线性变换法</h3>
+<p>将非带限的模拟滤波器映射为最高角频率为 <span
+class="math inline">\(\pi/T\)</span> 的带限模拟滤波器</p>
+<p><span
+class="math display">\[\omega_i=\frac{2}{T}\tan\left(\frac{\Omega_i}{2}\right)\]</span></p>
+<ul>
+<li><strong>频率预畸变</strong>：<span class="math inline">\(\Omega_p,
+\Omega_s \xrightarrow{} \omega_p, \omega_s \xrightarrow{} H(s)
+\xrightarrow{s=\frac{2}{T}\frac{1-z^{-1}}{1+z^{-1}}} H(z)\)</span></li>
+<li><strong>优点</strong>：无频谱混叠</li>
+<li><strong>缺点</strong>：若AF的频率响应不是分段常数时，会产生幅度失真</li>
+</ul>
+<hr />
+<h2 id="第五章-fir数字滤波器设计">第五章 FIR数字滤波器设计</h2>
+<h3 id="线性相位fir滤波器特性">5.1 线性相位FIR滤波器特性</h3>
+<ul>
+<li><p>FIR滤波器具有线性相位的充要条件 <strong>时域 (time
+domain):</strong> <span class="math inline">\(h[k]=\pm h[M-k]\)</span>
+<strong>z-domain:</strong> <span class="math inline">\(H(z)=\pm
+z^{-M}H(z^{-1})\)</span> <span class="math display">\[
+H(z)=\sum_{j=0}^{M} b_j z^{-j} \quad N=M+1
+\]</span> M为FIR数字滤波器的阶数，N为h[k]的长度</p></li>
+<li><p>线性相位系统的时频域特性 <span class="math display">\[
+\begin{array}{lcccc}
+&amp; \text{I} &amp; \text{II} &amp; \text{III} &amp; \text{IV} \\
+\text{阶数 } M &amp; \text{偶} &amp; \text{奇} &amp; \text{偶} &amp;
+\text{奇} \\
+h[n]\text{ 对称性} &amp; \text{偶} &amp; \text{偶} &amp; \text{奇} &amp;
+\text{奇} \\
+A(\Omega)\text{ 关于 }\Omega=\pi\text{ 的对称性} &amp; \text{偶} &amp;
+\text{偶} &amp; \text{奇} &amp; \text{奇} \\
+A(\Omega)\quad \Omega=\pi &amp; \text{偶} &amp; \text{奇} &amp;
+\text{奇} &amp; \text{偶} \\
+A(0) &amp; \text{Any} &amp; \text{Any} &amp; 0 &amp; 0 \\
+A(\pi) &amp; \text{Any} &amp; 0 &amp; 0 &amp; \text{Any} \\
+\text{不适用的滤波器类型} &amp; - &amp; \text{HP, BS} &amp; \text{LP,
+HP, BS} &amp; \text{LP} \\
+\varphi(\Omega) &amp; -\frac{M}{2}\Omega &amp; &amp;
+-\frac{M}{2}\Omega+\frac{\pi}{2} &amp;
+\end{array}
+\]</span></p></li>
+<li><p>线性相位系统的零点分布 <img src="image-106.png" alt="alt text" />
+<span class="math display">\[
+\begin{aligned}
+&amp; H(z)=0 \Longleftrightarrow H(z^{-1})=0 \\
+&amp; H(z)=0 \Longleftrightarrow H(z^{*})=0
+\end{aligned}
+\]</span></p></li>
+</ul>
+<p><strong>(1)</strong> <span
+class="math inline">\(z_{i}=re^{j\theta}\)</span> 非单位圆上的复零点
+(<span class="math inline">\(r≠1, \theta≠0,\pi\)</span>)</p>
+<p><span class="math display">\[
+\begin{aligned}
+z_{i}^{-1}&amp;=\frac{1}{r}e^{-j\theta} \quad z_{i}^{*}=re^{-j\theta} \\
+(z_{i}^{-1})^{*}&amp;=\frac{1}{r}e^{j\theta}
+\end{aligned}
+\]</span> <span class="math display">\[
+H_{1}(z)=1+az^{-1}+bz^{-2}+az^{-3}+z^{-4}
+\]</span></p>
+<p><strong>(2)</strong> <span
+class="math inline">\(z_{i}=re^{j\theta}\)</span> 单位圆上的复零点
+(<span class="math inline">\(r=1, \theta≠0,\pi\)</span>) <span
+class="math display">\[
+\begin{aligned}
+z_{i}^{-1}&amp;=z_{1}^{*}=e^{-j\theta} &amp;\\
+(z_{i}^{-1})^{*}&amp;=e^{j\theta} &amp;
+H_{2}(z)&amp;=1+az^{-1}+z^{-2}
+\end{aligned}
+\]</span></p>
+<p><strong>(3)</strong> <span
+class="math inline">\(z_{i}=re^{j\theta}\)</span>
+非单位圆上的实零点(<span class="math inline">\(r≠1,
+\theta=0,\pi\)</span>) <span class="math display">\[
+\begin{aligned}
+z_{i}&amp;=z_{i}^{*}=r \\
+z_{i}^{-1}&amp;=(z_i^{-1})^{*}=1/r  \qquad H_{3}(z)=1+az^{-1}+z^{-2}
+\end{aligned}
+\]</span></p>
+<p><strong>(4)</strong> <span
+class="math inline">\(z_{i}=re^{j\theta}\)</span> 单位圆上的实零点(<span
+class="math inline">\(r=1, \theta=0,\pi\)</span>)</p>
+<p><span class="math display">\[
+\begin{aligned}
+z_{i}&amp;=1 \\
+H_{4}(z)&amp;=1\pm z^{-1}
+\end{aligned}
+\]</span></p>
+<h3 id="窗函数法设计fir滤波器">5.2 窗函数法设计FIR滤波器</h3>
+<h4 id="设计原理">5.2.1 设计原理</h4>
+<p><strong>时域逼近思想:</strong> 利用 IDTFT 将给定的 <span
+class="math inline">\(H_{d}(e^{j\Omega})\)</span> 求解其单位脉冲响应
+<span class="math inline">\(h_{d}[k]\)</span></p>
+<p><span class="math display">\[
+h_{d}[k]=\frac{1}{2\pi}\int_{-\pi}^{\pi}
+H_{d}(e^{j\Omega})e^{jk\Omega}d\Omega
+\]</span></p>
+<p><span class="math inline">\(h_{d}[k]\)</span>
+一般情况下是<strong>非因果的无限长序列</strong>，加窗截短 <span
+class="math inline">\(h_{d}[k]\)</span>，使之成为<strong>因果的有限长序列</strong>
+<span class="math inline">\(h[k]\)</span>，<span
+class="math inline">\(h[k]\)</span> 是 <span
+class="math inline">\(h_{d}[k]\)</span> 的时域逼近。 #### 5.2.2 设计方法
+1. <span class="math inline">\(H_{d}(e^{j\Omega})\)</span>由确定FIR
+DF的类型和幅度函数<span class="math inline">\(A_d(\Omega)\)</span>; 2.
+根据类型确定线性相位FIR滤波器的相位<span
+class="math inline">\(\varphi_d(\Omega)\)</span>; <span
+class="math display">\[
+\varphi_d(\Omega)=-0.5M\Omega+\beta \quad (\beta=0或\frac{\pi}{2})
+\]</span></p>
+<ol start="3" type="1">
+<li>根据<span class="math inline">\(A_d(\Omega)\)</span>和<span
+class="math inline">\(\varphi_d(\Omega)\)</span>通过IDTFT求解<span
+class="math inline">\(h_d[k]\)</span>; <span class="math display">\[
+\begin{aligned}
+h_{d}[k]&amp;=\frac{1}{2\pi}\int_{-\pi}^{\pi}
+A_{d}(\Omega)e^{j\varphi(\Omega)}e^{jk\Omega}d\Omega \\
+&amp;=\frac{1}{2\pi}\int_{-\Omega_{c}}^{\Omega_{c}}
+e^{j\Omega(k-0.5M)}d\Omega =
+\frac{\Omega_{c}}{\pi}\text{Sa}[\Omega_{c}(k-0.5M)]
+\end{aligned}
+\]</span></li>
+<li>加窗截短<span
+class="math inline">\(h_d[k]\)</span>，得到有限长因果序列<span
+class="math inline">\(h[k]\)</span>. <span class="math display">\[
+h[k]=h_{d}[k]w_{N}[k]
+\]</span> #### 5.2.3 窗口选择 ##### 矩形窗 <img src="image-107.png"
+alt="alt text" /> <strong>吉伯斯现象：</strong>
+所设计数字滤波器的幅度函数在通带和阻带都呈现出振荡现象，且最大波纹大约为幅度此变值的9%(<span
+class="math inline">\(\delta_p = \delta_s = 0.09\)</span>)。 <img
+src="image-108.png" alt="alt text" /> <img src="image-109.png"
+alt="alt text" /> <img src="image-110.png" alt="alt text" /></li>
+<li>窗函数的主瓣宽度决定了<span class="math inline">\(H(e^{j\Omega}
+)\)</span>过渡带的宽度，窗函数长度N增大，过渡带减小。</li>
+<li>旁瓣的大小决定了FIR滤波器在 阻带的衰减。</li>
+<li>利用矩形窗设计出的滤波器阻带最大衰减为 $ -20=21dB$ ##### 加权窗</li>
+</ol>
+<ul>
+<li>汉宁窗 <img src="image-111.png" alt="alt text" /></li>
+<li>海明窗 <img src="image-113.png" alt="alt text" /></li>
+<li>布莱克曼窗 <img src="image-114.png" alt="alt text" /> #####
+可调窗</li>
+<li>凯赛窗 <img src="image-115.png" alt="alt text" /></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 14%" />
+<col style="width: 27%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 13%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr>
+<th>窗的类型</th>
+<th>主瓣宽度</th>
+<th>过渡带宽度</th>
+<th><span class="math inline">\(\delta_p, \delta_s\)</span></th>
+<th><span class="math inline">\(A_P\)</span>(dB)</th>
+<th><span class="math inline">\(A_S\)</span>(dB)</th>
+<th>旁瓣损耗</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>矩形</td>
+<td><span class="math inline">\(4\pi/N\)</span></td>
+<td><span class="math inline">\(1.8\pi/N\)</span></td>
+<td>0.09</td>
+<td>0.82</td>
+<td>21</td>
+<td>13dB</td>
+</tr>
+<tr>
+<td>Hanning</td>
+<td><span class="math inline">\(8\pi/N\)</span></td>
+<td><span class="math inline">\(6.2\pi/N\)</span></td>
+<td>0.0064</td>
+<td>0.056</td>
+<td>44</td>
+<td>31dB</td>
+</tr>
+<tr>
+<td>Hamming</td>
+<td><span class="math inline">\(8\pi/N\)</span></td>
+<td><span class="math inline">\(7.0\pi/N\)</span></td>
+<td>0.0022</td>
+<td>0.019</td>
+<td>53</td>
+<td>41dB</td>
+</tr>
+<tr>
+<td>Blackman</td>
+<td><span class="math inline">\(12\pi/N\)</span></td>
+<td><span class="math inline">\(11.4\pi/N\)</span></td>
+<td>0.0002</td>
+<td>0.0017</td>
+<td>74</td>
+<td>57dB</td>
+</tr>
+<tr>
+<td>Kaiser</td>
+<td><span class="math inline">\(10\pi/N\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>57dB</td>
+</tr>
+</tbody>
+</table>
+<h3 id="频率取样法设计fir滤波器">5.3 频率取样法设计FIR滤波器</h3>
+<h4 id="设计原理-1">5.3.1 设计原理</h4>
+<p>频域逼近：使所设计的M阶FIR滤波器的频率响应<span
+class="math inline">\(H(e^{j\omega})\)</span>在M+1个取样点上与所给DF的频率响应<span
+class="math inline">\(H_d(e^{j\omega})\)</span>相等：<span
+class="math inline">\(H(e^{j\omega_m}) = H_d(e^{j\omega_m})\)</span>
+#### 5.3.2 设计方法 1. <span
+class="math inline">\(H_{d}(e^{j\Omega})\)</span>由确定FIR
+DF的类型和幅度函数<span class="math inline">\(A_d(\Omega)\)</span>; 2.
+根据类型确定线性相位FIR滤波器的相位<span
+class="math inline">\(\varphi_d(\Omega)\)</span>; <span
+class="math display">\[
+\varphi_d(\Omega)=-0.5M\Omega+\beta \quad (\beta=0或\frac{\pi}{2})
+\]</span> 1. 确定<span
+class="math inline">\(A_d(\Omega)e^{\varphi(\Omega)}\)</span>在<span
+class="math inline">\(\Omega\in[0,2\pi)\)</span>区间上的M+1个取样点的值<span
+class="math inline">\(H_d[m]\)</span>;</p>
+<p><span class="math display">\[H_d(e^{j\omega}) = e^{j(-0.5M\Omega +
+\beta)} A_d(\Omega)\]</span></p>
+<p><span class="math display">\[H_d[m]
+=H_d(e^{j\omega})|_{\Omega\frac{2\pi}{M+1}m}= e^{j\beta}
+e^{-j\frac{M\pi}{M+1}m} A_d[\frac{2\pi}{M+1}m]\]</span></p>
+<p>4.对<span
+class="math inline">\(H_d[m]\)</span>做M+1点IDFT，得到有限长因果序列<span
+class="math inline">\(h[k]\)</span>. <span class="math display">\[h[k] =
+IDFT(H_d[m])\]</span></p>
+<h4 id="方法改进">5.3.3 方法改进</h4>
+<p><img src="image-116.png" alt="alt text" />
+原因分析：增加滤波器的阶数不能提高所设计滤波器的阻带衰减的原因是，从通带到阻带所给定的样本点发生了从0到1的跳变。
+改进方法：在过渡带[<span class="math inline">\(\Omega_p\)</span>, <span
+class="math inline">\(\Omega_s\)</span>]之间设置幅度在0和1之间的过渡点 -
+eg <img src="image-117.png" alt="alt text" /> <img src="image-118.png"
+alt="alt text" /> 可通过以下几个方法寻找过渡点最优值： 1.
+<strong>遗传算法（Genetic Algorithm, GA）</strong>
+使用Matlab集成的GA函数,
+应用插值函数写出滤波器频域表达式（包含过渡点值），查找阻带最大值，优化目标使其最大值最小。
+2. <strong>MATLA提供的优化函数：fmincon，fminimax</strong>
+适用于局部优化，所以当给定的初值不同时，两个函数得到的值也会不同，需要进行校验。
+### 5.4 FIR数字滤波器优化设计 #### 5.4.1 优化设计的基本原理
+<strong>优化设计的概念：</strong>
+在一定的误差准则下，使得所设计的FIR滤波器的频率响应<span
+class="math inline">\(H(e^{j\Omega})\)</span>与<span
+class="math inline">\(H_d(e^{j\Omega})\)</span>的误差<span
+class="math inline">\(\varepsilon\)</span>最小。 - 常用误差准则： <img
+src="image-119.png" alt="alt text" /> <img src="image-120.png"
+alt="alt text" /> #### 5.4.2 利用积分加权平方误差准则 <span
+class="math display">\[\varepsilon = \int [W(\Omega)[A(\Omega) -
+D(\Omega)]]^2 d\Omega\]</span> <img src="image-121.png"
+alt="alt text" /> #### 5.4.3 最大最小误差准则 <span
+class="math display">\[\varepsilon =
+\max|W(\Omega)[A(\Omega)-D(\Omega)]|\]</span> <img src="image-124.png"
+alt="alt text" /> ### 5.5 FIR与IIR数字滤波器的比较 #### 5.5.1 设计原理
+<strong>IIR数字滤波器设计</strong> 是通过设计模拟滤波器而实现；
+模拟滤波器是通过设计三个模板低通滤波器而实现；
+低通滤波器是通过给定的边界频率及其衰耗而实现。</p>
+<p><strong>FIR数字滤波器设计</strong>
+是通过时域逼近或频域逼近的方法实现； 由给定的<span
+class="math inline">\(H_d(e^{j\Omega})\)</span>，确定线性相位DF的类型、<span
+class="math inline">\(A_d(\Omega)\)</span>和<span
+class="math inline">\(\varphi_d(\Omega)\)</span>；
+再由窗函数法、频率取样法或优化设计求出数字滤波器H(z)。 #### 5.5.2
+阶数比较 <img src="image-125.png" alt="alt text" /> 结论： -
+实现相同的指标，FIR数字滤波器所需阶数远大于IIR， -
+FIR-DF易于实现线性相位，系统也易于实现。 -
+IIR适合处理对相位要求不高的信号，如语音信号 -
+FIR适合处理对相位要求较高的信号，如图像信号</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>IIR DF</th>
+<th>FIR DF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>稳定性</td>
+<td>不一定</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>实现难易程度</td>
+<td>难</td>
+<td>易</td>
+</tr>
+<tr>
+<td>实现线性相位</td>
+<td>不能</td>
+<td>能</td>
+</tr>
+<tr>
+<td>可用FFT实现</td>
+<td>不可用</td>
+<td>可用</td>
+</tr>
+<tr>
+<td>幅度响应</td>
+<td>较好</td>
+<td>不好</td>
+</tr>
+<tr>
+<td>阶数</td>
+<td>低</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="第六章-数字滤波器的结构及实现">第六章
+数字滤波器的结构及实现</h2>
+<h3 id="iir数字滤波器的基本结构">6.1 IIR数字滤波器的基本结构</h3>
+<h4 id="直接型结构">6.1.1 直接型结构</h4>
+<p><span class="math display">\[H(z)=
+\frac{b_0+b_1z^{-1}+\cdots+b_{M-1}z^{-(M-1)}}{1+a_1z^{-1}+\cdots+a_{N-1}z^{-(N-1)}}\]</span></p>
+<figure>
+<img src="image-126.png" alt="alt text" />
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<blockquote>
+<p>[图表：直接I型结构框图] <img src="image-127.png"
+alt="alt text" /></p>
+</blockquote>
+<blockquote>
+<p>[图表：直接II型结构框图，包含前向通路<span class="math inline">\(b_0,
+b_1\)</span>和反馈通路<span class="math inline">\(-a_1, -a_2\)</span>]
+<img src="image-128.png" alt="alt text" /></p>
+</blockquote>
+<blockquote>
+<p>[图表：转置直接II型结构框图] <img src="image-129.png"
+alt="alt text" /></p>
+</blockquote>
+<p>IIR数字滤波器直接型结构的特点： - 优点：简单直观 - 缺点： 1.
+改变某一个{ak }将影响所有的极点 1. 改变某一个{bk }将影响所有的零点 2.
+对有限字长效应很敏感，容易出现不稳定现象</p>
+<p>对于三阶以上的IIR滤波器，一般不采用直接型结构，
+而采用级联型、并联型等其他形式的结构。</p>
+<h4 id="级联型结构">6.1.2 级联型结构</h4>
+<p><span class="math display">\[H(z) = A_0 \prod
+\frac{1+\alpha_{i1}z^{-1}+\alpha_{i2}z^{-2}}{1+\beta_{i1}z^{-1}+\beta_{i2}z^{-2}}\]</span></p>
+<blockquote>
+<p>[图表：级联型结构框图，两级二阶节串联，每节包含系数<span
+class="math inline">\(\beta_{11}, \beta_{21}, \alpha_{11},
+\alpha_{21}\)</span>等] <img src="image-132.png" alt="alt text" /> <img
+src="image-135.png" alt="alt text" /> IIR数字滤波器级联型结构的特点： -
+每个基本节系数变化只影响该子系统的零极点 -
+对系数变化的敏感度小，受有限字长的影响比直接型低</p>
+</blockquote>
+<h4 id="并联型结构">6.1.3 并联型结构</h4>
+<p><span class="math display">\[ H(z) = \gamma_0 +
+\sum_{k=1}^{\frac{L}{2}} \frac{\gamma_{0k} + \gamma_{1k}z^{-1}}{1 +
+\beta_{1k}z^{-1} + \beta_{2k}z^{-2}} \]</span></p>
+<blockquote>
+<p>[图表：并联型二阶节结构框图，包含直通通路 <span
+class="math inline">\(\gamma_0\)</span>
+和多个二阶节，每个二阶节包含前向通路 <span
+class="math inline">\(\gamma_{0}&#39;\)</span>、<span
+class="math inline">\(\gamma_{1k}\)</span> 以及反馈通路 <span
+class="math inline">\(-\beta_{1k}\)</span>、<span
+class="math inline">\(-\beta_{2k}\)</span> 和延迟单元 <span
+class="math inline">\(z^{-1}\)</span>] <img src="image-133.png"
+alt="alt text" /> <img src="image-134.png" alt="alt text" /></p>
+</blockquote>
+<p>IIR数字滤波器并联型结构的特点： 1. 运算速度快，处理延时短 2.
+各基本节的误差互不影响 3. 每个基本节系数变化只影响该子系统的零极点</p>
+<h3 id="fir数字滤波器的基本结构">6.2 FIR数字滤波器的基本结构</h3>
+<h4 id="直接型">6.2.1 直接型</h4>
+<blockquote>
+<p>[图表：直接型FIR滤波器结构，输入 <span
+class="math inline">\(x[k]\)</span> 经过抽头延迟线（<span
+class="math inline">\(z^{-1}\)</span>），各抽头分别乘以系数 <span
+class="math inline">\(h[0], h[1], h[2], \ldots\)</span> 后求和得到输出
+<span class="math inline">\(y[k]\)</span>] <img src="image-136.png"
+alt="alt text" /></p>
+</blockquote>
+<h4 id="线性相位直接型">6.2.2 线性相位直接型</h4>
+<blockquote>
+<p>[图表：线性相位FIR结构，利用对称性 <span
+class="math inline">\(h[n]=h[N-1-n]\)</span> 合并对称抽头，减少乘法次数]
+<img src="image-137.png" alt="alt text" /> <img src="image-138.png"
+alt="alt text" /></p>
+</blockquote>
+<h4 id="级联型">6.2.3 级联型：</h4>
+<p><span class="math display">\[ H(z) = h[0]\prod_{k=1}^{L}
+(1+\beta_{1,k}z^{-1}+\beta_{2,k}z^{-2}) \]</span></p>
+<blockquote>
+<p>[图表：级联型IIR滤波器结构，二阶节级联，每个二阶节包含反馈系数 <span
+class="math inline">\(\beta_{1k}, \beta_{2k}\)</span>] <img
+src="image-139.png" alt="alt text" /></p>
+</blockquote>
+<h3 id="有限字长效应">6.3 有限字长效应</h3>
+<blockquote>
+<p>[图表：一阶误差反馈噪声整形器结构，包含量化器、反馈环路 <span
+class="math inline">\(z^{-1}\)</span> 和系数 <span
+class="math inline">\(a\)</span>] <img src="image-140.png"
+alt="alt text" /></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>误差类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>量化误差</td>
+<td>A/D转换引起</td>
+</tr>
+<tr>
+<td>乘积运算量化误差</td>
+<td>有限字长乘法运算引起</td>
+</tr>
+<tr>
+<td>数字滤波器的系数量化误差</td>
+<td>系数存储精度限制</td>
+</tr>
+</tbody>
+</table>
+<h4 id="截尾量化-舍入量化">6.3.1 截尾量化 &amp; 舍入量化</h4>
+<p><img src="image-141.png" alt="alt text" /> <img src="image-142.png"
+alt="alt text" /> <img src="image-145.png" alt="alt text" /> <img
+src="image-146.png" alt="alt text" /> &gt; [图表：<span
+class="math inline">\(P(e_R)\)</span> 概率密度函数，区间 <span
+class="math inline">\([-q/2, q/2]\)</span>，幅值 <span
+class="math inline">\(1/q\)</span>] <img src="image-143.png"
+alt="alt text" /> 舍入误差eR：$_R = 0, _R^2 = = $</p>
+<blockquote>
+<p>[图表：<span class="math inline">\(P(e_I)\)</span> 概率密度函数，区间
+<span class="math inline">\([-q, 0]\)</span>，幅值 <span
+class="math inline">\(1/q\)</span>] <img src="image-144.png"
+alt="alt text" /> 截尾误差eT:<span class="math inline">\(\mu_T = -q/2,
+\quad \sigma_T^2 = \frac{q^2}{12}=\frac{2^{-2b}}{12}\)</span></p>
+</blockquote>
+<p><img src="image-147.png" alt="alt text" /> <img src="image-148.png"
+alt="alt text" /> #### 6.3.2 输入信号量化误差通过LTI系统 <img
+src="image-149.png" alt="alt text" />
+由输入量化误差产生的输出误差为:<span
+class="math inline">\(v[k]=e[k]*h[k]\)</span> 输出误差v[k]的方差为:<span
+class="math inline">\(\sigma_v^2 =E{v[k]^2}\)</span>
+<strong>输出误差</strong> <span class="math inline">\(v[k]\)</span>
+<strong>的方差为：</strong></p>
+<p><span class="math display">\[\begin{aligned}
+\delta_v^2 &amp;= \sigma_e^2 \sum_{k=0}^{\infty} h_k^2 =
+\frac{q^2}{12}\sum_{k=0}^{\infty} h_k^2 \\
+&amp;= \sigma_e^2 \frac{1}{2\pi} \int_{-\pi}^{\pi} |H(e^{j\Omega})|^2
+d\Omega
+\end{aligned}\]</span></p>
+<h4 id="滤波器系数量化误差">6.3.3 滤波器系数量化误差</h4>
+<p>因字长有限，滤波器系数an、bm量化后将产生误差，导致： -
+系统的实际频响与所要求的系统频响出现偏差； -
+严重时，系统函数极点的改变，可能使IIR系统失去稳定。</p>
+<p><strong>FIR:</strong> <img src="image-150.png" alt="alt text" /> <img
+src="image-151.png" alt="alt text" /> <strong>IIR:</strong> <img
+src="image-152.png" alt="alt text" /> <img src="image-153.png"
+alt="alt text" /> <img src="image-154.png" alt="alt text" /></p>
+<h4 id="乘积运算量化误差">6.3.4 乘积运算量化误差</h4>
+<p><strong>FIR系统乘积量化误差：</strong> 乘积量化误差用噪声源<span
+class="math inline">\(e_i[k]\)</span>表示，对其做如下假设：
+（1）各噪声源均为白噪声序列； （2）各噪声源统计独立，互不相关；
+（3）在量化噪声范围内，各噪声源都视为等概率密度分布。
+<strong>由乘积量化噪声产生的输出噪声方差:</strong> <span
+class="math inline">\(\delta_o^2 = (M+1)\sigma_e^2 =
+\frac{(M+1)}{12}q^2\)</span> <img src="image-155.png" alt="alt text" />
+<img src="image-156.png" alt="alt text" /></p>
+<p><strong>IIR系统乘积量化误差:</strong> <img src="image-157.png"
+alt="alt text" /> 量化误差<span
+class="math inline">\(e[k](e_0[k]、e_1[k]和e_2[k])\)</span>的方差为:<span
+class="math inline">\(\sigma_e^2 = 3 \times \frac{q^2}{12}\)</span>
+<strong>乘法量化产生的输出噪声方差:</strong> <span
+class="math inline">\(\delta_o^2 = \sigma_e^2 \sum_{k=0}^{\infty}
+h_e[k]^2\)</span></p>
+<ul>
+<li><strong>直接型结构</strong>所有量化误差都要经过整个反馈环节</li>
+<li><strong>级联结构</strong>中，每个误差仅通过其后面的反馈环节</li>
+<li><strong>并联结构</strong>中，每个并联网络的误差仅与末通路的反馈环节相关
+<strong>IIR系统极限环振荡现象:</strong>
+对于一个稳定的IIR数字滤波器，若运算精度为无限时，当n&gt;n_0时输入停止，则滤波器的输出在n&gt;n_0时将逐渐衰减趋于零。若以有限字长进行运算，则滤波器的输出当n&gt;n_0后，可能衰减到某一非零的幅度范围，然后呈现振荡特性，此称为零输入极限环振荡。
+***</li>
+</ul>
+<h2 id="第七章-多速率信号处理基础">第七章 多速率信号处理基础</h2>
+<h3 id="多速率信号处理的的基本单元">7.1 多速率信号处理的的基本单元</h3>
+<h4 id="抽取和内插的时域描述">7.1.1 抽取和内插的时域描述</h4>
+<p><img src="image-158.png" alt="alt text" /> <img src="image-159.png"
+alt="alt text" /> #### 7.1.2 抽取和内插的频域描述</p>
+<p><strong>M倍抽取的频域分析：</strong> <span
+class="math display">\[X_D(z) = \sum_{k=-\infty}^{\infty} x[Mk]z^{-k} =
+\frac{1}{M}\sum_{l=0}^{M-1} X(z^{\frac{1}{M}}e^{j\frac{2\pi
+l}{M}})\]</span></p>
+<p><span class="math display">\[X_D(e^{j\Omega}) =
+\frac{1}{M}\sum_{l=0}^{M-1} X(e^{j\frac{\Omega-2\pi l}{M}})\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+M&amp;=2, \quad
+X_D(e^{j\Omega})=\frac{1}{2}X(e^{j\frac{\Omega}{2}})+\frac{1}{2}X(e^{j\frac{\Omega-2\pi}{2}})
+\\
+M&amp;=3, \quad
+X_D(e^{j\Omega})=\frac{1}{3}X(e^{j\frac{\Omega}{3}})+\frac{1}{3}X(e^{j\frac{\Omega-2\pi}{3}})
++ \frac{1}{3}X(e^{j\frac{\Omega-4\pi}{3}})
+\end{aligned}\]</span> <img src="image-160.png" alt="alt text" /></p>
+<p><strong>L倍内插的频域分析</strong>：</p>
+<p><span class="math display">\[\begin{aligned}
+X_I(z) &amp;= \sum_{k=-\infty}^{\infty} x[k/L]z^{-k} =
+\sum_{n=-\infty}^{\infty} x[n]z^{-nL} \\
+X_I(z) &amp;= X(z^L) \\
+X_L(e^{j\Omega}) &amp;= X(e^{jL\Omega})
+\end{aligned}\]</span> <img src="image-161.png" alt="alt text" /> ####
+7.1.3 抽取和内插的等效联接 <img src="image-162.png" alt="alt text" />
+<img src="image-163.png" alt="alt text" /> <img src="image-164.png"
+alt="alt text" /> <img src="image-165.png" alt="alt text" /></p>
+<h3 id="抽取滤波器和内插滤波器">7.2 抽取滤波器和内插滤波器</h3>
+<h4 id="抽取滤波器">7.2.1 抽取滤波器</h4>
+<p>序列抽取 <strong>M倍不混叠</strong>的条件：<span
+class="math inline">\(X(e^{j\Omega})=0, \quad
+|\Omega|&gt;\pi/M\)</span></p>
+<p><span class="math display">\[x[k] \longrightarrow \boxed{H(z)}
+\stackrel{v[k]}{\longrightarrow} \boxed{\downarrow M} \longrightarrow
+y[k]\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; v[k]=x[k]*h[k]=\sum_{n=-\infty}^{\infty} x[n] h[k-n] \\
+&amp; y[k]=v[Mk]=\sum_{n} x[n] h[Mk-n]
+\end{aligned}
+\]</span></p>
+<h4 id="内插滤波器">7.2.2 内插滤波器</h4>
+<p><span class="math display">\[x[k] \longrightarrow \boxed{\uparrow L}
+\stackrel{x_I[k]}{\longrightarrow} \boxed{H(z)} \longrightarrow
+y[k]\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+y[k]&amp;=x_I[k]*h[k]=\sum_{n=-\infty}^{\infty} x_I[n]h[k-n] \\
+&amp;=\sum_{n} x[n/L] h[k-n] \\
+&amp;=\sum_{n=-\infty}^{\infty} x[n] h[k-nL]
+\end{aligned}
+\]</span></p>
+<p>内插滤波器的计算量，有常规系统的 <span
+class="math inline">\(1/L\)</span></p>
+<h4 id="分数倍抽样率变换">7.2.3 分数倍抽样率变换</h4>
+<figure>
+<img src="image-166.png" alt="alt text" />
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<h3 id="数字滤波器结构的多相分解">7.3 数字滤波器结构的多相分解</h3>
+<h4 id="数字滤波器-i型多相分解">7.3.1 数字滤波器 I型多相分解</h4>
+<p><img src="image-167.png" alt="alt text" /> <img src="image-168.png"
+alt="alt text" /> <img src="image-169.png" alt="alt text" /> #### 7.3.1
+数字滤波器 II型多相分解 <img src="image-170.png" alt="alt text" /></p>
+<h4 id="多相分解实现抽取滤波器">7.3.3 多相分解实现抽取滤波器</h4>
+<p><strong>I型：</strong></p>
+<p><span class="math display">\[ \begin{aligned} H(z) &amp;=
+\sum_{n=0}^{M-1} E_n(z^M)z^{-n} \\ &amp;= E_0(z^2) + z^{-1}E_1(z^2)
+\quad M=2 \end{aligned} \]</span></p>
+<p><span class="math display">\[ H(z) = \begin{bmatrix} 1 &amp; z^{-1}
+&amp; \cdots &amp; z^{-(M-1)} \end{bmatrix} \begin{bmatrix} E_0(z^M) \\
+E_1(z^M) \\ \vdots \\ E_{M-1}(z^M) \end{bmatrix} \]</span></p>
+<blockquote>
+<p>[图表：多相分解抽取滤波器结构，输入 <span
+class="math inline">\(x[k]\)</span> 经不同延迟后分别通过 <span
+class="math inline">\(E_n(z^M)\)</span> 滤波器再合并] <img
+src="image-171.png" alt="alt text" /> <img src="image-173.png"
+alt="alt text" /></p>
+</blockquote>
+<h4 id="多相分解实现内插滤波器">7.3.4 多相分解实现内插滤波器</h4>
+<p><strong>II型：</strong> <span class="math display">\[ H(z) =
+z^{-1}R_0(z^2) + R_1(z^2) \quad M=2 \]</span></p>
+<p><span class="math display">\[ \begin{aligned} R_0(z) &amp;= E_1(z) \\
+R_1(z) &amp;= E_0(z) \end{aligned} \]</span></p>
+<blockquote>
+<p>[图表：II型多相实现结构，输入分三路分别经 <span
+class="math inline">\(R_0(z^M), R_1(z^M), \ldots, R_{M-1}(z^M)\)</span>
+后经延迟和求和输出] <img src="image-172.png" alt="alt text" /> <img
+src="image-174.png" alt="alt text" /></p>
+</blockquote>
+<h3 id="两通道滤波器组的基本概念">7.4 两通道滤波器组的基本概念</h3>
+<h4 id="两通道滤波器组的基本概念-1">7.4.1 两通道滤波器组的基本概念</h4>
+<blockquote>
+<p>[图表：多相滤波器结构框图] <span class="math inline">\(x[k]\)</span>
+分两路：上路经 <span class="math inline">\([H_0(z)]\)</span> 得 <span
+class="math inline">\(x_0[k]\)</span>，再经 <span
+class="math inline">\([\downarrow 2]\)</span> 得 <span
+class="math inline">\(y_0[k]\)</span>，再经 <span
+class="math inline">\([\uparrow 2]\)</span> 和 <span
+class="math inline">\([G_0(z)]\)</span>；下路经 <span
+class="math inline">\([H_1(z)]\)</span> 得 <span
+class="math inline">\(x_1[k]\)</span>，再经 <span
+class="math inline">\([\downarrow 2]\)</span> 得 <span
+class="math inline">\(y_1[k]\)</span>，再经 <span
+class="math inline">\([\uparrow 2]\)</span> 和 <span
+class="math inline">\([G_1(z)]\)</span>；两路合并得 <span
+class="math inline">\(y[k]\)</span> <img src="image-175.png"
+alt="alt text" /></p>
+</blockquote>
+<p><img src="image-176.png" alt="alt text" /> <img src="image-177.png"
+alt="alt text" /> <img src="image-178.png" alt="alt text" /> <img
+src="image-179.png" alt="alt text" /> <img src="image-180.png"
+alt="alt text" /> <img src="image-181.png" alt="alt text" /> <img
+src="image-182.png" alt="alt text" /></p>
+<h4 id="两通道qmf滤波器组的基本概念">7.4.2
+两通道QMF滤波器组的基本概念</h4>
+<p><img src="image-183.png" alt="alt text" /> <img src="image-184.png"
+alt="alt text" /> <img src="image-185.png" alt="alt text" /> #### 7.4.3
+QMF滤波器组的多项结构</p>
+<p><img src="image-186.png" alt="alt text" /> <img src="image-187.png"
+alt="alt text" /> <img src="image-188.png" alt="alt text" /></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/06/02/digital_signal_process/" data-id="cmpwl5vbc0003dwkp51t6fyjr" data-title="数字信号处理笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/05/30/Principles%20of%20Communications/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">通信原理笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">学习笔记</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">June 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">May 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/06/02/digital_signal_process/">数字信号处理笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/30/Principles%20of%20Communications/">通信原理笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/17/WSN_Task2_Record/">WSN任务2学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/08/digital-circuit/">数字电路笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2026/05/05/analog-electronics/">模拟电子技术笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
