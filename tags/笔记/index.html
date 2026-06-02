@@ -39,9 +39,16 @@
   
     <script>
       window.MathJax = {
+        loader: {
+          load: ['[tex]/ams']
+        },
         tex: {
+          packages: {'[+]': ['ams']},
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          macros: {
+            xleftrightarrow: ['\\mathrel{\\stackrel{#1}{\\longleftrightarrow}}', 1]
+          }
         },
         svg: {
           fontCache: 'global'

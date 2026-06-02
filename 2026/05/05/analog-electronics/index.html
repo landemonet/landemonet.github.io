@@ -44,9 +44,16 @@
   
     <script>
       window.MathJax = {
+        loader: {
+          load: ['[tex]/ams']
+        },
         tex: {
+          packages: {'[+]': ['ams']},
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          macros: {
+            xleftrightarrow: ['\\mathrel{\\stackrel{#1}{\\longleftrightarrow}}', 1]
+          }
         },
         svg: {
           fontCache: 'global'
@@ -373,7 +380,7 @@ class="math inline">\(U_{SB}\)</span>为源-衬底电压。 3. 亚阈区导电�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/05/analog-electronics/" data-id="cmpwl5vbb0001dwkp42uc3v6g" data-title="模拟电子技术笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/05/05/analog-electronics/" data-id="cmpwm7xq6000734kp0s1z9rvr" data-title="模拟电子技术笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

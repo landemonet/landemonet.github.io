@@ -80,9 +80,16 @@
   
     <script>
       window.MathJax = {
+        loader: {
+          load: ['[tex]/ams']
+        },
         tex: {
+          packages: {'[+]': ['ams']},
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          macros: {
+            xleftrightarrow: ['\\mathrel{\\stackrel{#1}{\\longleftrightarrow}}', 1]
+          }
         },
         svg: {
           fontCache: 'global'
@@ -638,7 +645,7 @@ of the flip-flops use the same clock signal. <strong>同步:</strong>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/08/digital-circuit/" data-id="cmpwl5vbf000cdwkpg5dc41i6" data-title="数字电路笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/05/08/digital-circuit/" data-id="cmpwm7xq5000634kp6rv31p0l" data-title="数字电路笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
