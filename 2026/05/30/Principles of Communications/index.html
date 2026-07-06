@@ -586,8 +586,8 @@ Sn_0\)</span>的1.44倍。这是因为带宽B增大时，噪声功率也随之�
 </ol>
 <h3 id="线性调制的一般模型">2、线性调制的一般模型</h3>
 <ol type="1">
-<li>滤波法模型 <img src="/2026/05/30/Principles of Communications/image.png" alt="线性调制滤波法模型" /></li>
-<li>相移法模型 <img src="/2026/05/30/Principles of Communications/image-1.png" alt="线性调制相移法模型" /></li>
+<li>滤波法模型 <img src="image.png" alt="线性调制滤波法模型" /></li>
+<li>相移法模型 <img src="image-1.png" alt="线性调制相移法模型" /></li>
 </ol>
 <ul>
 <li>线性调制的一般表达式：<span class="math inline">\(s(t)=A_c[1+k_a
@@ -598,8 +598,8 @@ class="math inline">\(|k_am(t)|\le 1\)</span>。</li>
 <h3 id="相干解调与包络检波">3、相干解调与包络检波</h3>
 <ol type="1">
 <li><p>相干解调：接受端必须提供一个与接收的已调载波严格同步（同频同相）的本地载波（称为相干载波），它与接收的已调信号相乘后，经过低通滤波器取出低频分量，即可得到原始的基带调制信号。
-<img src="/2026/05/30/Principles of Communications/image-72.png" height="200" alt="相干解调原理框图" /></p></li>
-<li><p>包络检波：由全波整流器和低通滤波器构成 <img src="/2026/05/30/Principles of Communications/image-73.png"
+<img src="image-72.png" height="200" alt="相干解调原理框图" /></p></li>
+<li><p>包络检波：由全波整流器和低通滤波器构成 <img src="image-73.png"
 alt="包络检波原理框图" /></p></li>
 </ol>
 <h3 id="线性调制系统的抗噪声性能">4、线性调制系统的抗噪声性能</h3>
@@ -619,7 +619,7 @@ class="math inline">\(G=\frac{\rho_o}{\rho_i}\)</span></li>
 \omega_ct\)</span> 式中 <span class="math inline">\(A_0\)</span>
 为外加的直流分量； <span class="math inline">\(m(t)\)</span>
 可以是确知信号，也可以是随机信号。</p></li>
-<li><p>模型：载波振幅随调制信号线性变化 <img src="/2026/05/30/Principles of Communications/image-86.png"
+<li><p>模型：载波振幅随调制信号线性变化 <img src="image-86.png"
 alt="AM调幅模型" /></p></li>
 <li><p>频谱表达式： <span
 class="math inline">\(S_{AM}(f)=\frac{A_c}{2}[\delta(f-f_c)+\delta(f+f_c)]+\frac{A_c\mu}{2}[M(f-f_c)+M(f+f_c)]\)</span></p></li>
@@ -631,13 +631,13 @@ A_0\)</span>时，其包络与调制信号波形相同，否则出现过调幅�
 <h3 id="am信号的频谱图">2、AM信号的频谱图</h3>
 <ul>
 <li>AM信号的频谱由载频分量，上边带，下边带，三部分构成。 <img
-src="/2026/05/30/Principles of Communications/image-74.png" alt="AM信号频谱图" /></li>
+src="image-74.png" alt="AM信号频谱图" /></li>
 <li>带宽:设调制信号带宽为 <span class="math inline">\(f_H\)</span> ，则
 <span class="math inline">\(B=2f_H\)</span></li>
 </ul>
 <h3 id="am包络检波的性能">3、AM包络检波的性能</h3>
 <ul>
-<li><p>包络检波器分析模型 <img src="/2026/05/30/Principles of Communications/image-87.png"
+<li><p>包络检波器分析模型 <img src="image-87.png"
 alt="包络检波器分析模型" /></p></li>
 <li><p><strong>1） 大信噪比情况：</strong></p></li>
 <li><p>解调器输入噪声功率： <span
@@ -689,7 +689,7 @@ class="math inline">\(G_{AM}=2/3\)</span></li>
 <ul>
 <li>时域表达式：<span class="math inline">\(s_{DSB}(t)=A_c m(t)\cos
 \omega_ct\)</span></li>
-<li>模型： <img src="/2026/05/30/Principles of Communications/image-80.png" alt="DSB调制模型" /></li>
+<li>模型： <img src="image-80.png" alt="DSB调制模型" /></li>
 <li>频谱表达式：<span
 class="math inline">\(S_{DSB}(f)=\frac{A_c}{2}[M(f-f_c)+M(f+f_c)]\)</span></li>
 <li>带宽:设调制信号带宽为<span
@@ -704,7 +704,7 @@ class="math inline">\(B=2f_H\)</span></li>
 </ul>
 <h3 id="dsb调制系统的性能">2、DSB调制系统的性能</h3>
 <ul>
-<li>分析模型： <img src="/2026/05/30/Principles of Communications/image-88.png"
+<li>分析模型： <img src="image-88.png"
 alt="DSB调制系统性能分析模型" /></li>
 <li>输出信号：<span class="math inline">\(m_0(t)=\frac12
 m(t)\)</span></li>
@@ -727,16 +727,16 @@ class="math inline">\(s_{SSB}(t)=A_c[m(t)\cos \omega_ct\mp \hat m(t)\sin
 双边带信号中的任意一个边带都包含了调制信号频谱的所有频谱成分，因此只传送一个边带即可，既节省发送功率，又节省了一半传输频带。</p>
 <h3 id="滤波法及ssb信号的频域表示">2、滤波法及SSB信号的频域表示</h3>
 <ul>
-<li>模型： <img src="/2026/05/30/Principles of Communications/image-75.png" height="150"
+<li>模型： <img src="image-75.png" height="150"
 alt="SSB滤波法模型" /></li>
-<li>频谱图： <img src="/2026/05/30/Principles of Communications/image-76.png" alt="SSB信号频谱图" /></li>
+<li>频谱图： <img src="image-76.png" alt="SSB信号频谱图" /></li>
 <li>带宽:设调制信号带宽为<span
 class="math inline">\(f_H\)</span>，则<span
 class="math inline">\(B=f_H\)</span></li>
 </ul>
 <h3 id="相移法ssb调制器方框图">3、相移法SSB调制器方框图</h3>
 <ul>
-<li>模型 <img src="/2026/05/30/Principles of Communications/image-78.png" alt="SSB相移法调制器方框图" />
+<li>模型 <img src="image-78.png" alt="SSB相移法调制器方框图" />
 希尔伯特滤波器<span
 class="math inline">\(H_h(\omega)\)</span>实质上是一个宽带相移网络，对<span
 class="math inline">\(m(t)\)</span>中的任意频率分量均相移<span
@@ -760,7 +760,7 @@ class="math inline">\(G_{SSB}=1\)</span></p>
 <p>残留边带调制是介于SSB与DSB之间的一种折中方式，它克服了DSB信号占用频带宽的缺点，又解决了SSB调制难以实现的不足。</p>
 <h3 id="调制方法">2、调制方法</h3>
 <ul>
-<li>原理框图 <img src="/2026/05/30/Principles of Communications/image-79.png" alt="VSB调制原理框图" /></li>
+<li>原理框图 <img src="image-79.png" alt="VSB调制原理框图" /></li>
 <li>残留边带滤波器<span
 class="math inline">\(H(w)\)</span>具有互补对称的特性。</li>
 <li>残留边带滤波传输特性需满足：<span
@@ -805,7 +805,7 @@ f+f_m)\)</span></li>
 </ul>
 <h3 id="fm信号和pm信号波形">4、FM信号和PM信号波形</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-89.png" alt="FM信号和PM信号波形" />
+<img src="image-89.png" alt="FM信号和PM信号波形" />
 <figcaption aria-hidden="true">FM信号和PM信号波形</figcaption>
 </figure>
 <h3 id="常考结论-11">常考结论</h3>
@@ -827,7 +827,7 @@ class="math inline">\(\Delta\varphi_{\max}=\left|k_f\int_{-\infty}^{t}m(\tau)d\t
 <ol type="1">
 <li>直接调制法：用调制信号直接去控制振荡器的频率，可以由外部电压控制振荡频率的振荡器叫做<strong>压控震荡器(VCO)</strong>，压控震荡器就是一个FM调制器。</li>
 <li>间接法调制原理：先将调制信号积分，然后对载波进行调相，即可产生一个窄带调频信号，再经n次倍频可以得到宽带调频信号。
-<img src="/2026/05/30/Principles of Communications/image-90.png" alt="间接法调频原理框图" /></li>
+<img src="image-90.png" alt="间接法调频原理框图" /></li>
 </ol>
 <h3 id="常考结论-12">常考结论</h3>
 <p>直接调频法的 <strong>优点：</strong> 可以获得较大的频偏。
@@ -838,13 +838,13 @@ class="math inline">\(\Delta\varphi_{\max}=\left|k_f\int_{-\infty}^{t}m(\tau)d\t
 <li>非相干解调：非相干解调电路称为鉴频器。微分器和包络检波器构成鉴频器。微分器的作用是将幅度恒定的调频波变成幅度和频率都随调制信号变化的调幅调频波。包络检波器则将其幅度变化检出并滤去直流，经过低通滤波后得出解调信号。</li>
 <li>相干解调：仅适用于NBFM信号解调输出:<span
 class="math inline">\(m_o(t)=\frac{AK_f}{2}m(t)\)</span> <img
-src="/2026/05/30/Principles of Communications/image-91.png" alt="NBFM相干解调框图" /></li>
+src="image-91.png" alt="NBFM相干解调框图" /></li>
 </ol>
 <h3 id="常考结论-13">常考结论</h3>
 <p>鉴频器的种类很多，例如振幅鉴频器，相位鉴频器，比例鉴频器，正交鉴频器，斜率鉴频器，频率负反馈解调器，锁相环鉴频器等。</p>
 <h3 id="调频系统的抗噪声性能">8、调频系统的抗噪声性能</h3>
 <ul>
-<li>模型 <img src="/2026/05/30/Principles of Communications/image-92.png"
+<li>模型 <img src="image-92.png"
 alt="调频系统抗噪声性能分析模型" /></li>
 </ul>
 <ol type="1">
@@ -854,13 +854,13 @@ class="math inline">\(G_{FM}=\frac{3}{2}m_f^2\frac{B_{FM}}{f_m}\)</span></li>
 </ol>
 <h3 id="常考结论-14">常考结论</h3>
 <ul>
-<li>结论 <img src="/2026/05/30/Principles of Communications/image-81.png" alt="调频系统抗噪声性能结论1" /> <img
-src="/2026/05/30/Principles of Communications/image-82.png" alt="调频系统抗噪声性能结论2" /></li>
+<li>结论 <img src="image-81.png" alt="调频系统抗噪声性能结论1" /> <img
+src="image-82.png" alt="调频系统抗噪声性能结论2" /></li>
 </ul>
 <h2 id="七各种模拟调制系统的比较">七、各种模拟调制系统的比较</h2>
-<p><img src="/2026/05/30/Principles of Communications/image-83.png" alt="各种模拟调制系统比较1" /> <img
-src="/2026/05/30/Principles of Communications/image-84.png" alt="各种模拟调制系统比较2" /> <img
-src="/2026/05/30/Principles of Communications/image-85.png" alt="各种模拟调制系统比较3" /></p>
+<p><img src="image-83.png" alt="各种模拟调制系统比较1" /> <img
+src="image-84.png" alt="各种模拟调制系统比较2" /> <img
+src="image-85.png" alt="各种模拟调制系统比较3" /></p>
 <h2 id="八频分复用">八、频分复用</h2>
 <p>时分复用：通常用于数字信号的多路传输。
 频分复用：通常用于模拟信号的多路传输。</p>
@@ -873,62 +873,62 @@ src="/2026/05/30/Principles of Communications/image-85.png" alt="各种模拟调
 <h3 id="常见波形">2、常见波形</h3>
 <ul>
 <li>单极性波形：正电平和零电平分别对应二进制数字”1”和”0”。 <img
-src="/2026/05/30/Principles of Communications/image-93.png" alt="单极性波形" /></li>
+src="image-93.png" alt="单极性波形" /></li>
 <li>双极性波形：正电平和负电平分别对应二进制数字”1”和”0”。 <img
-src="/2026/05/30/Principles of Communications/image-94.png" alt="双极性波形" /></li>
+src="image-94.png" alt="双极性波形" /></li>
 <li>单极性归零波形：归零（RZ）波形是指有电脉冲宽度 <span
 class="math inline">\(\tau\)</span> 小于码元宽度 <span
-class="math inline">\(T_B\)</span> 。 <img src="/2026/05/30/Principles of Communications/image-96.png"
+class="math inline">\(T_B\)</span> 。 <img src="image-96.png"
 alt="单极性归零波形" /></li>
-<li>双极性归零波形: <img src="/2026/05/30/Principles of Communications/image-97.png" alt="双极性归零波形" /></li>
+<li>双极性归零波形: <img src="image-97.png" alt="双极性归零波形" /></li>
 <li>差分波形：用相邻码元的电平跳变和不变来表示信息。（相对码波形） <img
-src="/2026/05/30/Principles of Communications/image-98.png" alt="差分波形" /></li>
+src="image-98.png" alt="差分波形" /></li>
 <li>多电平波形：多电平波形的一个脉冲对应多个二进制码。 <img
-src="/2026/05/30/Principles of Communications/image-99.png" alt="多电平波形" /> ### 3、数字基带信号的功率谱和带宽
+src="image-99.png" alt="多电平波形" /> ### 3、数字基带信号的功率谱和带宽
 数字PAM信号的功率谱密度由相应序列的自相关函数R_a(k)与所用脉冲的频谱特性G_T(f)决定。</li>
 </ul>
 <h3 id="常考结论-15">常考结论</h3>
-<p><img src="/2026/05/30/Principles of Communications/image-100.png" alt="常见波形常考结论1" /> <img
-src="/2026/05/30/Principles of Communications/image-101.png" alt="常见波形常考结论2" /></p>
+<p><img src="image-100.png" alt="常见波形常考结论1" /> <img
+src="image-101.png" alt="常见波形常考结论2" /></p>
 <h2 id="二基带传输的常用码型">二、基带传输的常用码型</h2>
 <h3 id="常考结论-16">常考结论</h3>
-<p><img src="/2026/05/30/Principles of Communications/image-2.png" alt="基带传输常用码型结论1" /> <img
-src="/2026/05/30/Principles of Communications/image-102.png" alt="基带传输常用码型结论2" /></p>
+<p><img src="image-2.png" alt="基带传输常用码型结论1" /> <img
+src="image-102.png" alt="基带传输常用码型结论2" /></p>
 <h3 id="常见的传输码型">1、常见的传输码型</h3>
 <ul>
 <li>AMI码：传号交替反转码，将消息码的（传号）交替地变换为”+1”和”-1”，而”0”空号保持不变。
-<img src="/2026/05/30/Principles of Communications/image-103.png" alt="AMI码波形" /> <img src="/2026/05/30/Principles of Communications/image-106.png"
+<img src="image-103.png" alt="AMI码波形" /> <img src="image-106.png"
 alt="AMI码示例" /></li>
-<li>HDB3码:3阶高密度双极性码 <img src="/2026/05/30/Principles of Communications/image-104.png"
-alt="HDB3码波形" /> <img src="/2026/05/30/Principles of Communications/image-105.png" alt="HDB3码示例1" /> <img
-src="/2026/05/30/Principles of Communications/image-107.png" alt="HDB3码示例2" /></li>
+<li>HDB3码:3阶高密度双极性码 <img src="image-104.png"
+alt="HDB3码波形" /> <img src="image-105.png" alt="HDB3码示例1" /> <img
+src="image-107.png" alt="HDB3码示例2" /></li>
 <li>双相码：曼彻斯特码。”0”用”01”两位码表示，”1”用”10”两位码表示。 <img
-src="/2026/05/30/Principles of Communications/image-108.png" alt="双相码波形" /></li>
+src="image-108.png" alt="双相码波形" /></li>
 <li>差分双向码：每个码元中间的电平跳变用于同步，而每个码元的开始处是否存在额外的跳变来确定信码。有跳变则表示二进制”1”，无跳变则表示二进制”0”。</li>
-<li>米勒码： <img src="/2026/05/30/Principles of Communications/image-110.png" alt="米勒码波形" /></li>
-<li>CMI码 <img src="/2026/05/30/Principles of Communications/image-111.png" alt="CMI码波形" /></li>
+<li>米勒码： <img src="image-110.png" alt="米勒码波形" /></li>
+<li>CMI码 <img src="image-111.png" alt="CMI码波形" /></li>
 </ul>
 <h2 id="三数字基带传输和码间串扰">三、数字基带传输和码间串扰</h2>
 <h3 id="数字基带信号传输系统的组成">1、数字基带信号传输系统的组成</h3>
 <ul>
-<li>基本结构 <img src="/2026/05/30/Principles of Communications/image-114.png"
+<li>基本结构 <img src="image-114.png"
 alt="数字基带传输系统基本结构" /></li>
 </ul>
 <h3 id="常考结论-17">常考结论</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-115.png" alt="数字基带传输系统常考结论" />
+<img src="image-115.png" alt="数字基带传输系统常考结论" />
 <figcaption aria-hidden="true">数字基带传输系统常考结论</figcaption>
 </figure>
 <h3 id="数字基带信号传输的定量分析">2、数字基带信号传输的定量分析</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-112.png" alt="数字基带信号传输定量分析" />
+<img src="image-112.png" alt="数字基带信号传输定量分析" />
 <figcaption aria-hidden="true">数字基带信号传输定量分析</figcaption>
 </figure>
 <h3 id="常见无码间串扰的传输特性">3、常见无码间串扰的传输特性</h3>
 <p><strong>码间串扰（ISI）</strong>：由于系统传输总特性（包括收、发滤波器和信道的特性）不理想，导致前后码元的波形畸变、占款，并使前面波形出现很长的拖尾，蔓延到当前码元的抽样时刻上，从而对当前码元的判决造成干扰。
-<img src="/2026/05/30/Principles of Communications/image-116.png" alt="无码间串扰传输特性1" /> <img
-src="/2026/05/30/Principles of Communications/image-117.png" alt="无码间串扰传输特性2" /> <img
-src="/2026/05/30/Principles of Communications/image-118.png" alt="无码间串扰传输特性3" /></p>
+<img src="image-116.png" alt="无码间串扰传输特性1" /> <img
+src="image-117.png" alt="无码间串扰传输特性2" /> <img
+src="image-118.png" alt="无码间串扰传输特性3" /></p>
 <h3 id="常考结论-18">常考结论</h3>
 <p>滚降系数<span class="math inline">\(\alpha\)</span>越大，<span
 class="math inline">\(h(t)\)</span>拖尾衰减越快</p>
@@ -958,22 +958,22 @@ class="math inline">\((-\pi/T_B,\pi/T_B)\)</span>区间内，将它们进行叠�
 <h2 id="五基带传输系统的抗噪声性能">五、基带传输系统的抗噪声性能</h2>
 <h3 id="二进制双极性基带系统">1、二进制双极性基带系统</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-5.png" alt="二进制双极性基带系统" />
+<img src="image-5.png" alt="二进制双极性基带系统" />
 <figcaption aria-hidden="true">二进制双极性基带系统</figcaption>
 </figure>
 <h3 id="常考结论-19">常考结论</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-6.png" alt="二进制双极性基带系统结论" />
+<img src="image-6.png" alt="二进制双极性基带系统结论" />
 <figcaption aria-hidden="true">二进制双极性基带系统结论</figcaption>
 </figure>
 <h3 id="二进制单极性基带系统">2、二进制单极性基带系统</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-7.png" alt="二进制单极性基带系统" />
+<img src="image-7.png" alt="二进制单极性基带系统" />
 <figcaption aria-hidden="true">二进制单极性基带系统</figcaption>
 </figure>
 <h3 id="常考结论-20">常考结论</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-8.png" alt="二进制单极性基带系统结论" />
+<img src="image-8.png" alt="二进制单极性基带系统结论" />
 <figcaption aria-hidden="true">二进制单极性基带系统结论</figcaption>
 </figure>
 <h2 id="六眼图">六、眼图</h2>
@@ -983,11 +983,11 @@ class="math inline">\((-\pi/T_B,\pi/T_B)\)</span>区间内，将它们进行叠�
 </ul>
 <h3 id="常考结论-21">常考结论</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-11.png" alt="眼图常考结论" />
+<img src="image-11.png" alt="眼图常考结论" />
 <figcaption aria-hidden="true">眼图常考结论</figcaption>
 </figure>
 <h2 id="七部分相应和时域均衡">七、部分相应和时域均衡</h2>
-<p><img src="/2026/05/30/Principles of Communications/image-12.png" alt="奈奎斯特准则示意图" />
+<p><img src="image-12.png" alt="奈奎斯特准则示意图" />
 <strong>奈奎斯特第一准则：</strong>
 抽样点无失真准则，或无码间串扰（ISI-Free）准则。即如果信号经传输后整个波形发生了变化，但只要其特定点的抽样值保持不变，那么用再次抽样的方法仍然可以准确无误地恢复原始信码。该准则规定，理想低通信道的带宽为<span
 class="math inline">\(f_N\)</span>时，系统无码间干扰的最高传输速率为<span
@@ -996,19 +996,19 @@ class="math inline">\(2f_N\)</span>。</p>
 转换点无失真准则，或无抖动（Jitter-Free）准则。有控制地在某些码元的抽样时刻引入码间干扰，而在其余码元的抽样时刻无码间干扰，就能使频带利用率达到理论上的最大值，同时又可降低对定时精度的要求。</p>
 <h3 id="部分响应">1、部分响应</h3>
 <ol type="1">
-<li>第一类部分响应<img src="/2026/05/30/Principles of Communications/image-14.png" alt="第一类部分响应1" /><img
-src="/2026/05/30/Principles of Communications/image-19.png" alt="第一类部分响应2" /><img src="/2026/05/30/Principles of Communications/image-15.png"
-alt="第一类部分响应3" />2.第四类部分相应<img src="/2026/05/30/Principles of Communications/image-20.png"
-alt="第四类部分响应1" /><img src="/2026/05/30/Principles of Communications/image-16.png"
-alt="第四类部分响应2" /><img src="/2026/05/30/Principles of Communications/image-17.png"
+<li>第一类部分响应<img src="image-14.png" alt="第一类部分响应1" /><img
+src="image-19.png" alt="第一类部分响应2" /><img src="image-15.png"
+alt="第一类部分响应3" />2.第四类部分相应<img src="image-20.png"
+alt="第四类部分响应1" /><img src="image-16.png"
+alt="第四类部分响应2" /><img src="image-17.png"
 alt="第四类部分响应3" /></li>
 </ol>
 <h3 id="时域均衡">2、时域均衡</h3>
-<p><img src="/2026/05/30/Principles of Communications/image-21.png" alt="时域均衡1" /> <img src="/2026/05/30/Principles of Communications/image-22.png"
+<p><img src="image-21.png" alt="时域均衡1" /> <img src="image-22.png"
 alt="时域均衡2" /></p>
 <h1 id="第七章-数字带通传输系统">第七章 数字带通传输系统</h1>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-23.png" alt="数字带通传输系统概述" />
+<img src="image-23.png" alt="数字带通传输系统概述" />
 <figcaption aria-hidden="true">数字带通传输系统概述</figcaption>
 </figure>
 <h2 id="一二进制振幅键控">一、二进制振幅键控</h2>
@@ -1016,112 +1016,112 @@ alt="时域均衡2" /></p>
 <h3
 id="二进制振幅键控信号的产生方法">2、二进制振幅键控信号的产生方法</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-25.png" alt="2ASK信号产生方法" />
+<img src="image-25.png" alt="2ASK信号产生方法" />
 <figcaption aria-hidden="true">2ASK信号产生方法</figcaption>
 </figure>
 <h3
 id="二进制振幅键控信号的功率谱密度">3、二进制振幅键控信号的功率谱密度</h3>
-<p><img src="/2026/05/30/Principles of Communications/image-26.png" alt="2ASK功率谱密度1" /> <img
-src="/2026/05/30/Principles of Communications/image-27.png" alt="2ASK功率谱密度2" /></p>
+<p><img src="image-26.png" alt="2ASK功率谱密度1" /> <img
+src="image-27.png" alt="2ASK功率谱密度2" /></p>
 <h3 id="二进制振幅键控信号解调方法">4、二进制振幅键控信号解调方法</h3>
-<p><img src="/2026/05/30/Principles of Communications/image-28.png" alt="2ASK解调方法1" /> <img
-src="/2026/05/30/Principles of Communications/image-29.png" alt="2ASK解调方法2" /> <img src="/2026/05/30/Principles of Communications/image-30.png"
+<p><img src="image-28.png" alt="2ASK解调方法1" /> <img
+src="image-29.png" alt="2ASK解调方法2" /> <img src="image-30.png"
 alt="2ASK解调方法3" /></p>
 <h2 id="二二进制频移键控">二、二进制频移键控</h2>
 <h3 id="基本原理">1、基本原理</h3>
-<p><img src="/2026/05/30/Principles of Communications/image-119.png" alt="2FSK基本原理1" /> <img
-src="/2026/05/30/Principles of Communications/image-49.png" alt="2FSK基本原理2" /></p>
+<p><img src="image-119.png" alt="2FSK基本原理1" /> <img
+src="image-49.png" alt="2FSK基本原理2" /></p>
 <h3
 id="二进制频移键控信号的产生方法">2、二进制频移键控信号的产生方法</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-50.png" alt="2FSK信号产生方法" />
+<img src="image-50.png" alt="2FSK信号产生方法" />
 <figcaption aria-hidden="true">2FSK信号产生方法</figcaption>
 </figure>
 <h3 id="功率谱密度">3、功率谱密度</h3>
-<p><img src="/2026/05/30/Principles of Communications/image-51.png" alt="2FSK功率谱密度1" /> <img
-src="/2026/05/30/Principles of Communications/image-52.png" alt="2FSK功率谱密度2" /> <img src="/2026/05/30/Principles of Communications/image-53.png"
+<p><img src="image-51.png" alt="2FSK功率谱密度1" /> <img
+src="image-52.png" alt="2FSK功率谱密度2" /> <img src="image-53.png"
 alt="2FSK功率谱密度3" /></p>
 <h3 id="常考结论-22">常考结论</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-54.png" alt="2FSK常考结论" />
+<img src="image-54.png" alt="2FSK常考结论" />
 <figcaption aria-hidden="true">2FSK常考结论</figcaption>
 </figure>
 <h3
 id="二进制频移键控信号的解调方法">4、二进制频移键控信号的解调方法</h3>
-<p><img src="/2026/05/30/Principles of Communications/image-55.png" alt="2FSK解调方法1" /> <img
-src="/2026/05/30/Principles of Communications/image-56.png" alt="2FSK解调方法2" /> <img src="/2026/05/30/Principles of Communications/image-123.png"
-alt="2FSK解调方法3" /> <img src="/2026/05/30/Principles of Communications/image-57.png"
+<p><img src="image-55.png" alt="2FSK解调方法1" /> <img
+src="image-56.png" alt="2FSK解调方法2" /> <img src="image-123.png"
+alt="2FSK解调方法3" /> <img src="image-57.png"
 alt="2FSK解调方法4" /></p>
 <h3 id="常考结论-23">常考结论</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-58.png" alt="2FSK解调常考结论" />
+<img src="image-58.png" alt="2FSK解调常考结论" />
 <figcaption aria-hidden="true">2FSK解调常考结论</figcaption>
 </figure>
 <h2 id="三二进制相移键控信号">三、二进制相移键控信号</h2>
 <h3 id="二进制相移键控">1、二进制相移键控</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-59.png" alt="2PSK基本原理" />
+<img src="image-59.png" alt="2PSK基本原理" />
 <figcaption aria-hidden="true">2PSK基本原理</figcaption>
 </figure>
 <h3 id="二进制相移键控信号的产生">2、二进制相移键控信号的产生</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-60.png" alt="2PSK信号产生方法" />
+<img src="image-60.png" alt="2PSK信号产生方法" />
 <figcaption aria-hidden="true">2PSK信号产生方法</figcaption>
 </figure>
 <h3 id="二进制相移键控的功率谱密度">3、二进制相移键控的功率谱密度</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-61.png" alt="2PSK功率谱密度" />
+<img src="image-61.png" alt="2PSK功率谱密度" />
 <figcaption aria-hidden="true">2PSK功率谱密度</figcaption>
 </figure>
 <h3 id="二进制相移键控的相干解调">4、二进制相移键控的相干解调</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-62.png" alt="2PSK相干解调" />
+<img src="image-62.png" alt="2PSK相干解调" />
 <figcaption aria-hidden="true">2PSK相干解调</figcaption>
 </figure>
 <h3 id="常考简答题-5">常考简答题</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-63.png" alt="2PSK常考简答题" />
+<img src="image-63.png" alt="2PSK常考简答题" />
 <figcaption aria-hidden="true">2PSK常考简答题</figcaption>
 </figure>
 <h2 id="四二进制差分相移键控">四、二进制差分相移键控</h2>
 <h3 id="二进制差分相移键控原理">1、二进制差分相移键控原理</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-125.png" alt="2DPSK原理" />
+<img src="image-125.png" alt="2DPSK原理" />
 <figcaption aria-hidden="true">2DPSK原理</figcaption>
 </figure>
 <h3
 id="二进制差分相移键控信号调制器原理">2、二进制差分相移键控信号调制器原理</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-64.png" alt="2DPSK调制器原理" />
+<img src="image-64.png" alt="2DPSK调制器原理" />
 <figcaption aria-hidden="true">2DPSK调制器原理</figcaption>
 </figure>
 <h3 id="功率谱密度-1">3、功率谱密度</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-65.png" alt="2DPSK功率谱密度" />
+<img src="image-65.png" alt="2DPSK功率谱密度" />
 <figcaption aria-hidden="true">2DPSK功率谱密度</figcaption>
 </figure>
 <h3 id="二进制差分相移键控的解调">4.二进制差分相移键控的解调</h3>
-<p><img src="/2026/05/30/Principles of Communications/image-66.png" alt="2DPSK解调方法1" /> <img
-src="/2026/05/30/Principles of Communications/image-67.png" alt="2DPSK解调方法2" /></p>
+<p><img src="image-66.png" alt="2DPSK解调方法1" /> <img
+src="image-67.png" alt="2DPSK解调方法2" /></p>
 <h3 id="常考结论-24">常考结论</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-68.png" alt="2DPSK常考结论" />
+<img src="image-68.png" alt="2DPSK常考结论" />
 <figcaption aria-hidden="true">2DPSK常考结论</figcaption>
 </figure>
 <h2 id="本章小结">本章小结</h2>
-<p><img src="/2026/05/30/Principles of Communications/image-69.png" alt="数字带通传输系统小结1" /> <img
-src="/2026/05/30/Principles of Communications/image-70.png" alt="数字带通传输系统小结2" /> <img
-src="/2026/05/30/Principles of Communications/image-71.png" alt="数字带通传输系统小结3" /></p>
+<p><img src="image-69.png" alt="数字带通传输系统小结1" /> <img
+src="image-70.png" alt="数字带通传输系统小结2" /> <img
+src="image-71.png" alt="数字带通传输系统小结3" /></p>
 <h1 id="第十章-信源编码">第十章 信源编码</h1>
 <h2 id="一模拟信号的抽样">一、模拟信号的抽样</h2>
 <h3 id="低通模拟信号的抽样定理">1、低通模拟信号的抽样定理</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-32.png" alt="低通模拟信号抽样定理" />
+<img src="image-32.png" alt="低通模拟信号抽样定理" />
 <figcaption aria-hidden="true">低通模拟信号抽样定理</figcaption>
 </figure>
 <h3 id="带通模拟信号的抽样定理">2、带通模拟信号的抽样定理</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-33.png" alt="带通模拟信号抽样定理" />
+<img src="image-33.png" alt="带通模拟信号抽样定理" />
 <figcaption aria-hidden="true">带通模拟信号抽样定理</figcaption>
 </figure>
 <h2 id="二抽样信号的量化">二、抽样信号的量化</h2>
@@ -1129,65 +1129,65 @@ src="/2026/05/30/Principles of Communications/image-71.png" alt="数字带通传
 <p>将抽样值的范围划分成M个区间，每个区间用一个电平表示。共用M个离散电平，它们称为量化电平。用这M个量化电平表示连续抽样值的方法称为量化。</p>
 <h3 id="量化过程图">2、量化过程图</h3>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-126.png" alt="量化过程图" />
+<img src="image-126.png" alt="量化过程图" />
 <figcaption aria-hidden="true">量化过程图</figcaption>
 </figure>
 <h3 id="量化器">3、量化器</h3>
 <p>量化过程可以认为是在一个量化器内完成的。</p>
 <h3 id="均匀量化">4、均匀量化</h3>
-<p><img src="/2026/05/30/Principles of Communications/image-34.png" alt="均匀量化示意图1" /> <img
-src="/2026/05/30/Principles of Communications/image-35.png" alt="均匀量化示意图2" /></p>
+<p><img src="image-34.png" alt="均匀量化示意图1" /> <img
+src="image-35.png" alt="均匀量化示意图2" /></p>
 <h2 id="三模拟脉冲调制">三、模拟脉冲调制</h2>
-<p><img src="/2026/05/30/Principles of Communications/image-36.png" alt="模拟脉冲调制1" /> <img
-src="/2026/05/30/Principles of Communications/image-127.png" alt="模拟脉冲调制2" /></p>
+<p><img src="image-36.png" alt="模拟脉冲调制1" /> <img
+src="image-127.png" alt="模拟脉冲调制2" /></p>
 <h2 id="四脉冲编码调制pcm">四、脉冲编码调制（PCM）</h2>
 <p>将从模拟信号抽样、量化，直到变换为二进制的基本过程，称为脉冲编码调制（PCM）</p>
-<p><img src="/2026/05/30/Principles of Communications/image-128.png" alt="PCM脉冲编码调制1" /> <img
-src="/2026/05/30/Principles of Communications/image-130.png" alt="PCM脉冲编码调制2" /> <img src="/2026/05/30/Principles of Communications/image-37.png"
-alt="PCM脉冲编码调制3" /> <img src="/2026/05/30/Principles of Communications/image-38.png"
-alt="PCM脉冲编码调制4" /> <img src="/2026/05/30/Principles of Communications/image-39.png"
-alt="PCM脉冲编码调制5" /> <img src="/2026/05/30/Principles of Communications/image-40.png"
+<p><img src="image-128.png" alt="PCM脉冲编码调制1" /> <img
+src="image-130.png" alt="PCM脉冲编码调制2" /> <img src="image-37.png"
+alt="PCM脉冲编码调制3" /> <img src="image-38.png"
+alt="PCM脉冲编码调制4" /> <img src="image-39.png"
+alt="PCM脉冲编码调制5" /> <img src="image-40.png"
 alt="PCM脉冲编码调制6" /></p>
 <h2 id="五差分脉冲编码调制dpcm">五、差分脉冲编码调制（DPCM）</h2>
-<p><img src="/2026/05/30/Principles of Communications/image-41.png" alt="DPCM差分脉冲编码调制1" /> <img
-src="/2026/05/30/Principles of Communications/image-43.png" alt="DPCM差分脉冲编码调制2" /> <img
-src="/2026/05/30/Principles of Communications/image-131.png" alt="DPCM差分脉冲编码调制3" /> <img
-src="/2026/05/30/Principles of Communications/image-132.png" alt="DPCM差分脉冲编码调制4" /> <img
-src="/2026/05/30/Principles of Communications/image-45.png" alt="DPCM差分脉冲编码调制5" /> <img
-src="/2026/05/30/Principles of Communications/image-46.png" alt="DPCM差分脉冲编码调制6" /></p>
+<p><img src="image-41.png" alt="DPCM差分脉冲编码调制1" /> <img
+src="image-43.png" alt="DPCM差分脉冲编码调制2" /> <img
+src="image-131.png" alt="DPCM差分脉冲编码调制3" /> <img
+src="image-132.png" alt="DPCM差分脉冲编码调制4" /> <img
+src="image-45.png" alt="DPCM差分脉冲编码调制5" /> <img
+src="image-46.png" alt="DPCM差分脉冲编码调制6" /></p>
 <h2 id="六频分复用和时分复用">六、频分复用和时分复用</h2>
-<p><img src="/2026/05/30/Principles of Communications/image-133.png" alt="频分复用和时分复用1" /> <img
-src="/2026/05/30/Principles of Communications/image-134.png" alt="频分复用和时分复用2" /> <img src="/2026/05/30/Principles of Communications/image-47.png"
-alt="频分复用和时分复用3" /> <img src="/2026/05/30/Principles of Communications/image-135.png"
-alt="频分复用和时分复用4" /> <img src="/2026/05/30/Principles of Communications/image-136.png"
-alt="频分复用和时分复用5" /> <img src="/2026/05/30/Principles of Communications/image-48.png"
+<p><img src="image-133.png" alt="频分复用和时分复用1" /> <img
+src="image-134.png" alt="频分复用和时分复用2" /> <img src="image-47.png"
+alt="频分复用和时分复用3" /> <img src="image-135.png"
+alt="频分复用和时分复用4" /> <img src="image-136.png"
+alt="频分复用和时分复用5" /> <img src="image-48.png"
 alt="频分复用和时分复用6" /></p>
 <h2 id="七数字信号的最佳接收">七、数字信号的最佳接收</h2>
-<p><img src="/2026/05/30/Principles of Communications/image-137.png" alt="数字信号最佳接收1" /> <img
-src="/2026/05/30/Principles of Communications/image-138.png" alt="数字信号最佳接收2" /> <img src="/2026/05/30/Principles of Communications/image-139.png"
-alt="数字信号最佳接收3" /> <img src="/2026/05/30/Principles of Communications/image-140.png"
+<p><img src="image-137.png" alt="数字信号最佳接收1" /> <img
+src="image-138.png" alt="数字信号最佳接收2" /> <img src="image-139.png"
+alt="数字信号最佳接收3" /> <img src="image-140.png"
 alt="数字信号最佳接收4" /></p>
 <h1 id="第十三章-同步原理">第十三章 同步原理</h1>
 <p>数字通信系统中的同步种类：载波同步，码元同步，群同步和网同步。</p>
 <h2 id="载波同步">载波同步</h2>
-<p><img src="/2026/05/30/Principles of Communications/image-141.png" alt="载波同步1" /> <img src="/2026/05/30/Principles of Communications/image-142.png"
-alt="载波同步2" /> <img src="/2026/05/30/Principles of Communications/image-143.png" alt="载波同步3" /></p>
+<p><img src="image-141.png" alt="载波同步1" /> <img src="image-142.png"
+alt="载波同步2" /> <img src="image-143.png" alt="载波同步3" /></p>
 <h2 id="码元同步">码元同步</h2>
-<p><img src="/2026/05/30/Principles of Communications/image-144.png" alt="码元同步1" /> <img src="/2026/05/30/Principles of Communications/image-145.png"
-alt="码元同步2" /> <img src="/2026/05/30/Principles of Communications/image-146.png" alt="码元同步3" /></p>
+<p><img src="image-144.png" alt="码元同步1" /> <img src="image-145.png"
+alt="码元同步2" /> <img src="image-146.png" alt="码元同步3" /></p>
 <h2 id="群同步">群同步</h2>
-<p><img src="/2026/05/30/Principles of Communications/image-147.png" alt="群同步1" /> <img src="/2026/05/30/Principles of Communications/image-148.png"
-alt="群同步2" /> <img src="/2026/05/30/Principles of Communications/image-149.png" alt="群同步3" /></p>
+<p><img src="image-147.png" alt="群同步1" /> <img src="image-148.png"
+alt="群同步2" /> <img src="image-149.png" alt="群同步3" /></p>
 <h2 id="网同步">网同步</h2>
 <figure>
-<img src="/2026/05/30/Principles of Communications/image-150.png" alt="网同步" />
+<img src="image-150.png" alt="网同步" />
 <figcaption aria-hidden="true">网同步</figcaption>
 </figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://landemonet.github.io/2026/05/30/Principles%20of%20Communications/" data-id="cmr9625v000094wkp15aq2ssu" data-title="通信原理笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://landemonet.github.io/2026/05/30/Principles%20of%20Communications/" data-id="cmr970duh0007vgkph0uc0t1h" data-title="通信原理笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

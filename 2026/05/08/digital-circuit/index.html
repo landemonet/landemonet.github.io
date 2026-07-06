@@ -403,7 +403,7 @@ P为F的蕴含项（implicant），在卡诺图上对应的是只包含1的一�
 <li>逻辑函数F中的质主蕴含项是覆盖一个或多个奇异一单元的主蕴含项。</li>
 </ol>
 <ul>
-<li>卡诺图形式 <img src="/2026/05/08/digital-circuit/image-17.png" alt="卡诺图示例" />
+<li>卡诺图形式 <img src="image-17.png" alt="卡诺图示例" />
 <strong>卡诺图的化简方式</strong></li>
 </ul>
 <ol type="1">
@@ -454,32 +454,32 @@ binary input code and a 1-out-of-<span
 class="math inline">\(2^n\)</span> output code. Such a decoder is used
 when you need to activate exactly one of <span
 class="math inline">\(2^n\)</span> outputs based on an n-bit input
-value. - 2-to-4 decoder logic diagram <img src="/2026/05/08/digital-circuit/image.png" width="400"
+value. - 2-to-4 decoder logic diagram <img src="image.png" width="400"
 height="100" alt="2-to-4 译码器逻辑图" /> - MSI decoder: 74×139 , dual
-2-4 decoder <img src="/2026/05/08/digital-circuit/image-1.png" width="200" height="100"
+2-4 decoder <img src="image-1.png" width="200" height="100"
 alt="74x139 双2-4译码器逻辑图" /> - The 74x138 3-to-8 Decoder <img
-src="/2026/05/08/digital-circuit/image-2.png" width="200" height="100"
+src="image-2.png" width="200" height="100"
 alt="74x138 3-to-8译码器逻辑图" /></p>
 <h4 id="larger-decoders-or-cascading-binary-decoders">6.3.3 Larger
 Decoders or Cascading Binary Decoders</h4>
 <ul>
 <li>How to make a 5-to-32 Decoder with 3-to-8 Decoder? <img
-src="/2026/05/08/digital-circuit/image-3.png" width="600" height="200"
+src="image-3.png" width="600" height="200"
 alt="5-to-32译码器级联电路图" /></li>
 </ul>
 <h4 id="seven-segment-decoders">6.3.6 Seven-Segment Decoders</h4>
 <p>Input code: 4-bit BCD<br />
 [ 输入信号：BCD码（用A3A2A1A0表示）] Output Code: Seven-Segment Code [
-输出：七段码（的驱动信号）a ~ g ] - <img src="/2026/05/08/digital-circuit/image-4.png" width="200"
+输出：七段码（的驱动信号）a ~ g ] - <img src="image-4.png" width="200"
 height="100" alt="七段译码器真值表" /></p>
 <h4 id="encoders">6.3.7 Encoders</h4>
 <ul>
 <li>In general, a <span class="math inline">\(2^n\)</span>-to-n encoder
 can be built from n <span class="math inline">\(2^n\)</span>−1-input OR
 gates. Bit i of the input code is connected to OR gate output j if bit j
-in the binary representation of i is 1. <img src="/2026/05/08/digital-circuit/image-5.png"
+in the binary representation of i is 1. <img src="image-5.png"
 width="400" height="100" alt="2^n-to-n编码器逻辑图" /></li>
-<li>The 74x148 Priority Encoder <img src="/2026/05/08/digital-circuit/image-6.png"
+<li>The 74x148 Priority Encoder <img src="image-6.png"
 alt="74x148优先编码器逻辑图" /></li>
 </ul>
 <h3 id="multiplexing">6.4 multiplexing</h3>
@@ -489,36 +489,36 @@ selects which of the n data inputs is to be transferred to the output,
 and an <strong>optional enable input EN</strong> may be provided to
 allow or block the transfer. If the S input has s bits, then n may be as
 large as <span class="math inline">\(2^s\)</span>. - four-input
-multiplexer circuit with gate <img src="/2026/05/08/digital-circuit/image-8.png"
+multiplexer circuit with gate <img src="image-8.png"
 alt="四输入数据选择器门电路图" /> - multiplexer circuit with a decoder
-and gates <img src="/2026/05/08/digital-circuit/image-10.png" alt="译码器实现数据选择器电路图" />
-<img src="/2026/05/08/digital-circuit/image-11.png" alt="数据选择器电路示意图" /></p>
+and gates <img src="image-10.png" alt="译码器实现数据选择器电路图" />
+<img src="image-11.png" alt="数据选择器电路示意图" /></p>
 <h4 id="standard-msi-multiplexers">6.4.1 standard MSI Multiplexers</h4>
 <ul>
-<li>74x151 multiplexer 8选1数据选择器 <img src="/2026/05/08/digital-circuit/image-12.png"
+<li>74x151 multiplexer 8选1数据选择器 <img src="image-12.png"
 width="200" height="100" alt="74x151 8选1数据选择器逻辑图" /></li>
-<li>74*157 2输入4位MUX <img src="/2026/05/08/digital-circuit/image-13.png" width="200" height="100"
+<li>74*157 2输入4位MUX <img src="image-13.png" width="200" height="100"
 alt="74x157 2输入4位数据选择器逻辑图" /></li>
-<li>74*153 双4选1数据选择器(4输入2位MUX) <img src="/2026/05/08/digital-circuit/image-14.png"
+<li>74*153 双4选1数据选择器(4输入2位MUX) <img src="image-14.png"
 width="200" height="100" alt="74x153 双4选1数据选择器逻辑图" /></li>
 </ul>
 <h4 id="expanding-multiplexers">6.4.2 Expanding multiplexers</h4>
 <ul>
 <li>use 74××151 to implement a 16-to-1 MUX, some gates can be used if
-necessary <img src="/2026/05/08/digital-circuit/image-15.png"
+necessary <img src="image-15.png"
 alt="74x151实现16选1数据选择器电路图" /></li>
-<li>用数据选择器设计组合逻辑电路 <img src="/2026/05/08/digital-circuit/image-16.png"
+<li>用数据选择器设计组合逻辑电路 <img src="image-16.png"
 alt="数据选择器实现组合逻辑电路图" /></li>
-<li>卡诺图的降维 <img src="/2026/05/08/digital-circuit/image-19.png" alt="卡诺图降维示意图" /></li>
+<li>卡诺图的降维 <img src="image-19.png" alt="卡诺图降维示意图" /></li>
 </ul>
 <h4 id="demultiplexer">6.4.3 demultiplexer</h4>
 <p>a demultiplexer can be used to route the bus data to one of m
-destinations <img src="/2026/05/08/digital-circuit/image-20.png" alt="数据分配器电路图" /></p>
+destinations <img src="image-20.png" alt="数据分配器电路图" /></p>
 <h2 id="第七章-组合逻辑元件">第七章 组合逻辑元件</h2>
 <h3 id="三态器件">7.1 三态器件</h3>
 <h4 id="三态缓冲器">7.1.1 三态缓冲器</h4>
 <ul>
-<li>图示 <img src="/2026/05/08/digital-circuit/image-21.png" alt="三态缓冲器图示" /> Enable means:
+<li>图示 <img src="image-21.png" alt="三态缓冲器图示" /> Enable means:
 the buffer output normal logic 0、1 when EN is asserted； the buffer
 output Hi-Z when EN is negated.</li>
 </ul>
@@ -526,9 +526,9 @@ output Hi-Z when EN is negated.</li>
 MSI Three-State Buffers</h4>
 <ul>
 <li>74x541：两个公共使能端，低电平使能，施密特触发输入，输出不反相 <img
-src="/2026/05/08/digital-circuit/image-22.png" width="400" height="200"
+src="image-22.png" width="400" height="200"
 alt="74x541三态缓冲器逻辑图" /></li>
-<li>74x245：低电平使能，输出不反相，双向传输 <img src="/2026/05/08/digital-circuit/image-23.png"
+<li>74x245：低电平使能，输出不反相，双向传输 <img src="image-23.png"
 width="200" height="200" alt="74x245双向三态缓冲器逻辑图" /></li>
 </ul>
 <h3 id="exclusive-or-gates-and-parity-circuit">7.3 Exclusive-OR Gates
@@ -536,72 +536,72 @@ and Parity Circuit</h3>
 <h4 id="exclusive-or-an-exclusive-nor-gate">7.3.3 exclusive-OR an
 exclusive-NOR gate</h4>
 <ul>
-<li>truth table <img src="/2026/05/08/digital-circuit/image-24.png"
+<li>truth table <img src="image-24.png"
 alt="异或门和同或门真值表" /></li>
 <li>Any two signals (inputs or output) of an XOR gate or XNOR gate may
 be complemented without changing the resulting logic function. <img
-src="/2026/05/08/digital-circuit/image-25.png" alt="异或门和同或门逻辑符号" /></li>
+src="image-25.png" alt="异或门和同或门逻辑符号" /></li>
 </ul>
 <h4 id="奇偶校验电路">7.3.2 奇偶校验电路</h4>
 <ul>
 <li>odd-parity circuit（奇校验电路） 如果输入有奇数个1，则输出为1。 <img
-src="/2026/05/08/digital-circuit/image-26.png" alt="奇校验电路逻辑图" /></li>
+src="image-26.png" alt="奇校验电路逻辑图" /></li>
 <li>even-parity circuit（偶校验电路） 如果输入有偶数个1，则输出为1。 If
 the output of either circuit is inverted, we get an even-parity
 circuit.</li>
-<li>9位奇偶校验发生器74x280 <img src="/2026/05/08/digital-circuit/image-27.png"
+<li>9位奇偶校验发生器74x280 <img src="image-27.png"
 alt="74x280 9位奇偶校验发生器逻辑图" /></li>
 </ul>
 <h4 id="parity-checking-applications">7.3.3 Parity-Checking
 Applications</h4>
 <ul>
-<li>用于检测代码在传输和存储过程中是否出现差错 <img src="/2026/05/08/digital-circuit/image-28.png"
+<li>用于检测代码在传输和存储过程中是否出现差错 <img src="image-28.png"
 alt="奇偶校验检测应用电路图" /></li>
 </ul>
 <h3 id="comparing">7.4 Comparing</h3>
 <h4 id="comparator-structure">7.4.1 comparator structure</h4>
 <ul>
-<li>4-bit comparator <img src="/2026/05/08/digital-circuit/image-29.png"
+<li>4-bit comparator <img src="image-29.png"
 alt="4位数值比较器逻辑图" /></li>
 </ul>
 <h4 id="a-iterative-comparator-circuits">7.4.2 a iterative comparator
 Circuits</h4>
 <ul>
-<li>n-steps compara <img src="/2026/05/08/digital-circuit/image-30.png"
+<li>n-steps compara <img src="image-30.png"
 alt="迭代数值比较器电路图" /></li>
-<li>1 bit comparators(一位数值比较器) <img src="/2026/05/08/digital-circuit/image-31.png"
+<li>1 bit comparators(一位数值比较器) <img src="image-31.png"
 alt="一位数值比较器逻辑图" /></li>
 </ul>
 <h4 id="standard-msi-comparators">7.4.4 Standard MSI Comparators</h4>
 <ul>
-<li>the 74x85 4-bit comparator <img src="/2026/05/08/digital-circuit/image-32.png" width="200"
+<li>the 74x85 4-bit comparator <img src="image-32.png" width="200"
 height="200" alt="74x85 4位数值比较器逻辑图" /></li>
-<li>比较器的串行扩展 <img src="/2026/05/08/digital-circuit/image-35.png"
+<li>比较器的串行扩展 <img src="image-35.png"
 alt="比较器串行扩展电路图" /></li>
-<li>比较器的并行扩展 <img src="/2026/05/08/digital-circuit/image-36.png"
+<li>比较器的并行扩展 <img src="image-36.png"
 alt="比较器并行扩展电路图" /></li>
 </ul>
 <h2 id="第八章-组合算术电路">第八章 组合算术电路</h2>
 <h3 id="加法与减法">8.1 加法与减法</h3>
 <h4 id="半加器与全加器">8.1.1 半加器与全加器</h4>
 <p>Half Adder （半加器）—— 不考虑来自低位的进位信号 - Truth Table of
-Half Adder <img src="/2026/05/08/digital-circuit/image-37.png" width="200" height="200"
+Half Adder <img src="image-37.png" width="200" height="200"
 alt="半加器真值表" /> Sum (相加的和): S = X’·Y + X·Y’=X⊕Y Carry
 (向高位的进位)：CO = X·Y - Truth Table of Full Adder <img
-src="/2026/05/08/digital-circuit/image-38.png" width="200" height="200" alt="全加器真值表" /> sum: S
+src="image-38.png" width="200" height="200" alt="全加器真值表" /> sum: S
 = A ⊕ B ⊕ CIN = A ⋅ B′ ⋅ CIN′ + A′ ⋅ B ⋅ CIN′ + A′ ⋅ B′ ⋅ CIN + A ⋅ B ⋅
 CIN carry: COUT = A ⋅ B + A ⋅ CIN + B ⋅ CIN</p>
 <h4 id="串行进位加法器">8.1.2 串行进位加法器</h4>
 <ul>
-<li>4-bit ripple adder <img src="/2026/05/08/digital-circuit/image-39.png"
+<li>4-bit ripple adder <img src="image-39.png"
 alt="4位串行进位加法器电路图" /></li>
 </ul>
 <h4 id="减法器">8.1.3 减法器</h4>
 <ul>
-<li>Truth table of subtractor <img src="/2026/05/08/digital-circuit/image-40.png" width="200"
+<li>Truth table of subtractor <img src="image-40.png" width="200"
 height="200" alt="减法器真值表" /> D = A ⊕ B ⊕ BIN BOUT = A′ ⋅ B + A′ ⋅
 BIN + B ⋅ BIN</li>
-<li>利用加法器实现减法器 <img src="/2026/05/08/digital-circuit/image-42.png"
+<li>利用加法器实现减法器 <img src="image-42.png"
 alt="加法器实现减法器电路图" /> D = A ⊕ B ⊕ BIN = A ⊕ B′ ⊕ BIN′ BOUT =
 A′ ⋅ B + A′ ⋅ BIN + B ⋅ BIN BOUT′ =(A + B′) ⋅ (A + BIN′) ⋅ (B′ + BIN′) =
 A ⋅ B′ + A ⋅ BIN′ + B′ ⋅ BIN′</li>
@@ -611,18 +611,18 @@ A ⋅ B′ + A ⋅ BIN′ + B′ ⋅ BIN′</li>
 generate：<span class="math inline">\(g_i = a_i ⋅ b_i\)</span> carry
 propagate: <span class="math inline">\(pi = ai + bi\)</span> <span
 class="math inline">\(c_{i+1}= g_i + p_i ⋅ c_i\)</span> - internal carry
-lookahead <img src="/2026/05/08/digital-circuit/image-43.png" width="400" height="200"
+lookahead <img src="image-43.png" width="400" height="200"
 alt="超前进位内部逻辑图" /></p>
 <h4 id="msi-adders">8.1.5 MSI Adders</h4>
 <ul>
-<li>4位二进制先行进位加法器 74x283 <img src="/2026/05/08/digital-circuit/image-44.png" width="200"
+<li>4位二进制先行进位加法器 74x283 <img src="image-44.png" width="200"
 height="200" alt="74x283 4位先行进位加法器逻辑图" /></li>
 </ul>
 <h4 id="msi-arithmetic-and-logic-units">8.1.7 MSI Arithmetic and Logic
 Units</h4>
 <ul>
 <li>74*181 对2个b位的操作数进行若干不同的算术和逻辑运算 <img
-src="/2026/05/08/digital-circuit/image-45.png" alt="74x181 算术逻辑单元ALU逻辑图" /></li>
+src="image-45.png" alt="74x181 算术逻辑单元ALU逻辑图" /></li>
 </ul>
 <h2 id="第九章-状态机">第九章 状态机</h2>
 <h3 id="状态机基础概念">9.1 状态机基础概念</h3>
@@ -630,9 +630,9 @@ src="/2026/05/08/digital-circuit/image-45.png" alt="74x181 算术逻辑单元ALU
 variable, contain all the information about the past necessary to
 account for the circuit’s future behaviors. <strong>state
 variable:</strong> the symbol representation of state. - state changes
-at time specified by a free-running clock signal <img src="/2026/05/08/digital-circuit/image-46.png"
+at time specified by a free-running clock signal <img src="image-46.png"
 width="400" height="200" alt="状态机状态变化时序图" /> - The logic
-symbol for a positive-edge-triggered D flip-flop <img src="/2026/05/08/digital-circuit/image-47.png"
+symbol for a positive-edge-triggered D flip-flop <img src="image-47.png"
 alt="上升沿触发D触发器逻辑符号" /></p>
 <h3 id="状态机的结构及分析">9.2 状态机的结构及分析</h3>
 <p>“State machine” is a generic name given to these sequential circuits;
@@ -645,7 +645,7 @@ of the flip-flops use the same clock signal. <strong>同步:</strong>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://landemonet.github.io/2026/05/08/digital-circuit/" data-id="cmr9625uy00034wkp0n265qrn" data-title="数字电路笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://landemonet.github.io/2026/05/08/digital-circuit/" data-id="cmr970du90000vgkpglk9gnpm" data-title="数字电路笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
